@@ -214,7 +214,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         """
         # do we have a year folder already?
         if not hasattr(archive, year):
-            archive.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=year, title=title, boxes=('content',))
+            archive.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=year, title=title, boxes=('mb_content',))
         yearFolder=getattr(archive, year)
 
         return yearFolder
@@ -225,7 +225,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         """
         # do we have a month folder already?
         if not hasattr(yearFolder, month):
-            yearFolder.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=month, title=title, boxes=('content',))
+            yearFolder.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=month, title=title, boxes=('mb_content',))
         monthFolder=getattr(yearFolder, month)
 
         return monthFolder
@@ -421,7 +421,7 @@ def addCPSMailBoxer(dispatcher, id, title='', smtphost='127.0.0.1',
     portal_types = container.portal_types
     
     #create boxes in box container if box is in boxes pass by factory
-    boxes = ('boxertitle', 'search','archive',)
+    boxes = ('boxertitle', 'mb_search','archive',)
     if boxes is not None:
         for box, props in [ (box, props) for (box, props) in \
                             CPSMAILBOXER_BOXES.items() \
