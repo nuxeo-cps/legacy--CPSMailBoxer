@@ -1,6 +1,7 @@
 ##parameters=
+# $Id$
 """
-SUEZ Layout CPS Mail Archive definition
+CPS Mail Archive layout definition
 """
 
 cps_mailarchive_layout = {
