@@ -1,29 +1,30 @@
 <metal:block define-macro="basebox_archive">
 
   <tal:block condition="python:len(here.archive.objectIds('CPSMailBoxerFolder'))">
-  <br>
-  <h2 i18n:translate="">nmb_heading_archives</h2>
-  <table border="0" align="center">
-    <tr>
-      <td>&nbsp;</td>
-      <td i18n:translate="">nmb_label_jan</td>
-      <td i18n:translate="">nmb_label_feb</td>
-      <td i18n:translate="">nmb_label_mar</td>
-      <td i18n:translate="">nmb_label_apr</td>
-      <td i18n:translate="">nmb_label_may</td>
-      <td i18n:translate="">nmb_label_jun</td>
-      <td i18n:translate="">nmb_label_jul</td>
-      <td i18n:translate="">nmb_label_aug</td>
-      <td i18n:translate="">nmb_label_sep</td>
-      <td i18n:translate="">nmb_label_oct</td>
-      <td i18n:translate="">nmb_label_nov</td>
-      <td i18n:translate="">nmb_label_dec</td>
-    </tr>
-    <tal:block condition="nocall:here/archive" define="archive nocall:here/archive; years python:archive.objectValues(['Portal Folder','Folder','CPSMailBoxerFolder','CPS Document'])" repeat="year years">
-      <tr> 
-        <td><a tal:content="python:year.id" tal:attributes="href string:${year/absolute_url}/view"/></td>
+    <br />
+    <h2 i18n:translate="">nmb_heading_archives</h2>
+    <table border="0" align="center">
+      <tr>
+        <td>&nbsp;</td>
+        <td i18n:translate="">nmb_label_jan</td>
+        <td i18n:translate="">nmb_label_feb</td>
+        <td i18n:translate="">nmb_label_mar</td>
+        <td i18n:translate="">nmb_label_apr</td>
+        <td i18n:translate="">nmb_label_may</td>
+        <td i18n:translate="">nmb_label_jun</td>
+        <td i18n:translate="">nmb_label_jul</td>
+        <td i18n:translate="">nmb_label_aug</td>
+        <td i18n:translate="">nmb_label_sep</td>
+        <td i18n:translate="">nmb_label_oct</td>
+        <td i18n:translate="">nmb_label_nov</td>
+        <td i18n:translate="">nmb_label_dec</td>
+      </tr>
+      <tal:block condition="nocall:here/archive"
+                 define="archive nocall:here/archive; years python:archive.objectValues(['Portal Folder','Folder','CPSMailBoxerFolder','CPS Document'])" repeat="year years">
+      <tr>
+        <td><a tal:content="python:year.id" tal:attributes="href string:${year/absolute_url}/view"></a></td>
         <tal:block repeat="mid python:['01','02','03','04','05','06','07','08','09','10','11','12']">
-          <td align="center" tal:define="month python:getattr(year,year.id + '-' + mid,None)" bgcolor="lightgray">
+          <td tal:define="month python:getattr(year,year.id + '-' + mid,None)" class="mailboxerMonth">
             <tal:block condition="month">
               <a tal:content="python:len(
                                 [obj for obj in month.objectValues()
@@ -40,8 +41,8 @@
   </table>
 </tal:block>
 <tal:block tal:condition="python:not len(here.archive.objectIds('CPSMailBoxerFolder'))">
-  <p i18n:translate=""
-     style="border-top:solid;border-width:1px">nmb_label_no_archive</p>
+  <div class="mailboxerNoArchive"
+       i18n:translate="">nmb_label_no_archive</div>
 </tal:block>
 
 </metal:block>
@@ -49,21 +50,19 @@
 
 <metal:block define-macro="basebox_mb_search">
   <table tal:condition="options/recordsList|nothing">
-  <tr tal:define="records options/recordList" tal:repeat="record records">
-    <tal:block define="mail record/getObject">
-      <td valign="top">
-        <span tal:content="python:mail.mailDate.strftime('%d-%m-%Y')"
-          style="font-weight:bold" />
-      </td>
-      <td valign="top">
-        <a tal:content="python:mail.mailSubject[:150]"
-          tal:attributes="href string:${mail/absolute_url}/cpsmailboxerfolder_view" />
-      </td>
-      <td valign="top">
-        <span tal:content="mail/mailFrom" />
-      </td>
-    </tal:block>
-  </tr>
-
+    <tr tal:define="records options/recordList" tal:repeat="record records">
+      <tal:block define="mail record/getObject">
+        <td valign="top">
+          <span tal:content="python:mail.mailDate.strftime('%d-%m-%Y')" />
+        </td>
+        <td valign="top">
+          <a tal:content="python:mail.mailSubject[:150]"
+             tal:attributes="href string:${mail/absolute_url}/cpsmailboxerfolder_view" />
+        </td>
+        <td valign="top">
+          <span tal:content="mail/mailFrom" />
+        </td>
+      </tal:block>
+    </tr>
   </table>
 </metal:block>
