@@ -1,3 +1,4 @@
+# -*- coding: ISO-8859-15 -*-
 # (C) Copyright 2002 Nuxeo SARL <http://nuxeo.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -392,6 +393,65 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
             mailObject.manage_addProperty('mailHeader', headers, 'lines')
 
         return mailObject
+
+    def notifyReject(self, proxy_msg, comment=''):
+        """Notify sender that his email has been rejected by moderator"""
+        
+        doc = proxy_msg.getContent()
+        sender_email = doc.mailFrom
+        subject = doc.mailSubject
+        date = doc.mailDate.strftime('%d/%m/%y %H:%M')
+        text = doc.mailBody
+
+        portal = getToolByName(self, 'portal_url').getPortalObject()
+        cpsmcat = portal.Localizer.default
+
+        nmb_mail_reject_1 = cpsmcat('nmb_mail_reject_1').encode('ISO-8859-15', 'ignore')
+        nmb_mail_reject_2 = cpsmcat('nmb_mail_reject_2').encode('ISO-8859-15', 'ignore')
+        nmb_mail_reject_3 = cpsmcat('nmb_mail_reject_3').encode('ISO-8859-15', 'ignore')
+        nmb_mail_reject_4 = cpsmcat('nmb_mail_reject_4').encode('ISO-8859-15', 'ignore')
+        nmb_mail_reject_5 = cpsmcat('nmb_mail_reject_5').encode('ISO-8859-15', 'ignore')
+        nmb_mail_reject_6 = cpsmcat('nmb_mail_reject_6').encode('ISO-8859-15', 'ignore')
+        
+        body = "%s '%s' %s %s %s" % (nmb_mail_reject_1, subject, nmb_mail_reject_2,
+                                        date, nmb_mail_reject_3)
+        subject = "%s %s" % (nmb_mail_reject_4, subject)
+        if comment:
+            body +=  " %s\n%s" % (nmb_mail_reject_5, comment)
+        else:
+            body += "."
+        body += "\n\n%s\n\n%s" % (nmb_mail_reject_6, text)
+        self.sendEmail(portal, from_address=getattr(portal,
+                                                    'email_from_address'),
+                       subject=subject,
+                       body=self.textwrap(body, 72),
+                       mto=[sender_email])
+
+    security.declarePrivate('sendEmail')
+    def sendEmail(self, portal, from_address='nobody@example.com', reply_to=None,
+                  subject='No subject', body='No body', content_type='text/plain',
+                  charset='ISO-8859-15', mto=None):
+
+        mailhost = getattr(portal, 'MailHost')
+        if reply_to is None:
+            reply_to = from_address
+            
+            content = """\
+From: %s
+Reply-To: %s
+To: %s
+Subject: %s
+Content-Type: %s; charset=%s
+Mime-Version: 1.0
+
+%s"""
+            content = content % (
+                from_address, reply_to, ', '.join(mto), subject,
+                content_type, charset, body)
+            
+            mailhost.send(content, mto=mto, mfrom=from_address,
+                          subject=subject, encode='8bit')
+        
 
 InitializeClass(CPSMailBoxer)
 
