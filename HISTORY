@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.3.2 [R1 build 2004/07/26-11:48 by epietrig]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- default to principal moderator email if no other official moderator could be found
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- perf enh
+
+*******************************************
 ** CPSMailBoxer V0.3.1 [R1 build 2004/07/23-08:52 by epietrig]
 
 Requires:
