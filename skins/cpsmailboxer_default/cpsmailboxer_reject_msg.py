@@ -4,7 +4,7 @@
 mb = context.getContent()
 
 for msg_path in msg_paths:
-    msg = context.restrictedTraverse(context.getBaseUrl() + msg_path)
+    msg = context.restrictedTraverse(msg_path)
     review_state = context.portal_workflow.getInfoFor(msg, 'review_state', 'nostate')
     if review_state == 'pending':
         mb.notifyReject(msg, comment=comment)
