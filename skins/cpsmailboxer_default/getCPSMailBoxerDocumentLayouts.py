@@ -74,26 +74,22 @@ cps_mailarchive_layout = {
                 'configurable': 'nothing',
             },
         },
-        'Mailattachment': {
+        'mailAttachment': {
             'type': 'AttachedFile Widget',
             'data': {
                 'fields': ['?'],
-                'is_required': 0,
                 'label': 'label_mail_attachment',
                 'label_edit': 'label_mail_attachment',
                 'is_i18n': 1,
-                'readonly_layout_modes': [],
-                'hidden_layout_modes': [],
-                'hidden_readonly_layout_modes': [],
-                'hidden_empty': 0,
                 'deletable': 1,
-                'size_max': 4194304,
+		# Max 15Mb
+                'size_max': 15*1024*1024,
             },
         },
     },
     'layout': {
         'style_prefix': 'layout_default_',
-        'flexible_widgets': ['Mailattachment'],
+        'flexible_widgets': ['mailAttachment'],
         'ncols': 1,
         'rows': [
             [{'ncols': 1, 'widget_id': 'mailFrom'},
@@ -110,28 +106,22 @@ cps_mailarchive_layout = {
 
 cps_mailarchive_flexible_layout = {
     'widgets': {
-        'Mailattachment': {
-            'type': 'File Widget',
+        'mailAttachment': {
+            'type': 'AttachedFile Widget',
             'data': {
                 'fields': ['?'],
-                'is_required': 0,
                 'label': 'label_mail_attachment',
                 'label_edit': 'label_mail_attachment',
                 'is_i18n': 1,
-                'readonly_layout_modes': [],
-                'hidden_layout_modes': [],
-                'hidden_readonly_layout_modes': [],
-                'hidden_empty': 0,
-                'hidden_if_expr': '',
-                'css_class': '',
                 'deletable': 1,
-                'size_max': 4194304,
+		# Max 15Mb
+                'size_max': 15*1024*1024,
             },
         },
     },
     'layout': {
         'style_prefix': 'layout_default_',
-        'flexible_widgets': ['Mailattachment'],
+        'flexible_widgets': ['mailAttachment'],
         'ncols': 1,
         'rows': [
         ],
