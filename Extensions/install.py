@@ -141,7 +141,7 @@ def install(self):
     wfstates = {
         'created': {
             'title': 'Created',
-            'transitions': ('auto_publish', 'auto_moderate'), #'auto_publish', 
+            'transitions': ('auto_publish', 'auto_moderate'),
             'permissions': {View: ('Manager', 'Owner', 'WorkspaceManager',
                                    'SectionManager', 'SectionReviewer',
                                    'MailBoxerModerator'),
@@ -200,10 +200,9 @@ def install(self):
             'new_state_id': 'published',
             'trigger_type': TRIGGER_AUTOMATIC,
             'clone_allowed_transitions': None,
-            'after_script_name': 'post_publish',
             'props': {'guard_permissions': '',
                       'guard_roles': '',
-                      'guard_expr': 'python:container.getContent().moderation_mode == 0 or user.has_permission(\'MailBoxer Moderate\', container.getContent())'},
+                      'guard_expr': 'python:container.getContent().moderation_mode == 0'},
             },
         'auto_moderate': {
             'title': 'Moderating',
@@ -212,7 +211,7 @@ def install(self):
             'clone_allowed_transitions': None,
             'props': {'guard_permissions': '',
                       'guard_roles': '',
-                      'guard_expr': 'python: container.getContent().moderation_mode == 1 and not user.has_permission(\'MailBoxer Moderate\', container.getContent())'},
+                      'guard_expr': 'python:container.getContent().moderation_mode == 1'},
             },
         'publish': {
             'title': 'Publishing post',
@@ -241,35 +240,64 @@ def install(self):
         'script': """\
 ##parameters=state_change
 object = state_change.object
-subject = state_change.kwargs.get('subject', '')
-author = state_change.kwargs.get('author', '')
-msg = state_change.kwargs.get('message', '')
-kw = {'Title': subject,
-      'Description': msg,
-      'author': author,
-      'parent_id': pid}
+object_content = object.getContent()
+title = state_change.kwargs.get('Title', '')
+mailFrom = state_change.kwargs.get('mailFrom', '')
+mailSubject = state_change.kwargs.get('mailSubject', '')
+mailDate = state_change.kwargs.get('mailDate', '')
+mailBody = state_change.kwargs.get('mailBody', '')
+attachments = state_change.kwargs.get('attachments', {})
 
+kw = {'Title': title,
+      'mailFrom': mailFrom,
+      'mailSubject': mailSubject,
+      'mailDate': mailDate,
+      'mailBody': mailBody}
 object.getEditableContent().edit(**kw)
+
+layout_id = 'cps_mailarchive_flexible'
+widget_type = 'mailAttachment'
+for widget_id, attchment in attachments.items():
+    object_content.flexibleAddWidget(layout_id, widget_type)
+object.getEditableContent().edit(**attachments)
 """
         },
         }
     
     wfvariables = {
-        'subject': {
-            'description': 'post subject',
-            'default_expr': "python:state_change.kwargs.get('subject', '')",
+        'Title': {
+            'description': 'mail subject',
+            'default_expr': "python:state_change.kwargs.get('Title', '')",
             'for_status': 1,
             'update_always': 1,
             },
-        'author': {
-            'description': 'post author',
-            'default_expr': "python:state_change.kwargs.get('author', '')",
+        'mailFrom': {
+            'description': '',
+            'default_expr': "python:state_change.kwargs.get('mailFrom', '')",
             'for_status': 1,
             'update_always': 1,
             },
-        'message': {
-            'description': 'post text',
-            'default_expr': "python:state_change.kwargs.get('message', '')",
+        'mailSubject': {
+            'description': '',
+            'default_expr': "python:state_change.kwargs.get('mailSubject', '')",
+            'for_status': 1,
+            'update_always': 1,
+            },
+        'mailBody': {
+            'description': '',
+            'default_expr': "python:state_change.kwargs.get('mailBody', '')",
+            'for_status': 1,
+            'update_always': 1,
+            },
+        'mailDate': {
+            'description': '',
+            'default_expr': "python:state_change.kwargs.get('mailDate', '')",
+            'for_status': 1,
+            'update_always': 1,
+            },
+        'attachments': {
+            'description': '',
+            'default_expr': "python:state_change.kwargs.get('attachments', '')",
             'for_status': 1,
             'update_always': 1,
             },
