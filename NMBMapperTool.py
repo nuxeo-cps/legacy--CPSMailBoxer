@@ -29,6 +29,8 @@ from Products.CMFCore.utils import UniqueObject, getToolByName
 
 from email import message_from_string
 
+import re
+
 class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
     """Mapping between list email addresses and CPSMailBoxer
     instances + some utility functions"""
@@ -40,6 +42,8 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
     
     _actions = ()
 
+    email_pattern = re.compile("[a-zA-Z0-9_\-\.\+\*\$]+@[a-zA-Z0-9_\-\+\*\$\.]+\.[a-zA-Z]{2,4}")
+
     def __init__(self):
         PortalFolder.__init__(self, self.id)
         self._addr2box = {}
@@ -48,10 +52,12 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
     def getMailRecipient(self, mail=None):
         """given an email source, returns its first recipient"""
 
+        to_field_list = []
         if mail is not None:
             message = message_from_string(mail)
             to_field = message.get('To')
-        return to_field
+            to_field_list = self.email_pattern.findall(to_field)
+        return to_field_list
 
     security.declarePublic('getMailBoxer')
     def getMailBoxer(self, list=None):
