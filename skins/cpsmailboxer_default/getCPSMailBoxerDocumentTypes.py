@@ -8,9 +8,9 @@ mailarchive_type = {
     'title': 'CPSMailArchive_title',
     'description': 'CPSMailArchive_description',
     'content_icon': 'MailHost_icon.gif',
-    'content_meta_type': 'CPS Document',
-    'product': 'CPSDocument',
-    'factory': 'addCPSDocument',
+    'content_meta_type': 'CPSMailArchive',
+    'product': 'CPSMailBoxer',
+    'factory': 'addInstance',
     'immediate_view': '',
     'global_allow': 1,
     'filter_content_types': 1,
@@ -26,5 +26,6 @@ mailarchive_type = {
     }
 
 
-return {'CPSMailArchive': mailarchive_type,
-        }
+return {
+    'CPSMailArchive': mailarchive_type,
+    }

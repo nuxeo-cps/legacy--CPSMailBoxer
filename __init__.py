@@ -24,16 +24,19 @@ from AccessControl import allow_module, allow_class
 
 import CPSMailBoxer
 import CPSMailBoxerFolder
+import CPSMailArchive
 import NMBMapperTool
 
 contentClasses = (
     CPSMailBoxer.CPSMailBoxer,
     CPSMailBoxerFolder.CPSMailBoxerFolder,
+    CPSMailArchive.CPSMailArchive,
 )
 
 contentConstructors = (
     CPSMailBoxer.addCPSMailBoxer,
     CPSMailBoxerFolder.addCPSMailBoxerFolder,
+    CPSMailArchive.addInstance,
 )
 
 fti = (
