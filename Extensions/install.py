@@ -216,6 +216,7 @@ def install(self):
             'new_state_id': 'pending',
             'trigger_type': TRIGGER_AUTOMATIC,
             'clone_allowed_transitions': None,
+            'after_script_name': 'msg_moderate',
             'props': {'guard_permissions': '',
                       'guard_roles': '',
                       'guard_expr': 'python:container.getContent().moderation_mode == 1'},
@@ -268,6 +269,19 @@ widget_type = 'mailAttachment'
 for widget_id, attchment in attachments.items():
     object_content.flexibleAddWidget(layout_id, widget_type)
 object.getEditableContent().edit(**attachments)
+"""
+        },
+        'msg_moderate': {
+        '_owner': None,
+        '_proxy_roles': ['Manager'],
+        'script': """\
+##parameters=state_change
+mail_archive_proxy = state_change.object
+month_folder_proxy = mail_archive_proxy.aq_inner.aq_parent
+year_folder_proxy = month_folder_proxy.aq_inner.aq_parent
+archive_folder_proxy = year_folder_proxy.aq_inner.aq_parent
+nmb = archive_folder_proxy.aq_inner.aq_parent
+nmb.getContent().notifyModerate(nmb, mail_archive_proxy)
 """
         },
         }
