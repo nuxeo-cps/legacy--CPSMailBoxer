@@ -18,9 +18,10 @@
 # $Id$
 
 import Globals
-import multifile, difflib, re, mimetools, rfc822
+import multifile, difflib, re, mimetools, rfc822, cgi, smtplib, mimify,\
+       random, md5
 from DateTime import DateTime
-from Globals import InitializeClass
+from Globals import InitializeClass, DTMLFile
 from AccessControl import ClassSecurityInfo
 from AccessControl.User import UnrestrictedUser
 from AccessControl.SecurityManagement import getSecurityManager
@@ -120,6 +121,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 
     title = ''
     moderation_mode = 0
+    _queue = {}
 
     def __init__(self, id, title=''):
         """
@@ -401,6 +403,160 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 
         return mailObject
 
+    def mail_handler(self, mb, REQUEST, mail='', body=''):
+        mail_archive = self.archiveMail(REQUEST)
+        if self.moderation_mode:
+            self.queueMail(REQUEST, mail_archive)
+        else:
+            self.listMail(REQUEST, mail_archive)
+
+    def archiveMail(self, REQUEST):
+        # store mail in the archive? get context for the mail...
+        Mail = REQUEST['Mail']
+        mail_archive = None
+        if self.getValueFor('archived') <> self.archive_options[0]:
+            mail_archive = self.manage_addMail(Mail)
+        if mail_archive is None:
+            mail_archive = self
+        return mail_archive
+
+    security.declareProtected(MailBoxerModerate, 'resetQueue')
+    def resetQueue(self):
+        self._queue = {}
+
+    security.declareProtected(MailBoxerModerate, 'getQueue')
+    def getQueue(self):
+        return self._queue
+
+    def queueMail(self, REQUEST, mail_archive):
+        mail_url = getToolByName(self, 'portal_url').getRelativeUrl(mail_archive)
+        queue = self._queue
+        queue[mail_url] = REQUEST['Mail']
+        self._queue = queue
+        
+    def rejectMail(self, mail_archive):
+        mail_url = getToolByName(self, 'portal_url').getRelativeUrl(mail_archive)
+        if self._queue.has_key(mail_url):
+            del self._queue[mail_url]
+
+    def acceptMail(self, mail_archive):
+        mail_url = getToolByName(self, 'portal_url').getRelativeUrl(mail_archive)
+        if self._queue.has_key(mail_url):
+            REQUEST = {}
+            REQUEST['Mail'] = self._queue.get(mail_url)
+            del self._queue[mail_url]
+            self.listMail(REQUEST, mail_archive=mail_archive)
+
+    def listMail(self, REQUEST, mail_archive=None):
+
+        # Send a mail to all members of the list. 
+
+        Mail = REQUEST['Mail']
+
+        if mail_archive is None:
+            context = self
+        else:
+            context = mail_archive
+
+        (header, body) = self.splitMail(Mail)
+
+        # plainmail-mode? get the plain-text of mail...
+        if self.getValueFor('plainmail'):          
+            (TextBody, ContentType, HtmlBody) = self._unpackMultifile(None, 
+                                                   multifile.MultiFile(
+                                                    StringIO(Mail)))
+            if ContentType:
+                header['content-type'] = ContentType
+                body = TextBody
+            else:
+                charset = ""
+                match = re.search('(?is)<meta.*?content="text/html;[\s]*charset=([^"]*?)".*?>',
+                                                                      HtmlBody)
+                if match:
+                    charset="charset=%s;" % match.group(1)
+                header['content-type'] = 'text/plain;%s' % charset
+                body = self.HtmlToText(HtmlBody)
+                
+        
+        # get custom header & footer
+        (customHeader, customBody) = self.splitMail(
+            self.mail_header(context,
+                             REQUEST,
+                             getValueFor=self.getValueFor, 
+                             title=self.getValueFor('title'),
+                             mail=header, 
+                             body=body,
+                             mime_decode_header=self.mime_decode_header).strip())
+        
+        customFooter = self.mail_footer(context,
+                                        REQUEST,
+                                        getValueFor=self.getValueFor,
+                                        title=self.getValueFor('title'),
+                                        mail=header, 
+                                        body=body).strip()
+        
+        
+        # Patch msg-headers with customHeaders
+        msg = mimetools.Message(StringIO(Mail))
+        
+        for hdr in customHeader.keys():
+            if customHeader[hdr]:
+                msg[hdr.capitalize()]=customHeader[hdr]
+            else:
+                del msg[hdr]
+        
+        newHeader = ''.join(msg.headers)
+
+        # If customBody is not empty, use it as new mailBody
+        if customBody.strip():
+            body=customBody
+
+        newMail = "%s\r\n%s\r\n%s" % (newHeader, body, customFooter)
+
+        # Get members
+        memberlist = self.getValueFor('maillist')
+        
+        # Remove "blank" / corrupted / doubled entries
+        maillist=[]
+        for email in memberlist:
+            if '@' in email and email not in maillist:
+                maillist.append(email)
+
+        batchsize = self.getValueFor('batchsize')
+
+        # if no returnpath is set, use first moderator as returnpath
+        returnpath=self.getValueFor('returnpath')
+        if not returnpath:
+            returnpath = self.getValueFor('moderator')[0]
+
+        # bulk mail. return-path is first moderator.
+        try:
+            # open smtp-connection
+            smtpserver = smtplib.SMTP(self.MailHost.smtp_host, 
+                                      int(self.MailHost.smtp_port))
+                
+            # start batching mails to smtp-server
+            while maillist:
+                # if no batchsize is set (default) 
+                # or batchsize is greater than maillist,
+                # bulk all mails in one batch, 
+                # otherwise bulk only 'batch'-mails at once
+                if (batchsize == 0) or (batchsize > len(maillist)):
+                    batch = len(maillist)
+                else:
+                    batch = batchsize
+
+                # bulk mails to smtp-server
+                smtpserver.sendmail(returnpath, maillist[0:batch], newMail)
+                # remove already bulked addresses
+                maillist = maillist[batch:]
+
+            # close connection
+            smtpserver.quit()
+        
+        except Exception, e:
+            LOG('MailBoxer', ERROR, e)
+
     def notifyReject(self, proxy_msg, comment=''):
         """Notify sender that his email has been rejected by moderator"""
         
@@ -446,6 +602,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         for usr_name in users_with_role.keys():
             if usr_name.startswith('user:'):
                 usr_names.append(usr_name[5:])
+        #XXX: maybe we should handle groups here too...
         moderator_emails = []
         for usr_name in usr_names:
             usr = portal.portal_membership.getMemberById(usr_name)
