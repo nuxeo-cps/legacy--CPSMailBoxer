@@ -372,7 +372,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 	mailObject.edit(Title=subject, mailFrom=sender, mailSubject=subject,
 			mailDate=time, mailBody=body)
 	files = {}
-	widget_type = 'Mailattachment'
+	widget_type = 'mailAttachment'
 	layout_id = 'cps_mailarchive_flexible'
 
 	for attachment in attachedFiles:
