@@ -29,7 +29,8 @@ from AccessControl.SecurityManagement import newSecurityManager
 from OFS.PropertyManager import PropertyManager
 
 from Products.CMFDefault.SkinnedFolder import SkinnedFolder
-from Products.CMFCore.CMFCorePermissions import View, ModifyPortalContent
+from Products.CMFCore.CMFCorePermissions import View, ModifyPortalContent,\
+     ChangePermissions
 from Products.CMFCore.utils import getToolByName
 
 from Products.CPSCore.EventServiceTool import getEventService
@@ -87,11 +88,16 @@ factory_type_information = (
                   'name': 'Create Newsletter',
                   'action': 'cpsmailboxer_newsletter_create_form',
                   'permissions': (ModifyPortalContent,)},
-                {'id': 'create',
+                 {'id': 'create',
                   'name': 'Create',
                   'action': 'cpsmailboxer_create_form',
                   'visible': 0,
                   'permissions': (View)},
+                 {'id': 'localroles',
+                  'name': 'action_local_roles',
+                  'action': 'mb_localrole_form',
+                  'permissions': (ChangePermissions,),
+                  }
                 ),
                 'cps_proxy_type':None,
                 'cps_is_searchable':1,
