@@ -40,7 +40,7 @@ class CPSMailBoxerInstaller(BaseInstaller):
         self.typestool = self.portal.portal_types
         self.setupPortalTypes()
         self.setupNMBMapperTool()
-        self.setupTranslations(default_lang='fr')
+        self.setupTranslations()
         self.configurePlaceFullWorkflow()
 
     def setupPortalTypes(self):
