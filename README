@@ -1,28 +1,27 @@
 ##################################################
 #      IMPORTANT                                 #
 ##################################################
-- this version of CPSMailBoxer relies on a modified
-  version of MailBoxer 3.1 that is available on dev2
-  in /home/zopes/_packages/MailBoxer-3.1-nuxeo.tar.gz
 
-- if ou do not use this version but the genuine 3.1
-  you will certainl get mime_decode_header errors
+- This version of CPSMailBoxer relies on a modified version of MailBoxer 3.1
+  that is available on dev2 in
+  /home/zopes/_packages/MailBoxer-3.1-nuxeo.tar.gz.
+
+- If ou do not use this version but the genuine 3.1 you will certainly get
+  mime_decode_header errors.
 
 
 ##################################################
 #      CPSMailBoxer and other CPS Products       #
 ##################################################
 
-- CPSMailBoxer is not declared as an allowed content type for
-  any other portal type. So if you want it to be available e.g.
-  in Workspace, you need to manually add it (either throught the
-  ZMI and through your installer)
+- CPSMailBoxer is not declared as an allowed content type for any other portal
+  type. So if you want it to be available e.g.  in Workspace, you need to
+  manually add it (either throught the ZMI and through your installer).
 
-- Action Status History should not be available for CPSMailBoxer
-  and CPSMailBoxerFolder. Again, this should be set manually either
-  through the ZMI or you own installer/external method (examples of
-  how this is done for other portal types are available in CPSForum
-  and CPSDefault)
+- Action Status History should not be available for CPSMailBoxer and
+  CPSMailBoxerFolder. Again, this should be set manually either through the ZMI
+  or you own installer/external method (examples of how this is done for other
+  portal types are available in CPSForum and CPSDefault).
 
 ##################################################
 #      Setting up aliases (Linux/postfix)        #
@@ -38,31 +37,37 @@ handling incoming emails.
 #########################
 # method A:
 #########################
-1) copy file smtp2zope.py in a location that can be reached by postfix and check
-   r/x rights on the file (e.g. in /usr/local/sbin/)
 
-2) edit /etc/aliases and add a line following this model:
+1) Copy file smtp2zope.py in a location that can be reached by postfix and
+check r/x rights on the file (e.g. in /usr/local/sbin/)
+
+2) Edit /etc/aliases and add a line following this model:
    liste_name: "|/usr/local/sbin/smtp2zope.py http://hostname:port/cps/workspaces/mailing_lists/liste_id/manage_mailboxer"
 
-   where list_name is the list's email address (as set in your CPSMailBoxer instance)
+   where list_name is the list's email address (as set in your CPSMailBoxer
+   instance)
 
    example for list object 'liste1' whose address is test_list@example.net :
        test_list: "|/usr/local/sbin/smtp2zope.py http://hostname:port/cps/workspaces/mailing_lists/liste1/manage_mailboxer"
 
 
-3) run command newaliases
+3) Run command newaliases
 
 #########################
 # method B:
 #########################
-1) copy file smtp2zope.py in a location that can be reached by postfix and check
-   r/x rights on the file (e.g. in /usr/local/sbin/)
 
-2) this method is more complicated as you have to create regexp based rules to handle different list addresses with the same alias
+1) Copy file smtp2zope.py in a location that can be reached by postfix and
+check r/x rights on the file (e.g. in /usr/local/sbin/).
 
-     e.g. to redirect all incoming mails addressed to lists ending in @lists.example.org,
+2) This method is more complicated as you have to create regexp based rules to
+handle different list addresses with the same alias.
 
-     - edit /etc/postfix/virtual and add a rule to redirect all wanted addresses to the same alias
+     e.g. to redirect all incoming mails addressed to lists ending in
+     @lists.example.org,
+
+     - edit /etc/postfix/virtual and add a rule to redirect all wanted
+       addresses to the same alias
 
          @lists.example.org alias@hostname
 
@@ -70,25 +75,24 @@ handling incoming emails.
 
          alias: "|/usr/local/sbin/smtp2zope.py http://hostname:port/cps/nmb_mapper"
 
+3) Run command 'postmap /etc/postfix/virtual' and then run command 'newaliases'
 
-3) run command 'postmap /etc/postfix/virtual' and then run command 'newaliases'
-
-4) with this method, it is not necessary to create new aliases each time you create
-   a new CPSMailBoxer that manages lists ending in e.g. @lists.example.org since 
-   the mapping to the actual mailboxer object is handled dynamically by nmb_mapper
-   instead of being hardcoded in the alias (as done in method A)
-
+4) With this method, it is not necessary to create new aliases each time you
+create a new CPSMailBoxer that manages lists ending in e.g. @lists.example.org
+since the mapping to the actual mailboxer object is handled dynamically by
+nmb_mapper instead of being hardcoded in the alias (as done in method A).
 
 
 ##################################################
 #      Problems                                  #
 ##################################################
-- if there are workflow-related problems when processing (archival of) a mail,
-  make sure that CPSMailBoxerFolder has no workflow associated with it
 
-- when upgrading MailBoxer (e.g. from 2.2.6 to 3.1), be sure to check that the
+- If there are workflow-related problems when processing (archival of) a mail,
+  make sure that CPSMailBoxerFolder has no workflow associated with it.
+
+- When upgrading MailBoxer (e.g. from 2.2.6 to 3.1), be sure to check that the
   version of smtp2zope you use to redirect mails is the on included in the new
-  version of MailBoxer
+  version of MailBoxer.
 
 
  
