@@ -10,19 +10,7 @@
       <div class="Desktop" 
         tal:define="
           message request/message|nothing; 
-          portal_url here/portal_url/absolute_url"
-      >
-     <table>
-       <tr>
-         <td>
-           <form action="cpsmailboxer_search" method="POST"
-                 tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
-             <input type="text" name="query">&nbsp;
-             <input type="submit" name="search" value="nmb_label_search" i18n:attributes="value">
-           </form>
-         </td>
-       </tr>
-     </table>
+          portal_url here/portal_url/absolute_url">
      <tal:block content="structure here/cpsmailboxer_content_view"/>
      </div>
     </div>
