@@ -103,9 +103,11 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 
     _properties = (
         {'id':'description', 'type':'text', 'mode':'w', 'label':'Description'},
+        {'id':'moderation_mode', 'type':'boolean', 'mode':'w', 'label':'Moderation'},
     ) + MailBoxer._properties
 
     title = ''
+    moderation_mode = 0
 
     def __init__(self, id, title=''):
         """
@@ -144,7 +146,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
             @type REQUEST: C{REQUEST}
 
         """
-
+        
         try:
             # XXX: there might be a lighter solution than
             # setting Manager role for this method
@@ -325,14 +327,6 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         sender = self.mime_decode_header(header.get('from','No From'))
         title = "%s / %s" % (subject, sender)
 
-
-##        # maybe it's a reply ?
-##        if ':' in subject:
-##            for currentFolder in [folder for folder in monthFolder.objectValues() if getattr(folder,'portal_type','') == 'CPSMailArchive']:
-##                if difflib.get_close_matches(subject,
-##                                  [currentFolder.getContent().mailSubject]):
-##                    mailFolder=currentFolder
-
         # search a free id for the mailobject
         id = time.millis()
         while hasattr(mailFolder, str(id)):
@@ -345,23 +339,15 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 
         return mailObject
 
-        # Index the new created mailFolder in the catalog
-        Catalog = self.unrestrictedTraverse(self.getValueFor('catalog'),
-                                            default=None)
-
-        if Catalog is not None:
-            Catalog.catalog_object(mailObject)
-        return mailObject
-
     def addMailBoxerMail(self, mailFolder, id, title, sender, subject, time, Mail):
         """
         """
-        #mailFolder.manage_addCPSMailArchive(id, title=title)
-        mailFolder.invokeFactory(type_name='CPSMailArchive', id=id)
-        mailObject = getattr(mailFolder, id)
 
+        mailFolder.invokeFactory(type_name='CPSMailArchive', id='fake')
+        fake = getattr(mailFolder, 'fake')
+        
         # unpack attachments
-        (TextBody, ContentType, HtmlBody) =  self._unpackMultifile(mailObject,
+        (TextBody, ContentType, HtmlBody) =  self._unpackMultifile(fake,
                                                      multifile.MultiFile(
                                                       StringIO(Mail)))
 
@@ -370,20 +356,24 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
             body = TextBody
         else:
             body = self.HtmlToText(HtmlBody)
-        attachedFiles = mailObject.objectValues()
-        mailObject = mailObject.getContent()
 
-        mailObject.edit(Title=subject, mailFrom=sender, mailSubject=subject,
-                        mailDate=time, mailBody=body)
         files = {}
         widget_type = 'mailAttachment'
         layout_id = 'cps_mailarchive_flexible'
-
+        fakeObject = getattr(mailFolder, 'fake').getContent()
+        attachedFiles = fake.objectValues()
         for attachment in attachedFiles:
-            widget_id = str(mailObject.flexibleAddWidget(layout_id, widget_type))
+            widget_id = str(fakeObject.flexibleAddWidget(layout_id, widget_type))
             files[widget_id] = attachment
+        mailFolder.manage_delObjects(['fake'])
 
-        mailObject.edit(**files)
+        mailFolder.invokeFactory(type_name='CPSMailArchive', id=id,
+                                 Title=subject, mailFrom=sender,
+                                 mailSubject=subject,
+                                 mailDate=time, mailBody=body,
+                                 attachments=files)
+
+        mailObject = getattr(mailFolder, id).getContent()
 
         # insert header if a regular expression is set and matches
         headers_regexp = self.getValueFor('headers')
