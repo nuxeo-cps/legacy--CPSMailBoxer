@@ -1,0 +1,457 @@
+# ##########################################################
+# ################# DON'T EDIT THIS FILE! ##################
+# ##########################################################
+# Gettext Message File for default.
+# Your Name <your@email>, Year
+msgid ""
+msgstr ""
+"Project-Id-Version: default\n"
+"POT-Creation-Date: 2004-07-22 15:08default\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Your Name <your@email>\n"
+"Language-Team: Name <email>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: LL\n"
+"Language-name: Language\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: default\n"
+
+#.   <em>
+#.             ${mail_addr (tal replace="email")} nmb_label_not_yet_subscribed
+#.           </em>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "${mail_addr} nmb_label_not_yet_subscribed"
+msgstr ""
+
+#.   <div>
+#.             ${nb_members (tal replace="python:len(members)")} nmb_label_nb_members
+#.           </div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
+msgid "${nb_members} nmb_label_nb_members"
+msgstr ""
+
+#.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
+msgid "cpsmailboxer_button_publish"
+msgstr ""
+
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_purge'), )" value="cpsmailboxer_button_purge" class="destructive" name="cpsmailboxer_purge_queue:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_purge"
+msgstr ""
+
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
+msgid "cpsmailboxer_button_reject"
+msgstr ""
+
+#.   <div />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "cpsmailboxer_required_field"
+msgstr ""
+
+#.   <h2>nmb_heading_archives</h2>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_heading_archives"
+msgstr ""
+
+#.   <h2>nmb_heading_list_edit &nbsp;${title (tal replace="here/title_or_id")}&nbsp;</h2>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_heading_list_edit &nbsp;${title}&nbsp;"
+msgstr ""
+
+#.   <h2>
+#.           nmb_heading_mailing_list ${title (tal replace="mycpsmailboxer/title_or_id")}
+#.         </h2>
+#: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_heading_mailing_list ${title}"
+msgstr ""
+
+#.   <h2>nmb_heading_mailing_list &nbsp;${title (tal replace="here/title_or_id")}&nbsp;</h2>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_view.pt
+msgid "nmb_heading_mailing_list &nbsp;${title}&nbsp;"
+msgstr ""
+
+#.   <h2>
+#.         nmb_heading_member_edit ${title (tal replace="here/title_or_id")}
+#.       </h2>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
+msgid "nmb_heading_member_edit ${title}"
+msgstr ""
+
+#.   <h2>nmb_heading_newsletter_create</h2>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
+msgid "nmb_heading_newsletter_create"
+msgstr ""
+
+#.   <div condition="not:proxy" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
+msgid "nmb_label_already_moderated"
+msgstr ""
+
+#.   <em>
+#.             nmb_label_already_subscribed ${mail_addr (tal replace="email")}
+#.           </em>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "nmb_label_already_subscribed ${mail_addr}"
+msgstr ""
+
+#.   <td>nmb_label_apr</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_apr"
+msgstr ""
+
+#.   <div>nmb_label_archive_of ${archive (tal replace="here/id")}</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_archive_of ${archive}"
+msgstr ""
+
+#.   <div class="label">nmb_label_archived</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_archived"
+msgstr ""
+
+#.   <strong>nmb_label_attachments</strong>
+#: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_attachments"
+msgstr ""
+
+#.   <td>nmb_label_aug</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_aug"
+msgstr ""
+
+#.   <span>nmb_label_bytes</span>
+#: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_bytes"
+msgstr ""
+
+#.   <td>nmb_label_date</td>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_date"
+msgstr ""
+
+#.   <td>nmb_label_dec</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_dec"
+msgstr ""
+
+#.   <input value="nmb_label_delete" class="destructive" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
+msgid "nmb_label_delete"
+msgstr ""
+
+#.   <div class="label">nmb_label_description</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_description"
+msgstr ""
+
+#.   <td>nmb_label_feb</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_feb"
+msgstr ""
+
+#.   <td>nmb_label_from</td>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_from"
+msgstr ""
+
+#.   <span>nmb_label_input_email</span>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "nmb_label_input_email"
+msgstr ""
+
+#.   <span />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
+msgid "nmb_label_input_subject"
+msgstr ""
+
+#.   <span />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
+msgid "nmb_label_input_text"
+msgstr ""
+
+#.   <td>nmb_label_jan</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_jan"
+msgstr ""
+
+#.   <td>nmb_label_jul</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_jul"
+msgstr ""
+
+#.   <td>nmb_label_jun</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_jun"
+msgstr ""
+
+#.   <div class="label required">nmb_label_mailto</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_mailto"
+msgstr ""
+
+#.   <td>nmb_label_mar</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_mar"
+msgstr ""
+
+#.   <td>nmb_label_may</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_may"
+msgstr ""
+
+#.   <div class="label required">nmb_label_moderator</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_moderator"
+msgstr ""
+
+#.   <div class="label">nmb_label_modetared</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_modetared"
+msgstr ""
+
+#.   <div class="label">nmb_label_mtahosts</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_mtahosts"
+msgstr ""
+
+#.   <div class="mailboxerNoArchive">nmb_label_no_archive</div>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_no_archive"
+msgstr ""
+
+#.   <div>nmb_label_no_member</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
+msgid "nmb_label_no_member"
+msgstr ""
+
+#.   <option attributes="selected 
+#.                                               python:
+#.                                                 test(here.archived == 'not archived',
+#.                                                      'selected',nothing)" value="not archived">nmb_label_not_archived</option>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_not_archived"
+msgstr ""
+
+#.   <td>nmb_label_nov</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_nov"
+msgstr ""
+
+#.   <td>nmb_label_oct</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_oct"
+msgstr ""
+
+#.   <option attributes="selected 
+#.                                               python:
+#.                                                 test(here.archived == 'plain text',
+#.                                                      'selected',nothing)" value="plain text">nmb_label_plain_text</option>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_plain_text"
+msgstr ""
+
+#.   <input value="nmb_label_search" name="search" type="submit" />
+#.   <input value="nmb_label_search" class="standalone" name="search" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_search"
+msgstr ""
+
+#.   <div>nmb_label_select_members_to_delete</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
+msgid "nmb_label_select_members_to_delete"
+msgstr ""
+
+#.   <input value="nmb_label_send" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
+msgid "nmb_label_send"
+msgstr ""
+
+#.   <td>nmb_label_sep</td>
+#: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
+msgid "nmb_label_sep"
+msgstr ""
+
+#.   <em>nmb_label_subcribe_other</em>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "nmb_label_subcribe_other"
+msgstr ""
+
+#.   <td>nmb_label_subject</td>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_subject"
+msgstr ""
+
+#.   <input value="nmb_label_subscribe" class="standalone" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "nmb_label_subscribe"
+msgstr ""
+
+#.   <div class="label">nmb_label_title</div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_title"
+msgstr ""
+
+#.   <input value="nmb_label_unsubscribe" class="destructive" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
+msgid "nmb_label_unsubscribe"
+msgstr ""
+
+#.   <a href="../view">nmb_label_up</a>
+#.   <a href="../cpsmailboxerfolder_view">nmb_label_up</a>
+#: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
+msgid "nmb_label_up"
+msgstr ""
+
+#.   <input value="nmb_label_validate" class="standalone" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_validate"
+msgstr ""
+
+#.   <option attributes="selected 
+#.                                               python:
+#.                                                 test(here.archived == 'with attachments',
+#.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
+msgid "nmb_label_with attach"
+msgstr ""
+
+#.   <div>nmb_nb_messages_in_queue
+#.                                ${queue_len (tal replace="queue_len")}
+#.         </div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_nb_messages_in_queue ${queue_len}"
+msgstr ""
+
+#.   <h1>Pending messages</h1>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
+msgid "nmb_title_message_moderation"
+msgstr ""
+
+msgid "w__mailAttachment"
+msgstr ""
+
+msgid "MailBoxerModerator"
+msgstr ""
+
+msgid "CPSMailArchive_title"
+msgstr ""
+
+msgid "CPSMailArchive_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_description"
+msgstr ""
+
+msgid "psm_subscribed"
+msgstr ""
+
+msgid "psm_unsubscribed"
+msgstr ""
+
+msgid "psm_subscribing_error"
+msgstr ""
+
+msgid "psm_removed_members"
+msgstr ""
+
+msgid "label_mail_from"
+msgstr ""
+
+msgid "label_mail_subject"
+msgstr ""
+
+msgid "label_mail_date"
+msgstr ""
+
+msgid "label_mail_body"
+msgstr ""
+
+msgid "label_mail_attachment"
+msgstr ""
+
+msgid "Create Newsletter"
+msgstr ""
+
+msgid "action_moderate_msgs"
+msgstr ""
+
+msgid "nmb_mail_moderate_1"
+msgstr ""
+
+msgid "nmb_mail_moderate_2"
+msgstr ""
+
+msgid "nmb_mail_reject_1"
+msgstr ""
+
+msgid "nmb_mail_reject_2"
+msgstr ""
+
+msgid "nmb_mail_reject_3"
+msgstr ""
+
+msgid "nmb_mail_reject_4"
+msgstr ""
+
+msgid "nmb_mail_reject_5"
+msgstr ""
+
+msgid "nmb_mail_reject_6"
+msgstr ""
+
+msgid "nmb_confirm_reject"
+msgstr ""
+
+msgid "nmb_confirm_purge"
+msgstr ""
+
+msgid "nmb_psm_queue_purged"
+msgstr ""
+
+msgid "nmb_psm_messages_published"
+msgstr ""
+
+msgid "nmb_psm_messages_rejected"
+msgstr ""
+
+msgid "blank"
+msgstr ""
