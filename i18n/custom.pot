@@ -67,6 +67,36 @@ msgstr ""
 msgid "Create Newsletter"
 msgstr ""
 
+msgid "action_moderate_msgs"
+msgstr ""
+
+msgid "nmb_mail_reject_1"
+msgstr ""
+
+msgid "nmb_mail_reject_2"
+msgstr ""
+
+msgid "nmb_mail_reject_3"
+msgstr ""
+
+msgid "nmb_mail_reject_4"
+msgstr ""
+
+msgid "nmb_mail_reject_5"
+msgstr ""
+
+msgid "nmb_mail_reject_6"
+msgstr ""
+
+msgid "nmb_confirm_reject"
+msgstr ""
+
+msgid "nmb_messages_published"
+msgstr ""
+
+msgid "mnb_messages_rejected"
+msgstr ""
+
 msgid "blank"
 msgstr ""
 

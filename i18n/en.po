@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-04-08 08:41default\n"
-"PO-Revision-Date: 2004-04-08 08:44+0200\n"
+"POT-Creation-Date: 2004-07-21 16:57default\n"
+"PO-Revision-Date: 2004-07-21 16:58+0200\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,17 @@ msgstr "${mail_addr} is not yet subscribed to this list"
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "${nb_members} nmb_label_nb_members"
 msgstr "${nb_members} users are subscribed to the list"
+
+#.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_publish"
+msgstr "Accept"
+
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_reject"
+msgstr "Reject"
 
 #.   <div />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
@@ -319,6 +330,11 @@ msgstr "Save Changes"
 msgid "nmb_label_with attach"
 msgstr "with attachments"
 
+#.   <h1>Pending messages</h1>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_title_message_moderation"
+msgstr "Pending messages"
+
 msgid "w__mailAttachment"
 msgstr "Attachment"
 
@@ -373,6 +389,36 @@ msgstr "Attachment"
 
 msgid "Create Newsletter"
 msgstr "Send a newsletter"
+
+msgid "action_moderate_msgs"
+msgstr "Moderation"
+
+msgid "nmb_mail_reject_1"
+msgstr "Your message"
+
+msgid "nmb_mail_reject_2"
+msgstr "sent on"
+
+msgid "nmb_mail_reject_3"
+msgstr "has been rejected"
+
+msgid "nmb_mail_reject_4"
+msgstr "Message rejected:"
+
+msgid "nmb_mail_reject_5"
+msgstr "for the following reason:"
+
+msgid "nmb_mail_reject_6"
+msgstr "Message content:"
+
+msgid "nmb_confirm_reject"
+msgstr "Selected message(s) will be destroyed. Proceed?"
+
+msgid "nmb_messages_published"
+msgstr "Message(s) published"
+
+msgid "mnb_messages_rejected"
+msgstr "Message(s) rejected"
 
 msgid "blank"
 msgstr " "

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-04-08 08:41default\n"
+"POT-Creation-Date: 2004-07-21 16:57default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -31,6 +31,17 @@ msgstr ""
 #.           </div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "${nb_members} nmb_label_nb_members"
+msgstr ""
+
+#.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_publish"
+msgstr ""
+
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_reject"
 msgstr ""
 
 #.   <div />
@@ -319,6 +330,11 @@ msgstr ""
 msgid "nmb_label_with attach"
 msgstr ""
 
+#.   <h1>Pending messages</h1>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_title_message_moderation"
+msgstr ""
+
 msgid "w__mailAttachment"
 msgstr ""
 
@@ -368,6 +384,36 @@ msgid "label_mail_attachment"
 msgstr ""
 
 msgid "Create Newsletter"
+msgstr ""
+
+msgid "action_moderate_msgs"
+msgstr ""
+
+msgid "nmb_mail_reject_1"
+msgstr ""
+
+msgid "nmb_mail_reject_2"
+msgstr ""
+
+msgid "nmb_mail_reject_3"
+msgstr ""
+
+msgid "nmb_mail_reject_4"
+msgstr ""
+
+msgid "nmb_mail_reject_5"
+msgstr ""
+
+msgid "nmb_mail_reject_6"
+msgstr ""
+
+msgid "nmb_confirm_reject"
+msgstr ""
+
+msgid "nmb_messages_published"
+msgstr ""
+
+msgid "mnb_messages_rejected"
 msgstr ""
 
 msgid "blank"
