@@ -1,457 +1,590 @@
+# translation of ro.po to 
 # ##########################################################
 # ################# DON'T EDIT THIS FILE! ##################
 # ##########################################################
 # Gettext Message File for default.
 # Your Name <your@email>, Year
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
+# , 2005.
 msgid ""
 msgstr ""
-"Project-Id-Version: default\n"
+"Project-Id-Version: ro\n"
 "POT-Creation-Date: 2004-07-22 15:08default\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Your Name <your@email>\n"
-"Language-Team: Name <email>\n"
+"PO-Revision-Date: 2005-04-01 18:23+0300\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-code: ro\n"
 "Language-name: Romanian\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-encodings: utf-8 latin1\n"
 "Domain: default\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #.   <em>
 #.             ${mail_addr (tal replace="email")} nmb_label_not_yet_subscribed
 #.           </em>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "${mail_addr} nmb_label_not_yet_subscribed"
-msgstr ""
+msgstr "${mail_addr} nu figureaza inca in lista abonatilor"
 
 #.   <div>
 #.             ${nb_members (tal replace="python:len(members)")} nmb_label_nb_members
 #.           </div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "${nb_members} nmb_label_nb_members"
-msgstr ""
+msgstr "${nb_members} utilizatori sunt abonati la aceasta lista"
 
 #.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "cpsmailboxer_button_publish"
-msgstr ""
+msgstr "Accepta"
 
 #.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
 #.                                    (cpsmcat('nmb_confirm_purge'), )" value="cpsmailboxer_button_purge" class="destructive" name="cpsmailboxer_purge_queue:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 msgid "cpsmailboxer_button_purge"
-msgstr ""
+msgstr "Elibereaza"
 
 #.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
 #.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "cpsmailboxer_button_reject"
-msgstr ""
+msgstr "Refuza"
 
 #.   <div />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "cpsmailboxer_required_field"
-msgstr ""
+msgstr "Camp obligatoriu"
 
 #.   <h2>nmb_heading_archives</h2>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_heading_archives"
-msgstr ""
+msgstr "Arhive"
 
 #.   <h2>nmb_heading_list_edit &nbsp;${title (tal replace="here/title_or_id")}&nbsp;</h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_heading_list_edit &nbsp;${title}&nbsp;"
-msgstr ""
+msgstr "Editarea listei de distributie \"${title}\""
 
 #.   <h2>
 #.           nmb_heading_mailing_list ${title (tal replace="mycpsmailboxer/title_or_id")}
 #.         </h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_heading_mailing_list ${title}"
-msgstr ""
+msgstr "Lista de distributie \"${title}\""
 
 #.   <h2>nmb_heading_mailing_list &nbsp;${title (tal replace="here/title_or_id")}&nbsp;</h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_view.pt
 msgid "nmb_heading_mailing_list &nbsp;${title}&nbsp;"
-msgstr ""
+msgstr "Lista de distributie \"${title}\""
 
 #.   <h2>
 #.         nmb_heading_member_edit ${title (tal replace="here/title_or_id")}
 #.       </h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_heading_member_edit ${title}"
-msgstr ""
+msgstr "Administrarea membrilor inscrisi in lista \"${title}\""
 
 #.   <h2>nmb_heading_newsletter_create</h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_heading_newsletter_create"
-msgstr ""
+msgstr "Crearea unei scrisori"
 
 #.   <div condition="not:proxy" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "nmb_label_already_moderated"
-msgstr ""
+msgstr "Acest mesaj a fost deja moderat."
 
 #.   <em>
 #.             nmb_label_already_subscribed ${mail_addr (tal replace="email")}
 #.           </em>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_already_subscribed ${mail_addr}"
-msgstr ""
+msgstr "Sunteti abonat la lista cu adresa ${mail_addr}"
 
 #.   <td>nmb_label_apr</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_apr"
-msgstr ""
+msgstr "apr"
 
 #.   <div>nmb_label_archive_of ${archive (tal replace="here/id")}</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_archive_of ${archive}"
-msgstr ""
+msgstr "Arhivele din ${archive}"
 
 #.   <div class="label">nmb_label_archived</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_archived"
-msgstr ""
+msgstr "Arhivata"
 
 #.   <strong>nmb_label_attachments</strong>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_attachments"
-msgstr ""
+msgstr "Atasamente"
 
 #.   <td>nmb_label_aug</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_aug"
-msgstr ""
+msgstr "aug"
 
 #.   <span>nmb_label_bytes</span>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_bytes"
-msgstr ""
+msgstr "octeti"
 
 #.   <td>nmb_label_date</td>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_date"
-msgstr ""
+msgstr "Data: "
 
 #.   <td>nmb_label_dec</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_dec"
-msgstr ""
+msgstr "dec"
 
 #.   <input value="nmb_label_delete" class="destructive" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_delete"
-msgstr ""
+msgstr "Sterge"
 
 #.   <div class="label">nmb_label_description</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_description"
-msgstr ""
+msgstr "Descriere"
 
 #.   <td>nmb_label_feb</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_feb"
-msgstr ""
+msgstr "feb"
 
 #.   <td>nmb_label_from</td>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_from"
-msgstr ""
+msgstr "Din: "
 
 #.   <span>nmb_label_input_email</span>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_input_email"
-msgstr ""
+msgstr "E-mail"
 
 #.   <span />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_label_input_subject"
-msgstr ""
+msgstr "Subiect"
 
 #.   <span />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_label_input_text"
-msgstr ""
+msgstr "Mesaj"
 
 #.   <td>nmb_label_jan</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_jan"
-msgstr ""
+msgstr "ian"
 
 #.   <td>nmb_label_jul</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_jul"
-msgstr ""
+msgstr "iul"
 
 #.   <td>nmb_label_jun</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_jun"
-msgstr ""
+msgstr "iun"
 
 #.   <div class="label required">nmb_label_mailto</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mailto"
-msgstr ""
+msgstr "Adresa listei"
 
 #.   <td>nmb_label_mar</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_mar"
-msgstr ""
+msgstr "mar"
 
 #.   <td>nmb_label_may</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_may"
-msgstr ""
+msgstr "mai"
 
 #.   <div class="label required">nmb_label_moderator</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_moderator"
-msgstr ""
+msgstr "Adresa de email a moderatorului principal"
 
 #.   <div class="label">nmb_label_modetared</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_modetared"
-msgstr ""
+msgstr "Moderata"
 
 #.   <div class="label">nmb_label_mtahosts</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mtahosts"
-msgstr ""
+msgstr "Servere autorizate"
 
 #.   <div class="mailboxerNoArchive">nmb_label_no_archive</div>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_no_archive"
-msgstr ""
+msgstr "Aceasta lista nu contine nici o arhiva"
 
 #.   <div>nmb_label_no_member</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_no_member"
-msgstr ""
+msgstr "Nici un membru"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'not archived',
 #.                                                      'selected',nothing)" value="not archived">nmb_label_not_archived</option>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_not_archived"
-msgstr ""
+msgstr "nearhivata"
 
 #.   <td>nmb_label_nov</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_nov"
-msgstr ""
+msgstr "noi"
 
 #.   <td>nmb_label_oct</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_oct"
-msgstr ""
+msgstr "oct"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'plain text',
 #.                                                      'selected',nothing)" value="plain text">nmb_label_plain_text</option>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_plain_text"
-msgstr ""
+msgstr "text plin"
 
 #.   <input value="nmb_label_search" name="search" type="submit" />
 #.   <input value="nmb_label_search" class="standalone" name="search" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_search"
-msgstr ""
+msgstr "Cauta"
 
 #.   <div>nmb_label_select_members_to_delete</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_select_members_to_delete"
-msgstr ""
+msgstr "Selectioneaza abonatii pe care vrei sa-i stergi din lista"
 
 #.   <input value="nmb_label_send" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_label_send"
-msgstr ""
+msgstr "Trimite"
 
 #.   <td>nmb_label_sep</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_sep"
-msgstr ""
+msgstr "sep"
 
 #.   <em>nmb_label_subcribe_other</em>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_subcribe_other"
-msgstr ""
+msgstr "Aboneaza-te cu alta adresa de email"
 
 #.   <td>nmb_label_subject</td>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_subject"
-msgstr ""
+msgstr "Subiect: "
 
 #.   <input value="nmb_label_subscribe" class="standalone" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_subscribe"
-msgstr ""
+msgstr "Aboneaza-te"
 
 #.   <div class="label">nmb_label_title</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_title"
-msgstr ""
+msgstr "Titlu"
 
 #.   <input value="nmb_label_unsubscribe" class="destructive" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_unsubscribe"
-msgstr ""
+msgstr "Dezaboneaza-te"
 
 #.   <a href="../view">nmb_label_up</a>
 #.   <a href="../cpsmailboxerfolder_view">nmb_label_up</a>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_up"
-msgstr ""
+msgstr "Directorul parinte"
 
 #.   <input value="nmb_label_validate" class="standalone" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_validate"
-msgstr ""
+msgstr "Salveaza modificarile"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'with attachments',
 #.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_with attach"
-msgstr ""
+msgstr "cu atasamente"
 
 #.   <div>nmb_nb_messages_in_queue
 #.                                ${queue_len (tal replace="queue_len")}
 #.         </div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 msgid "nmb_nb_messages_in_queue ${queue_len}"
-msgstr ""
+msgstr "Numar de mesaje in asteptare in coada de trimitere : ${queue_len}"
 
 #.   <h1>Pending messages</h1>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "nmb_title_message_moderation"
-msgstr ""
+msgstr "Mesaje pentru a fi moderate"
 
 msgid "w__mailAttachment"
-msgstr ""
+msgstr "Atasament"
 
 msgid "MailBoxerModerator"
-msgstr ""
+msgstr "Moderatorul listei"
 
 msgid "CPSMailArchive_title"
-msgstr ""
+msgstr "Arhiva de email-uri"
 
 msgid "CPSMailArchive_description"
-msgstr ""
+msgstr "Arhiva de email-uri pentru lista"
 
 msgid "portal_type_CPSMailBoxer_title"
-msgstr ""
+msgstr "Lista de distributie"
 
 msgid "portal_type_CPSMailBoxer_description"
-msgstr ""
+msgstr "Unealta pentru a administra lista de distributie (arhivare, abonament, trimitere)"
 
 msgid "portal_type_CPSMailBoxerFolder_title"
-msgstr ""
+msgstr "Directorul arhivei pentru lista de distributie"
 
 msgid "portal_type_CPSMailBoxerFolder_description"
-msgstr ""
+msgstr "Director care serveste in stocarea arhivelor de email-uri legate de listele de distributie"
 
 msgid "psm_subscribed"
-msgstr ""
+msgstr "Esti acum abonat la aceasta lista"
 
 msgid "psm_unsubscribed"
-msgstr ""
+msgstr "Nu esti abonat la aceasta lista"
 
 msgid "psm_subscribing_error"
 msgstr ""
+"O eroare a intervenit in incercarea de abonare/dezabonare. "
+"Aceasta eroare "
+"se poate datora unei probleme din adresa de email."
 
 msgid "psm_removed_members"
-msgstr ""
+msgstr "Abonat(i) stersi din lista"
 
 msgid "label_mail_from"
-msgstr ""
+msgstr "De la : "
 
 msgid "label_mail_subject"
-msgstr ""
+msgstr "Subiect :"
 
 msgid "label_mail_date"
-msgstr ""
+msgstr "Data :"
 
 msgid "label_mail_body"
-msgstr ""
+msgstr "Mesaj :"
 
 msgid "label_mail_attachment"
-msgstr ""
+msgstr "Atasament"
 
 msgid "Create Newsletter"
-msgstr ""
+msgstr "Trimite o scrisoare de informare"
 
 msgid "action_moderate_msgs"
-msgstr ""
+msgstr "Moderare"
 
 msgid "nmb_mail_moderate_1"
-msgstr ""
+msgstr "Mesaj de moderat"
 
 msgid "nmb_mail_moderate_2"
-msgstr ""
+msgstr "Un nou mesaj este in asteptare pentru a fi moderat :"
 
 msgid "nmb_mail_reject_1"
-msgstr ""
+msgstr "Mesajul tau"
 
 msgid "nmb_mail_reject_2"
-msgstr ""
+msgstr "trimis pe "
 
 msgid "nmb_mail_reject_3"
-msgstr ""
+msgstr "a fost refuzat"
 
 msgid "nmb_mail_reject_4"
-msgstr ""
+msgstr "Mesaj refuzat:"
 
 msgid "nmb_mail_reject_5"
-msgstr ""
+msgstr "din cauza ca:"
 
 msgid "nmb_mail_reject_6"
-msgstr ""
+msgstr "Continutul mesajului:"
 
 msgid "nmb_confirm_reject"
-msgstr ""
+msgstr "Mesajul(le) selectat(e) va(vor) fi distrus(e). Mergi mai departe ? "
 
 msgid "nmb_confirm_purge"
 msgstr ""
+"Mesajele prezente inca in lista nu vor fi trimise "
+"chiar daca "
+"voi fi moderate. Mergi mai departe?"
 
 msgid "nmb_psm_queue_purged"
-msgstr ""
+msgstr "Coada de mesaje a fost eliberata"
 
 msgid "nmb_psm_messages_published"
-msgstr ""
+msgstr "Mesajul(ele) a(u) fost publicat(e)."
 
 msgid "nmb_psm_messages_rejected"
-msgstr ""
+msgstr "Mesajul(ele) a(u) fost respins(e)"
 
 msgid "blank"
-msgstr ""
+msgstr " "
+
