@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-07-21 17:41default\n"
+"POT-Creation-Date: 2004-07-22 09:26default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -392,6 +392,12 @@ msgstr ""
 msgid "action_moderate_msgs"
 msgstr ""
 
+msgid "nmb_mail_moderate_1"
+msgstr ""
+
+msgid "nmb_mail_moderate_2"
+msgstr ""
+
 msgid "nmb_mail_reject_1"
 msgstr ""
 
@@ -413,10 +419,10 @@ msgstr ""
 msgid "nmb_confirm_reject"
 msgstr ""
 
-msgid "nmb_messages_published"
+msgid "nmb_psm_messages_published"
 msgstr ""
 
-msgid "mnb_messages_rejected"
+msgid "nmb_psm_messages_rejected"
 msgstr ""
 
 msgid "blank"

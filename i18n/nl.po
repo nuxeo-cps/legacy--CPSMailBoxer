@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-21 17:41default\n"
+"POT-Creation-Date: 2004-07-22 09:26default\n"
 "PO-Revision-Date: 2003-12-19 16:51+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -403,6 +403,14 @@ msgid "action_moderate_msgs"
 msgstr ""
 
 #, fuzzy
+msgid "nmb_mail_moderate_1"
+msgstr "Moderator"
+
+#, fuzzy
+msgid "nmb_mail_moderate_2"
+msgstr "Moderator"
+
+#, fuzzy
 msgid "nmb_mail_reject_1"
 msgstr "Subject:"
 
@@ -430,11 +438,11 @@ msgstr "Subject:"
 msgid "nmb_confirm_reject"
 msgstr "Subject:"
 
-msgid "nmb_messages_published"
+msgid "nmb_psm_messages_published"
 msgstr ""
 
 #, fuzzy
-msgid "mnb_messages_rejected"
+msgid "nmb_psm_messages_rejected"
 msgstr "Subject:"
 
 msgid "blank"
