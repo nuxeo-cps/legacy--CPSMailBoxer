@@ -7,15 +7,9 @@ import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-from pprint import pprint
 import unittest
-from DateTime import DateTime
 from Testing import ZopeTestCase
-import CPSMailBoxerTestCase
-import cgi, smtplib, rfc822, multifile, mimetools, mimify
-
-from CPSMailBoxerTestCase import CPSMailBoxerTestCase as CPSMailBoxerTestCase
-from Products.CPSSchemas.Widget import widgetname
+from CPSMailBoxerTestCase import CPSMailBoxerTestCase
 
 class DummyResponse:
     def __init__(self):
