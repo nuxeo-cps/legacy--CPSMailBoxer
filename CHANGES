@@ -19,4 +19,4 @@ New internal features:
 - renamed everything from NuxMailBoxer to CPSMailBoxer
 - widgets are now encapsulated in boxes
 - changed nmb_mapper script for something more reliable and faster
-
+- XHTMLized
