@@ -47,7 +47,7 @@
 </metal:block>
 
 
-<metal:block define-macro="basebox_search">
+<metal:block define-macro="basebox_mb_search">
   <table tal:condition="options/recordsList|nothing">
   <tr tal:define="records options/recordList" tal:repeat="record records">
     <tal:block define="mail record/getObject">
