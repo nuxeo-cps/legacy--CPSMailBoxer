@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-07-22 09:26default\n"
+"POT-Creation-Date: 2004-07-22 11:34default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -83,6 +83,11 @@ msgstr ""
 #.   <h2>nmb_heading_newsletter_create</h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_heading_newsletter_create"
+msgstr ""
+
+#.   <div condition="not:proxy" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_label_already_moderated"
 msgstr ""
 
 #.   <em>

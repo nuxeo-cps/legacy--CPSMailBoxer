@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-22 09:26default\n"
+"POT-Creation-Date: 2004-07-22 11:34default\n"
 "PO-Revision-Date: 2004-05-10 15:47+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -97,6 +97,13 @@ msgstr "Amministrazione utenti iscritti alla lista di diffusione \"${title}\""
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_heading_newsletter_create"
 msgstr "Creazione di una lettera di informazione"
+
+#    <div class="label">nmb_label_modetared</div>
+#.   <div condition="not:proxy" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#, fuzzy
+msgid "nmb_label_already_moderated"
+msgstr "Moderata"
 
 #    <em>
 #              nmb_label_already_subscribed ${mail_addr (tal replace="email")}
