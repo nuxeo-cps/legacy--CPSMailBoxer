@@ -22,6 +22,18 @@ msgstr ""
 msgid "CPSMailArchive_description"
 msgstr ""
 
+msgid "portal_type_CPSMailBoxer_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_description"
+msgstr ""
+
 msgid "psm_subscribed"
 msgstr ""
 

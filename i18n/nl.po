@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-03-10 08:07default\n"
+"POT-Creation-Date: 2004-03-10 16:52default\n"
 "PO-Revision-Date: 2003-12-19 16:51+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -330,6 +330,18 @@ msgid "CPSMailArchive_title"
 msgstr ""
 
 msgid "CPSMailArchive_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_description"
 msgstr ""
 
 msgid "psm_subscribed"

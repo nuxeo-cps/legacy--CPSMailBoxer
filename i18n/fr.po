@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2004-03-10 08:07default\n"
-"PO-Revision-Date: 2004-02-27 16:59+0100\n"
+"POT-Creation-Date: 2004-03-10 16:52default\n"
+"PO-Revision-Date: 2004-03-10 17:02+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,7 +222,7 @@ msgstr "Cette liste ne possède pas d'archive"
 msgid "nmb_label_no_member"
 msgstr "Pas de membre"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'not archived',
 #.                                                      'selected',nothing)" value="not archived">nmb_label_not_archived</option>
@@ -242,7 +242,7 @@ msgstr "nov"
 msgid "nmb_label_oct"
 msgstr "oct"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'plain text',
 #.                                                      'selected',nothing)" value="plain text">nmb_label_plain_text</option>
@@ -317,7 +317,7 @@ msgstr "Dossier parent"
 msgid "nmb_label_validate"
 msgstr "Enregistrer"
 
-#.   <option attributes="selected 
+#.   <option attributes="selected
 #.                                               python:
 #.                                                 test(here.archived == 'with attachments',
 #.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
@@ -330,6 +330,18 @@ msgstr "Archive courriel"
 
 msgid "CPSMailArchive_description"
 msgstr "Archive de courriel pour liste de diffusion"
+
+msgid "portal_type_CPSMailBoxer_title"
+msgstr "Liste de diffusion"
+
+msgid "portal_type_CPSMailBoxer_description"
+msgstr "Outil de gestion de listes de diffusion (abonnement, archivage, envoi)"
+
+msgid "portal_type_CPSMailBoxerFolder_title"
+msgstr "Repertoire d'archive pour liste de diffusion"
+
+msgid "portal_type_CPSMailBoxerFolder_description"
+msgstr "Répertoire servant à stocker les archives de courriels liés aux listes de diffusion"
 
 msgid "psm_subscribed"
 msgstr "Vous êtes maintenant abonné à cette liste"
@@ -404,3 +416,4 @@ msgstr " "
 
 #~ msgid "mailBody_widget_label"
 #~ msgstr "Corps du message"
+

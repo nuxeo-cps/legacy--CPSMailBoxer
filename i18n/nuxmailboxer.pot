@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-03-10 08:07default\n"
+"POT-Creation-Date: 2004-03-10 16:52default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -329,6 +329,18 @@ msgid "CPSMailArchive_title"
 msgstr ""
 
 msgid "CPSMailArchive_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxer_description"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_title"
+msgstr ""
+
+msgid "portal_type_CPSMailBoxerFolder_description"
 msgstr ""
 
 msgid "psm_subscribed"
