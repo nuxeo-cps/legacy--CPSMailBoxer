@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-04-07 13:03default\n"
+"POT-Creation-Date: 2004-04-08 08:41default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -317,6 +317,9 @@ msgstr ""
 #.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_with attach"
+msgstr ""
+
+msgid "w__mailAttachment"
 msgstr ""
 
 msgid "CPSMailArchive_title"

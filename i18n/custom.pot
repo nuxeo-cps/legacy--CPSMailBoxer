@@ -16,6 +16,9 @@ msgstr ""
 "Preferred-encodings: utf-8 latin1\n"
 "Domain: default\n"
 
+msgid "w__mailAttachment"
+msgstr ""
+
 msgid "CPSMailArchive_title"
 msgstr ""
 
