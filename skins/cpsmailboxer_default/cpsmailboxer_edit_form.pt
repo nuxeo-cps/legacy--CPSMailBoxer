@@ -16,9 +16,6 @@
       <h2 i18n:translate="">nmb_heading_list_edit &nbsp;<tal:block replace="here/title_or_id" i18n:name="title" />&nbsp;</h2>
     </metal:block>
     <metal:block metal:fill-slot="main">
-
-<p tal:content="nocall:here"></p>
-
       <div class="group">
         <form method="post" enctype="multipart/form-data" action="."
               tal:attributes="action string:${here_url}/${action}">
