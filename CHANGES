@@ -3,8 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Using a class for CPSMailArchive so that the emitter address can be used as
-  the Creator of the document
+-
 Bug fixes:
 ~~~~~~~~~~
 -

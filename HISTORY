@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.2.7 [R1 build 2004/06/03-15:36 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- Using a class for CPSMailArchive so that the emitter address can be used as
+  the Creator of the document
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSMailBoxer V0.2.6 [R1 build 2004/05/28-07:39 by madarche]
 
 Requires:
