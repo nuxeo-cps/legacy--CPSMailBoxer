@@ -19,6 +19,9 @@ msgstr ""
 msgid "w__mailAttachment"
 msgstr ""
 
+msgid "MailBoxerModerator"
+msgstr ""
+
 msgid "CPSMailArchive_title"
 msgstr ""
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-21 16:57default\n"
+"POT-Creation-Date: 2004-07-21 17:41default\n"
 "PO-Revision-Date: 2003-12-19 16:51+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -340,6 +340,9 @@ msgstr "Moderator"
 #, fuzzy
 msgid "w__mailAttachment"
 msgstr "Attachments"
+
+msgid "MailBoxerModerator"
+msgstr ""
 
 msgid "CPSMailArchive_title"
 msgstr ""

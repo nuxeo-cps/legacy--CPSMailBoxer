@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-21 16:57default\n"
+"POT-Creation-Date: 2004-07-21 17:41default\n"
 "PO-Revision-Date: 2004-05-10 15:47+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -407,6 +407,9 @@ msgstr "Moderatore (email)"
 
 msgid "w__mailAttachment"
 msgstr "Allegato"
+
+msgid "MailBoxerModerator"
+msgstr ""
 
 msgid "CPSMailArchive_title"
 msgstr "Archivio posta"

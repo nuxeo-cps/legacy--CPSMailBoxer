@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-21 16:57default\n"
-"PO-Revision-Date: 2004-07-21 16:58+0200\n"
+"POT-Creation-Date: 2004-07-21 17:41default\n"
+"PO-Revision-Date: 2004-07-21 17:42+0200\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -337,6 +337,9 @@ msgstr "Pending messages"
 
 msgid "w__mailAttachment"
 msgstr "Attachment"
+
+msgid "MailBoxerModerator"
+msgstr "List moderator"
 
 msgid "CPSMailArchive_title"
 msgstr "Mail archive"
