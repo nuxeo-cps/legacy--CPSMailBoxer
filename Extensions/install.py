@@ -16,28 +16,20 @@
 
 # Basic Installer for Cpsmailboxer
 
-#IMPORTANT: this installer only registers the CPSMailBoxer portal type
-#and creates the appropriate skin entries. It does not associate any
-#workflow nor does it change workspace/section allowed content types
-#to accept MailBoxer objects, as this would be making the assumption
-#that we are relying on the std workspace/section hierarchy, which
-#is not necessarily the case.
-#This should thus be done in your own installer
-
-import os, sys
-
-from App.Extensions import getPath
-from re import match
-from zLOG import LOG, INFO, DEBUG
-from Products.CMFCore.CMFCorePermissions import View, ModifyPortalContent
-from Products.ExternalMethod.ExternalMethod import ExternalMethod
+# IMPORTANT: this installer only registers the CPSMailBoxer portal type
+# and creates the appropriate skin entries. It does not associate any
+# workflow nor does it change workspace/section allowed content types
+# to accept MailBoxer objects, as this would be making the assumption
+# that we are relying on the std workspace/section hierarchy, which
+# is not necessarily the case.
+# This should thus be done in your own installer
 
 from Products.CPSDefault.Installer import BaseInstaller
 
 class CPSMailBoxerInstaller(BaseInstaller):
 
-    SKINS = (('cpsmailboxer_default', 'Products/CPSMailBoxer/skins/cpsmailboxer_default'),
-             )
+    SKINS = (('cpsmailboxer_default', 
+              'Products/CPSMailBoxer/skins/cpsmailboxer_default'),)
 
     def install(self):
         self.log("Starting CPSMailBoxer install")
@@ -65,25 +57,25 @@ class CPSMailBoxerInstaller(BaseInstaller):
         self.typestool.manage_addTypeInformation(
             id=nmb,
             add_meta_type='Factory-based Type Information',
-            typeinfo_name='CPSMailBoxer: CPSMailBoxer',
-            )
-        self.typestool[nmb].manage_changeProperties(title='portal_type_CPSMailBoxer_title',
-                                            description='portal_type_CPSMailBoxer_description',
-                                            content_meta_type=nmb,
-                                            filter_content_types=1)
+            typeinfo_name='CPSMailBoxer: CPSMailBoxer')
+        self.typestool[nmb].manage_changeProperties(
+            title='portal_type_CPSMailBoxer_title',
+            description='portal_type_CPSMailBoxer_description',
+            content_meta_type=nmb,
+            filter_content_types=1)
         self.typestool.manage_addTypeInformation(
             id=nmbf,
             add_meta_type='Factory-based Type Information',
-            typeinfo_name='CPSMailBoxer: CPSMailBoxerFolder',
-            )
-        self.typestool[nmbf].manage_changeProperties(title='portal_type_CPSMailBoxerFolder_title',
-                                            description='portal_type_CPSMailBoxerFolder_description',
-                                            content_meta_type=nmbf,
-                                            filter_content_types=1)
+            typeinfo_name='CPSMailBoxer: CPSMailBoxerFolder')
+        self.typestool[nmbf].manage_changeProperties(
+            title='portal_type_CPSMailBoxerFolder_title',
+            description='portal_type_CPSMailBoxerFolder_description',
+            content_meta_type=nmbf,
+            filter_content_types=1)
         
         self.log("Add our portal type id to allowed portal type of workspaces")
 
-        #XXX: the following instructions have actually no effect as
+        # XXX: the following instructions have actually no effect as
         #     CPSDocuemnt's installer is called after CPSMailboxer's
         #     meaning that this setting gets overridden.
         # Allowing CPSmailBoxer anywhere should b done in the customer's
@@ -91,7 +83,8 @@ class CPSMailBoxerInstaller(BaseInstaller):
         workspace_pt = self.typestool['Workspace']
         allowed_types_name = workspace_pt.allowed_content_types
         list(allowed_types_name).append(nmb)
-        self.typestool['Workspace'].manage_changeProperties(allowed_content_types=allowed_types_name)
+        self.typestool['Workspace'].manage_changeProperties(
+            allowed_content_types=allowed_types_name)
 
         
     def setupNMBMapperTool(self):
@@ -99,8 +92,10 @@ class CPSMailBoxerInstaller(BaseInstaller):
         if self.portalHas('portal_mailboxermapper'):
             self.logOK()
         else:
-            self.log(" Creating CPSMailBoxerMapper Tool (portal_mailboxermapper)")
-            self.portal.manage_addProduct['CPSMailBoxer'].manage_addTool('MailBoxerMapper Tool')
+            self.log(" Creating CPSMailBoxerMapper Tool "
+                     "(portal_mailboxermapper)")
+            self.portal.manage_addProduct['CPSMailBoxer'].manage_addTool(
+                'MailBoxerMapper Tool')
         self.log("Verifying Event service tool")
         objs = self.portal.portal_eventservice.objectValues()
         subscribers = []
@@ -121,16 +116,14 @@ class CPSMailBoxerInstaller(BaseInstaller):
         """
         Configure the workspaces placefull workflow
         """
-        self.log("Installing Workflow chain in placefull workflow configuration of root of Workspaces")
+        self.log("Installing Workflow chain in placefull workflow "
+                 "configuration of root of Workspaces")
         wf_config = getattr(self.portal.workspaces, 
                             '.cps_workflow_configuration')
         wf_config.manage_addChain(portal_type=self.nmb, 
                                   chain='workspace_folder_wf')
 
         
-
-###############################################
-
 def install(self):
     installer = CPSMailBoxerInstaller(self)
     installer.install()
