@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.2.1 [R1 build 2004/03/31-15:36 by epietrig]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- mail attachments were no longer processed
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSMailBoxer V0.2.0 [R1 build 2004/03/31-14:14 by epietrig]
 
 ZODB Requires:
