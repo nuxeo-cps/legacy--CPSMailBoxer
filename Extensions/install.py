@@ -133,6 +133,13 @@ def install(self):
     ##########################################
     # WORKFLOW DEFINITION
     ##########################################
+
+    # this is done to propagate malboxer permissions into portal_repository
+    wfdef = {'wfid': 'mailboxer_permissions_dummy_wf',
+             'permissions': (MailBoxerModerate,),
+             }
+    installer.verifyWorkflow(wfdef, {}, {}, {}, {})
+    
     # workflow for MailBoxer mail archives
     wfdef = {'wfid': 'mail_archive_wf',
              'permissions': (View, ModifyPortalContent),
