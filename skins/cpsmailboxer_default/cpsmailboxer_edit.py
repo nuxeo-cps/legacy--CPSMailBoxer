@@ -32,10 +32,10 @@ if doc.id.startswith('my_cpsmailboxer'):
     # if mailboxer was created without provinding a title, something
     # like my_cpsmailboxer5555 was generated ; in that case, compute id
     # from title when it is provided
-    title_for_id = kw.get('title', 'nmb')
-    new_id = context.computeId(compute_from=title_for_id)
+    title_or_id = kw.get('title', 'nmb')
+    new_id = context.aq_inner.aq_parent.computeId(compute_from=title_or_id)
     if new_id != doc.id:
-        context.aq_inner.aq_parent.manage_renameObjects([doc.id], [new_id], REQUEST)
+        doc.aq_inner.aq_parent.manage_renameObjects([doc.id], [new_id], REQUEST)
 
 # Redirection
 if REQUEST:
