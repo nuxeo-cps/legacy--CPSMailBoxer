@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-03-10 16:52default\n"
+"POT-Creation-Date: 2004-03-22 12:55default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -26,15 +26,14 @@ msgstr ""
 msgid "${mail_addr} nmb_label_not_yet_subscribed"
 msgstr ""
 
-#.   <p>
-#.               ${nb_members (tal replace="python:len(members)")} nmb_label_nb_members
-#.             </p>
+#.   <div>
+#.             ${nb_members (tal replace="python:len(members)")} nmb_label_nb_members
+#.           </div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "${nb_members} nmb_label_nb_members"
 msgstr ""
 
 #.   <h2>nmb_heading_archives</h2>
-#.   <h1>nmb_heading_archives</h1>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_heading_archives"
@@ -52,8 +51,6 @@ msgstr ""
 msgid "nmb_heading_mailing_list ${title}"
 msgstr ""
 
-#.   <h2>nmb_heading_mailing_list &nbsp;${title (tal replace="here/title_or_id")}&nbsp;
-#.         </h2>
 #.   <h2>nmb_heading_mailing_list &nbsp;${title (tal replace="here/title_or_id")}&nbsp;</h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_view.pt
@@ -61,8 +58,8 @@ msgid "nmb_heading_mailing_list &nbsp;${title}&nbsp;"
 msgstr ""
 
 #.   <h2>
-#.           nmb_heading_member_edit ${title (tal replace="here/title_or_id")}
-#.         </h2>
+#.         nmb_heading_member_edit ${title (tal replace="here/title_or_id")}
+#.       </h2>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_heading_member_edit ${title}"
 msgstr ""
@@ -85,7 +82,7 @@ msgstr ""
 msgid "nmb_label_apr"
 msgstr ""
 
-#.   <p>nmb_label_archive_of ${archive (tal replace="here/id")}</p>
+#.   <div>nmb_label_archive_of ${archive (tal replace="here/id")}</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_archive_of ${archive}"
 msgstr ""
@@ -95,7 +92,7 @@ msgstr ""
 msgid "nmb_label_archived"
 msgstr ""
 
-#.   <b>nmb_label_attachments</b>
+#.   <strong>nmb_label_attachments</strong>
 #: from ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_attachments"
 msgstr ""
@@ -123,8 +120,7 @@ msgstr ""
 msgid "nmb_label_dec"
 msgstr ""
 
-#.   <input value="nmb_label_delete" class="destructive" type="submit">
-#.             </input>
+#.   <input value="nmb_label_delete" class="destructive" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_delete"
 msgstr ""
@@ -196,7 +192,7 @@ msgstr ""
 msgid "nmb_label_may"
 msgstr ""
 
-#.   <span>nmb_label_moderator</span>
+#.   <span class="label required">nmb_label_moderator</span>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_moderator"
 msgstr ""
@@ -211,13 +207,13 @@ msgstr ""
 msgid "nmb_label_mtahosts"
 msgstr ""
 
-#.   <p style="border-top:solid;border-width:1px">nmb_label_no_archive</p>
+#.   <div class="mailboxerNoArchive">nmb_label_no_archive</div>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
 msgid "nmb_label_no_archive"
 msgstr ""
 
-#.   <p>nmb_label_no_member</p>
+#.   <div>nmb_label_no_member</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_no_member"
 msgstr ""
@@ -250,16 +246,14 @@ msgstr ""
 msgid "nmb_label_plain_text"
 msgstr ""
 
-#.   <input value="nmb_label_search" name="search" type="submit">
-#.                </input>
-#.   <input value="nmb_label_search" class="standalone" name="search" type="submit">
-#.              </input>
+#.   <input value="nmb_label_search" name="search" type="submit" />
+#.   <input value="nmb_label_search" class="standalone" name="search" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_search_result.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxerfolder_view.pt
 msgid "nmb_label_search"
 msgstr ""
 
-#.   <p>nmb_label_select_members_to_delete</p>
+#.   <div>nmb_label_select_members_to_delete</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_members_edit_form.pt
 msgid "nmb_label_select_members_to_delete"
 msgstr ""
@@ -286,10 +280,7 @@ msgstr ""
 msgid "nmb_label_subject"
 msgstr ""
 
-#.   <input value="nmb_label_subscribe" class="standalone" type="submit">
-#.         </input>
-#.   <input value="nmb_label_subscribe" class="standalone" type="submit">
-#.       </input>
+#.   <input value="nmb_label_subscribe" class="standalone" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_subscribe"
 msgstr ""
@@ -299,8 +290,7 @@ msgstr ""
 msgid "nmb_label_title"
 msgstr ""
 
-#.   <input value="nmb_label_unsubscribe" class="destructive" type="submit">
-#.         </input>
+#.   <input value="nmb_label_unsubscribe" class="destructive" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_unsubscribe"
 msgstr ""
@@ -311,8 +301,7 @@ msgstr ""
 msgid "nmb_label_up"
 msgstr ""
 
-#.   <input value="nmb_label_validate" class="standalone" type="submit">
-#.                 </input>
+#.   <input value="nmb_label_validate" class="standalone" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_validate"
 msgstr ""
