@@ -76,7 +76,7 @@ factory_type_information = (
                  {'id': 'edit',
                   'name': 'action_modify_prop',
                   'action': 'cpsmailboxer_edit_form',
-                  'permissions': (MailBoxerModerate,)},
+                  'permissions': (ModifyPortalContent,)},
                  {'id': 'edit_members',
                   'name': 'action_manage_members',
                   'action': 'cpsmailboxer_members_edit_form',
@@ -88,7 +88,7 @@ factory_type_information = (
                  {'id': 'creatnletter',
                   'name': 'Create Newsletter',
                   'action': 'cpsmailboxer_newsletter_create_form',
-                  'permissions': (ModifyPortalContent,)},
+                  'permissions': (MailBoxerModerate,)},
                  {'id': 'create',
                   'name': 'Create',
                   'action': 'cpsmailboxer_create_form',
@@ -130,6 +130,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         MailBoxer.__init__(self, id, title)
         self._setId(id)
 
+    security.declareProtected(ModifyPortalContent, 'edit')
     def edit(self, **kw):
         """
         Modify object properties
