@@ -346,13 +346,13 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         id = time.millis()
         while hasattr(mailFolder, str(id)):
             id = id + 1
-
+            
         id = str(id)
-
-        mailObject = self.addMailBoxerMail(mailFolder, id, title, sender,
-                                           subject, time, Mail)
-
-        return mailObject
+        
+        mailObjectProxy = self.addMailBoxerMail(mailFolder, id, title, sender,
+                                                subject, time, Mail)
+        
+        return mailObjectProxy
 
     def addMailBoxerMail(self, mailFolder, id, title, sender, subject, time, Mail):
         """
@@ -389,7 +389,8 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
                                  mailDate=time, mailBody=body,
                                  attachments=files)
 
-        mailObject = getattr(mailFolder, id).getContent()
+        mailObjectProxy = getattr(mailFolder, id)
+        mailObject = mailObjectProxy.getContent()
 
         # insert header if a regular expression is set and matches
         headers_regexp = self.getValueFor('headers')
@@ -402,24 +403,25 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 
             mailObject.manage_addProperty('mailHeader', headers, 'lines')
 
-        return mailObject
+        return mailObjectProxy
 
     def mail_handler(self, mb, REQUEST, mail='', body=''):
-        mail_archive = self.archiveMail(REQUEST)
+        mail_archive_proxy = self.archiveMail(REQUEST)
+        mail_archive = mail_archive_proxy.getContent()
         if self.moderation_mode:
             self.queueMail(REQUEST, mail_archive)
         else:
-            self.listMail(REQUEST, mail_archive)
+            self.listMail(REQUEST, mail_archive=mail_archive,
+                          proxy=mail_archive_proxy)
 
     def archiveMail(self, REQUEST):
         # store mail in the archive? get context for the mail...
         Mail = REQUEST['Mail']
-        mail_archive = None
-        if self.getValueFor('archived') <> self.archive_options[0]:
-            mail_archive = self.manage_addMail(Mail)
-        if mail_archive is None:
-            mail_archive = self
-        return mail_archive
+        mail_archive_proxy = None
+        mail_archive_proxy = self.manage_addMail(Mail)
+        if mail_archive_proxy is None:
+            mail_archive_proxy = self
+        return mail_archive_proxy
 
     security.declareProtected(MailBoxerModerate, 'resetQueue')
     def resetQueue(self):
@@ -440,15 +442,15 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         if self._queue.has_key(mail_url):
             del self._queue[mail_url]
 
-    def acceptMail(self, mail_archive):
+    def acceptMail(self, mail_archive, proxy):
         mail_url = getToolByName(self, 'portal_url').getRelativeUrl(mail_archive)
         if self._queue.has_key(mail_url):
             REQUEST = {}
             REQUEST['Mail'] = self._queue.get(mail_url)
             del self._queue[mail_url]
-            self.listMail(REQUEST, mail_archive=mail_archive)
+            self.listMail(REQUEST, mail_archive=mail_archive, proxy=proxy)
 
-    def listMail(self, REQUEST, mail_archive=None):
+    def listMail(self, REQUEST, mail_archive=None, proxy=None):
 
         # Send a mail to all members of the list. 
 
@@ -557,6 +559,14 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         
         except Exception, e:
             LOG('MailBoxer', ERROR, e)
+
+        if self.getValueFor('archived') == self.archive_options[0]:
+            # delete mail if archive is set to No archive
+            proxy_rpath = getToolByName(self, 'portal_url').getRelativeUrl(proxy)
+            month_folder_rpath = proxy_rpath[:proxy_rpath.rfind('/')]
+            month_folder_proxy = self.restrictedTraverse(month_folder_rpath)
+            month_folder_proxy.manage_delObjects([proxy.id])
+
 
     def notifyReject(self, proxy_msg, comment=''):
         """Notify sender that his email has been rejected by moderator"""
