@@ -3,4 +3,5 @@ TODO Dolce: $Id$
   level)
 - Provide a GUI for mail moderation (the current mechanism only relies on
   MailBoxer's facilities and is not well integrated with CPS)
+- CPSMailArchive workflow should only be defined in CPSMailBoxerFolder
 
