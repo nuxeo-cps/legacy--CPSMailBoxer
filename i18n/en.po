@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-03-22 12:55default\n"
+"POT-Creation-Date: 2004-03-25 17:04default\n"
 "PO-Revision-Date: 2004-03-22 12:56+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -87,7 +87,7 @@ msgstr "apr"
 msgid "nmb_label_archive_of ${archive}"
 msgstr "Archives of ${archive}"
 
-#.   <span>nmb_label_archived</span>
+#.   <div class="label">nmb_label_archived</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_archived"
 msgstr "Archived"
@@ -125,7 +125,7 @@ msgstr "dec"
 msgid "nmb_label_delete"
 msgstr "Delete"
 
-#.   <span>nmb_label_description</span>
+#.   <div class="label">nmb_label_description</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_description"
 msgstr "Description"
@@ -175,7 +175,7 @@ msgstr "jul"
 msgid "nmb_label_jun"
 msgstr "jun"
 
-#.   <span>nmb_label_mailto</span>
+#.   <div class="label required">nmb_label_mailto</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mailto"
 msgstr "List's email address"
@@ -192,17 +192,17 @@ msgstr "mar"
 msgid "nmb_label_may"
 msgstr "may"
 
-#.   <span class="label required">nmb_label_moderator</span>
+#.   <div class="label required">nmb_label_moderator</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_moderator"
 msgstr "Moderator (email)"
 
-#.   <span>nmb_label_modetared</span>
+#.   <div class="label">nmb_label_modetared</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_modetared"
 msgstr "Moderated"
 
-#.   <span>nmb_label_mtahosts</span>
+#.   <div class="label">nmb_label_mtahosts</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mtahosts"
 msgstr "Authorized servers"
@@ -218,7 +218,7 @@ msgstr "No archive available for this list"
 msgid "nmb_label_no_member"
 msgstr "No member"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'not archived',
 #.                                                      'selected',nothing)" value="not archived">nmb_label_not_archived</option>
@@ -238,7 +238,7 @@ msgstr "nov"
 msgid "nmb_label_oct"
 msgstr "oct"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'plain text',
 #.                                                      'selected',nothing)" value="plain text">nmb_label_plain_text</option>
@@ -285,7 +285,7 @@ msgstr "Subject:"
 msgid "nmb_label_subscribe"
 msgstr "Subscribe"
 
-#.   <span>nmb_label_title</span>
+#.   <div class="label">nmb_label_title</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_title"
 msgstr "Title"
@@ -306,7 +306,7 @@ msgstr "Parent Directory"
 msgid "nmb_label_validate"
 msgstr "Save Changes"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'with attachments',
 #.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
@@ -348,19 +348,24 @@ msgstr ""
 msgid "psm_removed_members"
 msgstr "Subscriber(s) removed"
 
-msgid "nmb_label_mail_from"
+#, fuzzy
+msgid "label_mail_from"
 msgstr "From :"
 
-msgid "nmb_label_mail_subject"
+#, fuzzy
+msgid "label_mail_subject"
 msgstr "Subject:"
 
-msgid "nmb_label_mail_date"
+#, fuzzy
+msgid "label_mail_date"
 msgstr "Date:"
 
-msgid "nmb_label_mail_body"
+#, fuzzy
+msgid "label_mail_body"
 msgstr "Message:"
 
-msgid "nmb_label_mail_attachment"
+#, fuzzy
+msgid "label_mail_attachment"
 msgstr "Attachment"
 
 msgid "Create Newsletter"
@@ -407,4 +412,3 @@ msgstr " "
 
 #~ msgid "mailBody_widget_label"
 #~ msgstr "Message body"
-

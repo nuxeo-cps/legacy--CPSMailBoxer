@@ -46,19 +46,19 @@ msgstr ""
 msgid "psm_removed_members"
 msgstr ""
 
-msgid "nmb_label_mail_from"
+msgid "label_mail_from"
 msgstr ""
 
-msgid "nmb_label_mail_subject"
+msgid "label_mail_subject"
 msgstr ""
 
-msgid "nmb_label_mail_date"
+msgid "label_mail_date"
 msgstr ""
 
-msgid "nmb_label_mail_body"
+msgid "label_mail_body"
 msgstr ""
 
-msgid "nmb_label_mail_attachment"
+msgid "label_mail_attachment"
 msgstr ""
 
 msgid "Create Newsletter"

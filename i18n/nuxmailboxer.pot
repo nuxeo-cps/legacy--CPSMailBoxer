@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: default\n"
-"POT-Creation-Date: 2004-03-22 12:55default\n"
+"POT-Creation-Date: 2004-03-25 17:04default\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Your Name <your@email>\n"
 "Language-Team: Name <email>\n"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "nmb_label_archive_of ${archive}"
 msgstr ""
 
-#.   <span>nmb_label_archived</span>
+#.   <div class="label">nmb_label_archived</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_archived"
 msgstr ""
@@ -125,7 +125,7 @@ msgstr ""
 msgid "nmb_label_delete"
 msgstr ""
 
-#.   <span>nmb_label_description</span>
+#.   <div class="label">nmb_label_description</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_description"
 msgstr ""
@@ -175,7 +175,7 @@ msgstr ""
 msgid "nmb_label_jun"
 msgstr ""
 
-#.   <span>nmb_label_mailto</span>
+#.   <div class="label required">nmb_label_mailto</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mailto"
 msgstr ""
@@ -192,17 +192,17 @@ msgstr ""
 msgid "nmb_label_may"
 msgstr ""
 
-#.   <span class="label required">nmb_label_moderator</span>
+#.   <div class="label required">nmb_label_moderator</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_moderator"
 msgstr ""
 
-#.   <span>nmb_label_modetared</span>
+#.   <div class="label">nmb_label_modetared</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_modetared"
 msgstr ""
 
-#.   <span>nmb_label_mtahosts</span>
+#.   <div class="label">nmb_label_mtahosts</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_mtahosts"
 msgstr ""
@@ -285,7 +285,7 @@ msgstr ""
 msgid "nmb_label_subscribe"
 msgstr ""
 
-#.   <span>nmb_label_title</span>
+#.   <div class="label">nmb_label_title</div>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "nmb_label_title"
 msgstr ""
@@ -344,19 +344,19 @@ msgstr ""
 msgid "psm_removed_members"
 msgstr ""
 
-msgid "nmb_label_mail_from"
+msgid "label_mail_from"
 msgstr ""
 
-msgid "nmb_label_mail_subject"
+msgid "label_mail_subject"
 msgstr ""
 
-msgid "nmb_label_mail_date"
+msgid "label_mail_date"
 msgstr ""
 
-msgid "nmb_label_mail_body"
+msgid "label_mail_body"
 msgstr ""
 
-msgid "nmb_label_mail_attachment"
+msgid "label_mail_attachment"
 msgstr ""
 
 msgid "Create Newsletter"
