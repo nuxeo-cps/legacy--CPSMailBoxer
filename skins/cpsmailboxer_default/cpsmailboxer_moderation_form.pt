@@ -34,12 +34,15 @@
       </form>
     </div>
 
-    <div tal:condition="zoomed_msg"
-         style="margin:0.5em">
-      <tal:block tal:define="proxy python:here.restrictedTraverse(zoomed_msg);
-                             doc python:proxy.getContent()"
-                 tal:replace="structure python:doc.render(proxy=proxy, layout_mode='view')"/>
-    </div>
-
+    <tal:block tal:condition="zoomed_msg">
+    <tal:block tal:define="proxy python:here.getZoomedMessage(zoomed_msg_path=zoomed_msg)">
+      <div tal:condition="proxy"
+           style="margin:0.5em">
+        <tal:block tal:define="doc python:proxy.getContent()"
+                   tal:replace="structure python:doc.render(proxy=proxy, layout_mode='view')"/>
+      </div>
+      <div tal:condition="not:proxy" i18n:translate="nmb_label_already_moderated"/>
+    </tal:block>
+    </tal:block>
   </metal:block>
 </metal:block>
