@@ -1,0 +1,45 @@
+<metal:block metal:use-macro="here/main_template/macros/master">
+  <metal:block fill-slot="main"
+               tal:define="zoomed_msg here/REQUEST/zoomed_msg|nothing">
+    <h1 i18n:translate="nmb_title_message_moderation">Pending messages</h1>
+
+    <div tal:define="pending_msgs python:here.getPendingMessages()"
+         tal:condition="pending_msgs"
+         style="border:1px solid black;padding:1em;margin:0.5em">
+      <form method="post" tal:attributes="action here/absolute_url" name="mod_form">
+      <div tal:repeat="brain pending_msgs">
+        <tal:block tal:define="proxy python:brain.getObject();
+                               proxy_path python:here.portal_url.getRelativeUrl(proxy)">
+          <input type="checkbox" name="msg_paths:list" style="border:none"
+                 tal:attributes="value string:${proxy_path}"/>
+          <a href="." tal:content="brain/Title"
+             tal:attributes="href python:here.absolute_url()+'/cpsmailboxer_moderation_form?zoomed_msg='+proxy_path;
+                             style python:test(zoomed_msg == proxy_path,'font-weight:bold','font-weight:normal')"></a>
+        </tal:block>
+      </div>
+      <hr />
+      <div><strong><em i18n:translate="transition_comments">Comments</em></strong></div>
+      <textarea name="comment" cols="60" rows="5" wrap="soft" style="width: 100%"
+                tal:content="nothing"></textarea>
+      <div style="margin:1em 0.5em 0.5em 0">
+        <input type="submit" name="cpsmailboxer_publish_msg:method"
+               class="context" value="cpsmailboxer_button_publish" 
+               i18n:attributes="value" />
+        <input type="submit" name="cpsmailboxer_reject_msg:method"
+               class="destructive" value="cpsmailboxer_button_reject"
+               tal:attributes="onclick python:'return window.confirm(\'%s\')' %
+                                 (cpsmcat('nmb_confirm_reject'), )"
+               i18n:attributes="value" />
+      </div>
+      </form>
+    </div>
+
+    <div tal:condition="zoomed_msg"
+         style="margin:0.5em">
+      <tal:block tal:define="proxy python:here.restrictedTraverse(zoomed_msg);
+                             doc python:proxy.getContent()"
+                 tal:replace="structure python:doc.render(proxy=proxy, layout_mode='view')"/>
+    </div>
+
+  </metal:block>
+</metal:block>
