@@ -18,9 +18,6 @@ mail = REQUEST.get('Mail',None)
 if mail:
     recipient = ntool.getMailRecipient(mail=mail)
     mb = ntool.getMailBoxer(list=recipient)
-    if mb is not None:
-        mb_path = context.portal_url.getPortalPath() + '/' +\
-                  context.portal_url.getRelativeUrl(mb)
-        if mb_path and REQUEST is not None:
-            REQUEST.RESPONSE.redirect("%s/manage_mailboxer" % (mb_path,))
+    return mb.manage_mailboxer(REQUEST)
+
 
