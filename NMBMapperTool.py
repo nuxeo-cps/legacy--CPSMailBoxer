@@ -24,14 +24,10 @@ from Globals import InitializeClass, Persistent, DTMLFile
 from AccessControl import ClassSecurityInfo
 
 from Products.CMFCore.PortalFolder import PortalFolder
-from Products.CMFCore.CMFCorePermissions import View, ManagePortal
+from Products.CMFCore.CMFCorePermissions import ManagePortal
 from Products.CMFCore.utils import UniqueObject, getToolByName
 
-from Acquisition import aq_parent, aq_inner
-
 from email import message_from_string
-
-from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2
 
 class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
     """Mapping between list email addresses and CPSMailBoxer
@@ -88,16 +84,16 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
             if v == nmb_path:
                 del self._addr2box[k]
                 self._addr2box = self._addr2box
-                #in theory, we could break after the first removal
-                #as only one mapping can exist at some point ; but
-                #this is true only in an ideal world where no error
-                #occurs ; going through the entire dict seems safer
-                #as there might be old entries hanging around as a
-                #result of an error happening during registry/unreg
+                # In theory, we could break after the first removal
+                # as only one mapping can exist at some point ; but
+                # this is true only in an ideal world where no error
+                # occurs ; going through the entire dict seems safer
+                # as there might be old entries hanging around as a
+                # result of an error happening during registry/unreg.
 
     security.declarePublic('unregisterMailBoxer')
     def unregisterMailBoxer(self, nmb):
-        """unregisters a mailboxer"""
+        """Unregister a mailboxer"""
 
         list_addr = getattr(nmb,'mailto',None)
         if self._addr2box.has_key(list_addr):
@@ -113,7 +109,7 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
 
     security.declareProtected(ManagePortal, 'manage_purge')
     def manage_purge(self, REQUEST=None):
-        """remove all mappings"""
+        """Remove all mappings"""
         if REQUEST is not None:
             submit = REQUEST.form.get('submit',None)
             if submit:
@@ -131,19 +127,17 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
 
     security.declareProtected(ManagePortal, 'getMappings')
     def getMappings(self):
-        """get all mappings"""
+        """Get all mappings"""
         
         return self._addr2box
             
     #
     # ZMI
     #
-
     manage_options = (({'label': 'Overview', 'action': 'manage_overview'},) +
                       ({'label': 'Mappings', 'action': 'manage_mappings'},) +
                       PortalFolder.manage_options)
 
-    # ZMI methods
     security.declareProtected(ManagePortal, 'manage_overview')
     manage_overview = DTMLFile('dtml/explainNMBMapperTool', globals())
     security.declareProtected(ManagePortal, 'manage_mappings')

@@ -17,8 +17,7 @@
 # $Id$
 
 import Globals
-import multifile, StringIO, difflib
-from random import randrange
+import multifile, StringIO, difflib, re, mimetools, rfc822
 from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
@@ -215,7 +214,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         # do we have a year folder already?
         if not hasattr(archive, year):
             archive.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=year, title=title, boxes=('mb_content',))
-        yearFolder=getattr(archive, year)
+        yearFolder = getattr(archive, year)
 
         return yearFolder
 
@@ -226,10 +225,9 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         # do we have a month folder already?
         if not hasattr(yearFolder, month):
             yearFolder.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=month, title=title, boxes=('mb_content',))
-        monthFolder=getattr(yearFolder, month)
+        monthFolder = getattr(yearFolder, month)
 
         return monthFolder
-
 
     security.declarePublic('manage_addMember')
     def manage_addMember(self, email):
@@ -244,7 +242,8 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         else:
             raise KeyError, 'email exists'
 
-    def sendtoList(self, context, ffrom=None, fto=None, subject='Newsletter', texte=''):
+    def sendtoList(self, context, ffrom=None, fto=None, subject='Newsletter', 
+                   texte=''):
         """
         Send a message to the members of the list
 
@@ -295,7 +294,6 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         if archive is None:
             return None
 
-
         (header, body) = self.splitMail(Mail)
 
         # if 'keepdate' is set, get date from mail,
@@ -306,13 +304,11 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         else:
             time = DateTime()
 
-
         # now let's create the date-path (yyyy/yyyy-mm) 
         year  = str(time.year())                  # yyyy
         month = "%s-%s" % (year, str(time.mm()))  # yyyy-mm
 
         yearFolder = self.manage_addYearFolder(archive, year, year) 
-
         monthFolder = self.manage_addMonthFolder(yearFolder, month, month)
 
         # let's create the mailObject
@@ -333,12 +329,12 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         # search a free id for the mailobject
         id = time.millis()
         while hasattr(mailFolder, str(id)):  
-             id = id + 1
+            id = id + 1
              
         id = str(id)
 
-
-        mailObject = self.addMailBoxerMail(mailFolder, id, title, sender, subject, time, Mail)
+        mailObject = self.addMailBoxerMail(mailFolder, id, title, sender, 
+                                           subject, time, Mail)
 
         return mailObject
     
@@ -475,13 +471,12 @@ def addCPSMailBoxer(dispatcher, id, title='', smtphost='127.0.0.1',
         mb.Catalog.manage_addIndex('mailSubject', 'TextIndex')
         mb.Catalog.manage_addIndex('mailBody', 'TextIndex')
     
-    
     # Add dtml-templates
     for (id, data) in MailBoxerTemplates.items():
         if id != 'index_html':     # It would override the default view
-           mb.addDTMLMethod(id, file=data)
+            mb.addDTMLMethod(id, file=data)
 
     if REQUEST is not None:
         url = dispatcher.DestinationURL()
         REQUEST.RESPONSE.redirect('%s/manage_main' % url)
-        
+

@@ -16,13 +16,8 @@
 #
 # $Id$
 
-import Globals
-from random import randrange
-from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-
-from OFS.PropertyManager import PropertyManager
 
 from Products.CMFCore.PortalFolder import PortalFolder
 from Products.CMFCore.utils import _getViewFor
@@ -77,8 +72,7 @@ class CPSMailBoxerFolder(CPSBaseFolder):
     ) + PortalFolder._properties
     
     title = ''
-    description =''
-    
+    description = ''
         
     def __init__(self, id, title='', description='', **kw):
         self._setId(id)
@@ -113,7 +107,8 @@ class CPSMailBoxerFolder(CPSBaseFolder):
         """
         Returns the default view
 
-        (should be default view associated with action View: CPSMailBoxerfolder_view)
+        (should be default view associated with action View:
+        CPSMailBoxerfolder_view)
         """
         view = _getViewFor(self)
         
@@ -154,4 +149,3 @@ def addCPSMailBoxerFolder(dispatcher, id, title='', description='', boxes=None):
             ob = box_container[box]
             ob.manage_changeProperties(**props)
 
-            
