@@ -44,7 +44,7 @@ from email.MIMEText import MIMEText
 from zLOG import LOG,DEBUG,ERROR
 
 import traceback
-from StringIO import StringIO
+import StringIO
 
 TRUE = "TRUE"
 FALSE = "FALSE"
