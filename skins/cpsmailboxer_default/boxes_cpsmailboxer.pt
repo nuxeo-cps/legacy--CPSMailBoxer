@@ -2,7 +2,7 @@
 
   <tal:block condition="python:len(here.archive.objectIds('CPSMailBoxerFolder'))">
   <br>
-  <h1 i18n:translate="">nmb_heading_archives</h1>
+  <h2 i18n:translate="">nmb_heading_archives</h2>
   <table border="0" align="center">
     <tr>
       <td>&nbsp;</td>
@@ -48,12 +48,6 @@
 
 
 <metal:block define-macro="basebox_search">
-  <form action="cpsmailboxer_search" method="POST"
-    tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
-    <input type="text" name="query">&nbsp;
-    <input type="submit" name="search" value="nmb_label_search" i18n:attributes="value">
-  </form>
-
   <table tal:condition="options/recordsList|nothing">
   <tr tal:define="records options/recordList" tal:repeat="record records">
     <tal:block define="mail record/getObject">
