@@ -6,7 +6,8 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- default to principal moderator email if no other official moderator could be found
+
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- perf enh
