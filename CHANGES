@@ -10,4 +10,4 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- mails are managed through a CPS workflow
