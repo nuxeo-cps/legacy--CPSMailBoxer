@@ -1,13 +1,13 @@
-<tal:block define="create options/create|nothing;
-                   edit not:create;
-                   action python:create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'"
-                   metal:use-macro="here/main_template/macros/master">
+<metal:block metal:use-macro="here/main_template/macros/master">
   <metal:block metal:fill-slot="header">
     <h2 i18n:translate="">
       nmb_heading_member_edit <tal:block i18n:name="title" replace="here/title_or_id" />
     </h2>
   </metal:block>
-  <metal:block metal:fill-slot="main">
+  <metal:block metal:fill-slot="main"
+               tal:define="create options/create|nothing;
+                           edit not:create;
+                           action python:create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
     <tal:block tal:define="boxer here/getcpsmailboxer;
                            members boxer/maillist">
       <tal:block tal:condition="members">
@@ -32,7 +32,7 @@
        </tal:block>
     </tal:block>
   </metal:block>
-</tal:block>
+</metal:block>
 
 
 
