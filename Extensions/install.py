@@ -90,7 +90,7 @@ class NMBInstaller(BaseInstaller):
         # product for now (after the call to CPSDocument's installer)
         workspace_pt = self.typestool['Workspace']
         allowed_types_name = workspace_pt.allowed_content_types
-        allowed_types_name.append(nmb)
+        list(allowed_types_name).append(nmb)
         self.typestool['Workspace'].manage_changeProperties(allowed_content_types=allowed_types_name)
 
         
