@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Cannot find the email address in some cases
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Email address search now based on CPSDirectory

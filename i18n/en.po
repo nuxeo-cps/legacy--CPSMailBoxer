@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-03-29 10:45default\n"
+"POT-Creation-Date: 2004-04-07 13:03default\n"
 "PO-Revision-Date: 2004-03-29 10:46+0200\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -223,7 +223,7 @@ msgstr "No archive available for this list"
 msgid "nmb_label_no_member"
 msgstr "No member"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'not archived',
 #.                                                      'selected',nothing)" value="not archived">nmb_label_not_archived</option>
@@ -243,7 +243,7 @@ msgstr "nov"
 msgid "nmb_label_oct"
 msgstr "oct"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'plain text',
 #.                                                      'selected',nothing)" value="plain text">nmb_label_plain_text</option>
@@ -311,7 +311,7 @@ msgstr "Parent Directory"
 msgid "nmb_label_validate"
 msgstr "Save Changes"
 
-#.   <option attributes="selected
+#.   <option attributes="selected 
 #.                                               python:
 #.                                                 test(here.archived == 'with attachments',
 #.                                                      'selected',nothing)" value="with attachments">nmb_label_with attach</option>
@@ -412,4 +412,3 @@ msgstr " "
 
 #~ msgid "mailBody_widget_label"
 #~ msgstr "Message body"
-
