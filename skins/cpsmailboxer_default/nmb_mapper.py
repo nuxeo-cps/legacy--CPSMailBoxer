@@ -16,8 +16,9 @@ ntool = context.portal_mailboxermapper
 mail = REQUEST.get('Mail',None)
 
 if mail:
-    recipient = ntool.getMailRecipient(mail=mail)
-    mb = ntool.getMailBoxer(list=recipient)
-    return mb.manage_mailboxer(REQUEST)
-
+    recipient_list = ntool.getMailRecipient(mail=mail)
+    for recipient in recipient_list:
+        mb = ntool.getMailBoxer(list=recipient)
+        if mb is not None:
+            return mb.manage_mailboxer(REQUEST)
 
