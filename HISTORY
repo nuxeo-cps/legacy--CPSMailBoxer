@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.2.4 [R1 build 2004/05/05-16:25 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Updating doc
+- Allow CPSMailBoxer in sections too (not only workspace)
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSMailBoxer V0.2.3 [R1 build 2004/04/29-11:10 by madarche]
 
 Requires:
