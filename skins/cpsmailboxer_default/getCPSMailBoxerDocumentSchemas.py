@@ -1,6 +1,7 @@
 ##parameters=
+# $Id$
 
-"""Return custom document types."""
+"""CPSMailArchive schema"""
 
 cps_mailarchive_schema = {
     'mailFrom': {
@@ -25,7 +26,7 @@ cps_mailarchive_schema = {
         'type': 'CPS String Field',
         'data': {
             'default_expr': 'string:',
-            'is_searchabletext': 0,
+            'is_searchabletext': 1,
             'acl_read_permissions': '',
             'acl_read_roles': '',
             'acl_read_expr': '',
@@ -61,7 +62,7 @@ cps_mailarchive_schema = {
         'type': 'CPS String List Field',
         'data': {
             'default_expr': 'python:[]',
-            'is_searchabletext': 0,
+            'is_searchabletext': 1,
             'acl_read_permissions': '',
             'acl_read_roles': '',
             'acl_read_expr': '',
