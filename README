@@ -6,8 +6,13 @@
   that is available on dev2 in
   /home/zopes/_packages/MailBoxer-3.1-nuxeo.tar.gz.
 
-- If ou do not use this version but the genuine 3.1 you will certainly get
+- If you do not use this version but the genuine 3.1 you will certainly get
   mime_decode_header errors.
+
+- This product needs that the smtp2zope.py script, provided by the MailBoxer
+  product, is runnable and in a location that can be reached by the mail
+  transfer agent (MTA). This is this smtp2zope.py script that receives email
+  messages and feeds Zope with them.
 
 
 ##################################################
