@@ -16,7 +16,7 @@ mailarchive_type = {
     'filter_content_types': 1,
     'allowed_content_types': [],
     'allow_discussion': 0,
-    'cps_is_searchable': 0,
+    'cps_is_searchable': 1,
     'cps_proxy_type': 'document',
     'cps_display_as_document_in_listing': 1,
     'schemas': ['common', 'metadata', 'cps_mailarchive', 'cps_mailarchive_flexible'],
