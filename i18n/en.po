@@ -479,10 +479,6 @@ msgstr " "
 #~ "Managing members of list &nbsp;<block replace=\"here/title_or_id\" /"
 #~ ">&nbsp;"
 
-#, fuzzy
-#~ msgid "nmb_heading_subcribe_other"
-#~ msgstr "Creation of news letter "
-
 #~ msgid "nmb_heading_list_create &nbsp;${title}&nbsp;"
 #~ msgstr "Creation of list \"&nbsp;${title}&nbsp;\""
 
