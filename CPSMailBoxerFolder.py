@@ -56,7 +56,8 @@ factory_type_information = (
                   'permissions': (ModifyPortalContent,)
                  },
                 ),
-     
+     'cps_proxy_type':None,
+     'cps_is_searchable':1,
      },
 )
 
