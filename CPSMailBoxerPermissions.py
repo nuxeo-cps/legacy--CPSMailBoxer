@@ -22,7 +22,7 @@
 
 """
 
-from Products.CMFCore.CMFCorePermissions import setDefaultRoles
+from Products.CMFCore.permissions import setDefaultRoles
 
 MailBoxerModerate = 'MailBoxer Moderate'
 setDefaultRoles(MailBoxerModerate, ('Manager', 'Owner'))

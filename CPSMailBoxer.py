@@ -30,7 +30,7 @@ from AccessControl.SecurityManagement import newSecurityManager
 from OFS.PropertyManager import PropertyManager
 
 from Products.CMFDefault.SkinnedFolder import SkinnedFolder
-from Products.CMFCore.CMFCorePermissions import View, ModifyPortalContent,\
+from Products.CMFCore.permissions import View, ModifyPortalContent,\
      ChangePermissions
 from Products.CMFCore.utils import getToolByName
 

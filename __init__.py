@@ -18,7 +18,7 @@
 
 from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore import utils
-from Products.CMFCore.CMFCorePermissions import AddPortalContent
+from Products.CMFCore.permissions import AddPortalContent
 
 from AccessControl import allow_module, allow_class
 

@@ -18,7 +18,7 @@
 
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from Products.CMFCore.CMFCorePermissions import View
+from Products.CMFCore.permissions import View
 from Products.CPSDocument.CPSDocument import CPSDocument
 
 class CPSMailArchive(CPSDocument):
