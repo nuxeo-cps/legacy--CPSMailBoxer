@@ -123,7 +123,7 @@ class NMBInstaller(BaseInstaller):
         """
         self.log("Installing Workflow chain in placefull workflow configuration of root of Workspaces")
         wf_config = getattr(self.portal.workspaces,'.cps_workflow_configuration')
-        wf_config.manage_addChain(portal_type = self.nmb, chain='workspace_content_wf')
+        wf_config.manage_addChain(portal_type = self.nmb, chain='workspace_folder_wf')
 
         
 
