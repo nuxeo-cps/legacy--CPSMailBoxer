@@ -1,10 +1,7 @@
-<html xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      tal:define="showthirdcol nothing;">
-  <body metal:use-macro="here/main_template/macros/master">
-    <div metal:fill-slot="main">	  
-      <div class="Desktop" 
-        tal:define="message request/message|nothing; 
+<tal:block tal:define="showthirdcol nothing;"
+           metal:use-macro="here/main_template/macros/master">
+  <metal:block fill-slot="main">	  
+    <div tal:define="message request/message|nothing; 
                     portal_url here/portal_url/absolute_url;
                     year string:2003;
                     month string:10;
@@ -12,105 +9,100 @@
       <h2 i18n:translate="">
         nmb_heading_mailing_list <tal:block replace="mycpsmailboxer/title_or_id" i18n:name="title" />
       </h2>
-      <p i18n:translate="">nmb_label_archive_of <tal:block i18n:name="archive" replace="here/id"/></p>
-     <table>
-       <tr>
-         <td>
-           <form action="cpsmailboxer_search" method="POST"
-                 tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
-             <input type="text" name="query">&nbsp;
-             <input type="submit" name="search" value="nmb_label_search"
-                    class="standalone"
-                    i18n:attributes="value">
-           </form>
-         </td>
-       </tr>
-     </table>
-     <div tal:define="parent_is_folder python:here.aq_parent.portal_type == 'CPSMailBoxerFolder'">
-       <tal:block condition="not:parent_is_folder" >
-         [<a href="../view" i18n:translate="">nmb_label_up</a>]
-       </tal:block>
-       <tal:block condition="parent_is_folder" >
-         [<a href="../cpsmailboxerfolder_view"
-             i18n:translate="">nmb_label_up</a>]
-       </tal:block>
-       <tal:block define="previous python:here.previousObject(here)" condition="previous">
-         [<a href="" tal:attributes="href string:${previous/absolute_url}/cpsmailboxerfolder_view"><b>&lt;&lt;&lt;</b></a>]
-       </tal:block>
-       <tal:block define="next python:here.nextObject(here)" condition="next">
-         [<a href="" tal:attributes="href string:${next/absolute_url}/cpsmailboxerfolder_view"><b>&gt;&gt;&gt;</b></a>]
-       </tal:block>
-       <br><br>
-       <tal:block condition="python:hasattr(here, 'mailDate')">
-        <table>
+      <div i18n:translate="">nmb_label_archive_of <tal:block i18n:name="archive" replace="here/id"/></div>
+      <table>
         <tr>
-            <td i18n:translate="nmb_label_subject">nmb_label_subject</td>
-            <td tal:content="here/mailSubject">Subject</td>
+          <td>
+            <form action="cpsmailboxer_search" method="POST"
+                  tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
+              <input type="text" name="query" />&nbsp;
+              <input type="submit" name="search" value="nmb_label_search"
+                     class="standalone"
+                     i18n:attributes="value" />
+            </form>
+          </td>
         </tr>
-        <tr>
-            <td i18n:translate="">nmb_label_from</td>
-            <td tal:content="here/mailFrom">mailFrom</td>
-        </tr>
-        <tr>
-            <td i18n:translate="">nmb_label_date</td>
-            <td tal:content="here/mailDate">mailDate</td>
-        </tr>
-        </table>
-
-        <hr noshade>
-
-        <table>
-        <tr>
-            <td>
+      </table>
+      <div tal:define="parent_is_folder python:here.aq_parent.portal_type == 'CPSMailBoxerFolder'">
+        <tal:block condition="not:parent_is_folder">
+          [<a href="../view" i18n:translate="">nmb_label_up</a>]
+        </tal:block>
+        <tal:block condition="parent_is_folder" >
+          [<a href="../cpsmailboxerfolder_view" i18n:translate="">nmb_label_up</a>]
+        </tal:block>
+        <tal:block define="previous python:here.previousObject(here)" condition="previous">
+          [<a href="" tal:attributes="href string:${previous/absolute_url}/cpsmailboxerfolder_view"><strong>&lt;&lt;&lt;</strong></a>]
+        </tal:block>
+        <tal:block define="next python:here.nextObject(here)" condition="next">
+          [<a href="" tal:attributes="href string:${next/absolute_url}/cpsmailboxerfolder_view"><strong>&gt;&gt;&gt;</strong></a>]
+        </tal:block>
+        <br /><br />
+        <tal:block condition="python:hasattr(here, 'mailDate')">
+          <table>
+            <tr>
+              <td i18n:translate="nmb_label_subject">nmb_label_subject</td>
+              <td tal:content="here/mailSubject">Subject</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">nmb_label_from</td>
+              <td tal:content="here/mailFrom">mailFrom</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">nmb_label_date</td>
+              <td tal:content="here/mailDate">mailDate</td>
+            </tr>
+          </table>
+          <hr />
+          <table>
+            <tr>
+              <td>
                 <pre tal:content="here/getmailBody">mailBody</pre>
-            </td>
-        </tr>
-        <tr tal:condition="python:here.objectValues('File')">
-            <td>
-            <hr noshade><p><b i18n:translate="">nmb_label_attachments</b></p>
-            <table>
-                <tr tal:repeat="file python:here.objectValues('File')">
-                    <td>
-                    <a href=""
-                       tal:attributes="href file/absolute_url"
-                       tal:content="file/title">title</a></td>
+              </td>
+            </tr>
+            <tr tal:condition="python:here.objectValues('File')">
+              <td>
+                <hr />
+                <div><strong i18n:translate="">nmb_label_attachments</strong></div>
+                <table>
+                  <tr tal:repeat="file python:here.objectValues('File')">
+                    <td> 
+                      <a href="" tal:attributes="href file/absolute_url"
+                         tal:content="file/title">title</a>
+                    </td>
                     <td tal:content="file/content_type">content_type</td>
                     <td>
                       <span tal:replace="file/size" />
                       <span i18n:translate="">nmb_label_bytes</span>
                     </td>
-                </tr>
-            </table>
-            </td>
-        </tr>
-        </table>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </tal:block>
-         <ul tal:define="folders python:here.objectValues(['Folder', 'Portal Folder','CPSMailBoxerFolder','CPS Document']); string  modules/string">
-           <li tal:repeat="folder folders">
-             <tal:block condition="python:hasattr(folder, 'mailDate')">
-               <b tal:content="python:folder.mailDate.Date()">Time</b>
-             </tal:block>
-	     <a href="" tal:attributes="href string:${folder/absolute_url}/view" tal:define="ismail python:folder.portal_type in ['CPSMailArchive',]"
-               tal:content="python:ismail and getattr(folder, 'mailSubject','') or folder.title_or_id()">
-               Title
-             </a>
-             <br />
-             <ul tal:define="subfolders python:folder.objectValues(['Folder','Portal Folder','CPSMailBoxerFolder', 'CPS Document'])" tal:condition="subfolders">
-               <li tal:repeat="subfolder subfolders">
-                 <span tal:condition="subfolder/mailDate|nothing" tal:content="python:subfolder.mailDate.Time()">mailDate</span>
-                 <a href="" tal:attributes="href string:${subfolder/absolute_url}/view" 
-                   tal:content="python:string.replace(subfolder.title_or_id(), '@', ' at ')">
-                 </a>
-                 <tal:block define="followups python:len(subfolder.objectValues(['Folder','Portal Folder', 'CPSMailBoxerFolder']))" condition="followups">
-                   <b>[&gt;&gt;<span tal:replace="followups" />]</b>
-                 </tal:block>
-               </li>
-             </ul>
-           <br>
-           </li>
+        <ul tal:define="folders python:here.objectValues(['Folder', 'Portal Folder','CPSMailBoxerFolder','CPS Document']); string  modules/string">
+          <li tal:repeat="folder folders">
+            <tal:block condition="python:hasattr(folder, 'mailDate')">
+              <strong tal:content="python:folder.mailDate.Date()">Time</strong>
+            </tal:block>
+	    <a href="" tal:attributes="href string:${folder/absolute_url}/view"
+                       tal:define="ismail python:folder.portal_type in ['CPSMailArchive',]"
+               tal:content="python:ismail and getattr(folder, 'mailSubject','') or folder.title_or_id()">Title</a>
+            <br />
+            <ul tal:define="subfolders python:folder.objectValues(['Folder','Portal Folder','CPSMailBoxerFolder', 'CPS Document'])" tal:condition="subfolders">
+              <li tal:repeat="subfolder subfolders">
+                <span tal:condition="subfolder/mailDate|nothing" tal:content="python:subfolder.mailDate.Time()">mailDate</span>
+                <a href="" tal:attributes="href string:${subfolder/absolute_url}/view" 
+                   tal:content="python:string.replace(subfolder.title_or_id(), '@', ' at ')"></a>
+                <tal:block define="followups python:len(subfolder.objectValues(['Folder','Portal Folder', 'CPSMailBoxerFolder']))" condition="followups">
+                  <strong>[&gt;&gt;<span tal:replace="followups" />]</strong>
+                </tal:block>
+              </li>
+            </ul>
+            <br />
+          </li>
         </ul>
+      </div>
     </div>
-     </div>
-    </div>
-  </body>
-</html>
+  </metal:block>
+</tal:block>

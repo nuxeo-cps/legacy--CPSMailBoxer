@@ -1,18 +1,12 @@
-<html xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
-  <body>
-    <div metal:fill-slot="header">
-      <h2 i18n:translate="">nmb_heading_mailing_list &nbsp;<tal:block replace="here/title_or_id" i18n:name="title" />&nbsp;</h2>
-      <i tal:content="here/Description|nothing" />
+<tal:block metal:use-macro="here/main_template/macros/master">
+  <div metal:fill-slot="header">
+    <h2 i18n:translate="">nmb_heading_mailing_list &nbsp;<tal:block replace="here/title_or_id" i18n:name="title" />&nbsp;</h2>
+    <em tal:content="here/Description|nothing" />
+  </div>
+  <metal:block fill-slot="main">	  
+    <div tal:define="message request/message|nothing; 
+                     portal_url here/portal_url/absolute_url"
+         tal:content="structure here/cpsmailboxer_content_view">
     </div>
-    <div metal:fill-slot="main">	  
-      <div class="Desktop" 
-        tal:define="
-          message request/message|nothing; 
-          portal_url here/portal_url/absolute_url">
-     <tal:block content="structure here/cpsmailboxer_content_view"/>
-     </div>
-    </div>
-  </body>
-</html>
+  </metal:block>
+</tal:block>
