@@ -40,23 +40,6 @@ msgid "cpsmailboxer_button_publish"
 msgstr ""
 
 #    <div />
-#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
-#.                                    (cpsmcat('nmb_confirm_purge'), )" value="cpsmailboxer_button_purge" class="destructive" name="cpsmailboxer_purge_queue:method" type="submit" />
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#, fuzzy
-msgid "cpsmailboxer_button_purge"
-msgstr "Campo obbligatorio"
-
-#    <div />
-#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
-#.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
-#, fuzzy
-msgid "cpsmailboxer_button_reject"
-msgstr "Campo obbligatorio"
-
-#    <div />
 #.   <div />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_edit_form.pt
 msgid "cpsmailboxer_required_field"
@@ -107,14 +90,6 @@ msgstr "Amministrazione utenti iscritti alla lista di diffusione \"${title}\""
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
 msgid "nmb_heading_newsletter_create"
 msgstr "Creazione di una lettera di informazione"
-
-#    <div class="label">nmb_label_modetared</div>
-#.   <div condition="not:proxy" />
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
-#, fuzzy
-msgid "nmb_label_already_moderated"
-msgstr "Moderata"
 
 #    <em>
 #              nmb_label_already_subscribed ${mail_addr (tal replace="email")}
@@ -423,14 +398,6 @@ msgstr "con allegati"
 msgid "nmb_nb_messages_in_queue ${queue_len}"
 msgstr ""
 
-#    <div class="label required">nmb_label_moderator</div>
-#.   <h1>Pending messages</h1>
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
-#, fuzzy
-msgid "nmb_title_message_moderation"
-msgstr "Moderatore (email)"
-
 msgid "w__mailAttachment"
 msgstr "Allegato"
 
@@ -494,68 +461,8 @@ msgstr "Invia lettera di informazione"
 msgid "action_moderate_msgs"
 msgstr ""
 
-#    <div class="label required">nmb_label_moderator</div>
-#, fuzzy
-msgid "nmb_mail_moderate_1"
-msgstr "Moderatore (email)"
-
-#    <div class="label required">nmb_label_moderator</div>
-#, fuzzy
-msgid "nmb_mail_moderate_2"
-msgstr "Moderatore (email)"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_1"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_2"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_3"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_4"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_5"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_mail_reject_6"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_confirm_reject"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_confirm_purge"
-msgstr "Oggetto:"
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_psm_queue_purged"
-msgstr "Oggetto:"
-
 msgid "nmb_psm_messages_published"
 msgstr ""
-
-#    <td>nmb_label_subject</td>
-#, fuzzy
-msgid "nmb_psm_messages_rejected"
-msgstr "Oggetto:"
 
 msgid "blank"
 msgstr " "

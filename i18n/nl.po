@@ -93,13 +93,6 @@ msgstr "Managing users subscribed to list \"${title}\""
 msgid "nmb_heading_newsletter_create"
 msgstr "Creation of news letter "
 
-#.   <div condition="not:proxy" />
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
-#, fuzzy
-msgid "nmb_label_already_moderated"
-msgstr "Moderated"
-
 #.   <em>
 #.             nmb_label_already_subscribed ${mail_addr (tal replace="email")}
 #.           </em>
@@ -289,12 +282,6 @@ msgstr "Search"
 msgid "nmb_label_select_members_to_delete"
 msgstr "Select members to delete"
 
-#.   <input value="nmb_label_send" type="submit" />
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_newsletter_create_form.pt
-#, fuzzy
-msgid "nmb_label_send"
-msgstr "sep"
-
 #.   <td>nmb_label_sep</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
 #: ../skins/cpsmailboxer_default/cpsmailboxer_content_view.pt
@@ -353,17 +340,6 @@ msgstr "with attachments"
 msgid "nmb_nb_messages_in_queue ${queue_len}"
 msgstr ""
 
-#.   <h1>Pending messages</h1>
-#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
-#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
-#, fuzzy
-msgid "nmb_title_message_moderation"
-msgstr "Moderator"
-
-#, fuzzy
-msgid "w__mailAttachment"
-msgstr "Attachments"
-
 msgid "MailBoxerModerator"
 msgstr ""
 
@@ -399,109 +375,14 @@ msgstr ""
 msgid "psm_removed_members"
 msgstr "Subscriber(s) removed"
 
-#, fuzzy
-msgid "label_mail_from"
-msgstr "List's email address"
-
-#, fuzzy
-msgid "label_mail_subject"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "label_mail_date"
-msgstr "Save Changes"
-
-#, fuzzy
-msgid "label_mail_body"
-msgstr "List's email address"
-
-#, fuzzy
-msgid "label_mail_attachment"
-msgstr "Attachments"
-
 msgid "Create Newsletter"
 msgstr ""
 
 msgid "action_moderate_msgs"
 msgstr ""
 
-#, fuzzy
-msgid "nmb_mail_moderate_1"
-msgstr "Moderator"
-
-#, fuzzy
-msgid "nmb_mail_moderate_2"
-msgstr "Moderator"
-
-#, fuzzy
-msgid "nmb_mail_reject_1"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_mail_reject_2"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_mail_reject_3"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_mail_reject_4"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_mail_reject_5"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_mail_reject_6"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_confirm_reject"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_confirm_purge"
-msgstr "Subject:"
-
-#, fuzzy
-msgid "nmb_psm_queue_purged"
-msgstr "Subject:"
-
 msgid "nmb_psm_messages_published"
 msgstr ""
 
-#, fuzzy
-msgid "nmb_psm_messages_rejected"
-msgstr "Subject:"
-
 msgid "blank"
 msgstr " "
-
-#~ msgid "nmb_heading_no_archive"
-#~ msgstr "No archive"
-
-#~ msgid ""
-#~ "nmb_heading_mailing_list &nbsp;${title}&nbsp; archive of <tal:block "
-#~ "replace=\"here/id\" />"
-#~ msgstr ""
-#~ "Mailing List &nbsp;${title}&nbsp; archive of <tal:block replace=\"here/id"
-#~ "\" />"
-
-#~ msgid ""
-#~ "nmb_heading_member_edit &nbsp;<tal:block replace=\"here/title_or_id\" /"
-#~ ">&nbsp;"
-#~ msgstr ""
-#~ "Managing members of list &nbsp;<block replace=\"here/title_or_id\" /"
-#~ ">&nbsp;"
-
-#, fuzzy
-#~ msgid "nmb_heading_subcribe_other"
-#~ msgstr "Creation of news letter "
-
-#~ msgid "nmb_heading_list_create &nbsp;${title}&nbsp;"
-#~ msgstr "Creation of list \"&nbsp;${title}&nbsp;\""
-
-#~ msgid "nmb_heading_latest_mails_in_list"
-#~ msgstr "Latest mails in this list"

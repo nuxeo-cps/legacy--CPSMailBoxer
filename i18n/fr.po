@@ -461,39 +461,3 @@ msgstr "Message(s) rejeté(s)"
 
 msgid "blank"
 msgstr " "
-
-#~ msgid "nmb_heading_no_archive"
-#~ msgstr "Pas d'archive pour cette liste"
-
-#~ msgid ""
-#~ "nmb_heading_mailing_list &nbsp;${title}&nbsp; archive of <tal:block "
-#~ "replace=\"here/id\" />"
-#~ msgstr ""
-#~ "Liste de diffusion &nbsp;${title}&nbsp; archives de <tal:block replace="
-#~ "\"here/id\" />"
-
-#~ msgid ""
-#~ "nmb_heading_member_edit &nbsp;<tal:block replace=\"here/title_or_id\" /"
-#~ ">&nbsp;"
-#~ msgstr ""
-#~ "Edition des membres de la liste &nbsp;<block replace=\"here/title_or_id"
-#~ "\" />&nbsp;"
-
-#~ msgid "nmb_heading_list_create &nbsp;${title}&nbsp;"
-#~ msgstr "Création de la liste de diffusion &nbsp;${title}&nbsp;"
-
-#~ msgid "nmb_heading_latest_mails_in_list"
-#~ msgstr "Courriels récemment postés"
-
-#~ msgid "mailFrom_widget_label"
-#~ msgstr "De "
-
-#~ msgid "mailSubject_widget_label"
-#~ msgstr "Sujet "
-
-#~ msgid "mailDate_widget_label"
-#~ msgstr "Le"
-
-#~ msgid "mailBody_widget_label"
-#~ msgstr "Corps du message"
-

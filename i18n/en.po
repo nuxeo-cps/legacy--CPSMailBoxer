@@ -461,39 +461,3 @@ msgstr "Message(s) rejected"
 
 msgid "blank"
 msgstr " "
-
-#~ msgid "nmb_heading_no_archive"
-#~ msgstr "No archive"
-
-#~ msgid ""
-#~ "nmb_heading_mailing_list &nbsp;${title}&nbsp; archive of <tal:block "
-#~ "replace=\"here/id\" />"
-#~ msgstr ""
-#~ "Mailing List &nbsp;${title}&nbsp; archive of <tal:block replace=\"here/id"
-#~ "\" />"
-
-#~ msgid ""
-#~ "nmb_heading_member_edit &nbsp;<tal:block replace=\"here/title_or_id\" /"
-#~ ">&nbsp;"
-#~ msgstr ""
-#~ "Managing members of list &nbsp;<block replace=\"here/title_or_id\" /"
-#~ ">&nbsp;"
-
-#~ msgid "nmb_heading_list_create &nbsp;${title}&nbsp;"
-#~ msgstr "Creation of list \"&nbsp;${title}&nbsp;\""
-
-#~ msgid "nmb_heading_latest_mails_in_list"
-#~ msgstr "Latest mails in this list"
-
-#~ msgid "mailFrom_widget_label"
-#~ msgstr "From "
-
-#~ msgid "mailSubject_widget_label"
-#~ msgstr "Subject "
-
-#~ msgid "mailDate_widget_label"
-#~ msgstr "Date "
-
-#~ msgid "mailBody_widget_label"
-#~ msgstr "Message body"
-
