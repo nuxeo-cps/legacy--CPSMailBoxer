@@ -354,7 +354,8 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
     def addMailBoxerMail(self, mailFolder, id, title, sender, subject, time, Mail):
         """
         """
-
+        if hasattr(mailFolder, 'fake'):
+            mailFolder.manage_delObjects(['fake'])
         mailFolder.invokeFactory(type_name='CPSMailArchive', id='fake')
         fake = getattr(mailFolder, 'fake')
         
@@ -432,6 +433,43 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
                        subject=subject,
                        body=self.textwrap(body, 72),
                        mto=[sender_email])
+
+    def notifyModerate(self, nmb, proxy_msg):
+        """Notify moderators that a new mail is pending"""
+
+        portal_url = getToolByName(self, 'portal_url')
+        portal = portal_url.getPortalObject()
+        msg_rpath = portal_url.getRelativeUrl(proxy_msg)
+
+        users_with_role = nmb.getMBLocalRoles()[0]
+        usr_names = []
+        for usr_name in users_with_role.keys():
+            if usr_name.startswith('user:'):
+                usr_names.append(usr_name[5:])
+        moderator_emails = []
+        for usr_name in usr_names:
+            usr = portal.portal_membership.getMemberById(usr_name)
+            if usr.has_permission(MailBoxerModerate, nmb):
+                moderator_emails.append(usr.getProperty('email'))
+        filtered_emails = []
+        for email in moderator_emails:
+            if email not in filtered_emails:
+                filtered_emails.append(email)
+
+        if not msg_rpath.endswith('fake'):
+            cpsmcat = portal.Localizer.default
+            moderation_url = "%s/cpsmailboxer_moderation_form?zoomed_msg=%s" % (nmb.absolute_url(),
+                                                                                msg_rpath)
+            nmb_mail_moderate_1 = cpsmcat('nmb_mail_moderate_1').encode('ISO-8859-15', 'ignore')
+            nmb_mail_moderate_2 = cpsmcat('nmb_mail_moderate_2').encode('ISO-8859-15', 'ignore')
+            subject = "[%s] %s" % (nmb.Title(), nmb_mail_moderate_1)
+            body = "%s\n\n%s" % (nmb_mail_moderate_2, moderation_url)
+            
+            self.sendEmail(portal, from_address=getattr(portal,
+                                                        'email_from_address'),
+                           subject=subject,
+                           body=self.textwrap(body, 72),
+                           mto=filtered_emails)
 
     security.declarePrivate('sendEmail')
     def sendEmail(self, portal, from_address='nobody@example.com', reply_to=None,
