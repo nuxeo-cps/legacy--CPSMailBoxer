@@ -75,18 +75,6 @@ class CPSMailBoxerInstaller(BaseInstaller):
         
         self.log("Add our portal type id to allowed portal type of workspaces")
 
-        # XXX: the following instructions have actually no effect as
-        #      CPSDocument's installer is called after CPSMailboxer's
-        #      meaning that this setting gets overridden.
-        # Allowing CPSmailBoxer anywhere should b done in the customer's
-        # product for now (after the call to CPSDocument's installer)
-        workspace_pt = self.typestool['Workspace']
-        allowed_types = workspace_pt.allowed_content_types
-        allowed_types = allowed_types.append(nmb)
-        self.typestool['Workspace'].manage_changeProperties(
-            allowed_content_types=allowed_types)
-
-        
     def setupNMBMapperTool(self):
         self.log("Installing CPSMailBoxer Mapper Tool")
         if self.portalHas('portal_mailboxermapper'):
