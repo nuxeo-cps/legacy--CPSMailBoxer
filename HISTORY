@@ -1,4 +1,20 @@
 *******************************************
+** CPSMailBoxer V0.2.5 [R1 build 2004/05/27-10:57 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- made FROM mail field parsing (by NMBMapper) much more robust
+
+*******************************************
 ** CPSMailBoxer V0.2.4 [R1 build 2004/05/05-16:25 by madarche]
 
 Requires:
