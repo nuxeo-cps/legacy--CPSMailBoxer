@@ -105,11 +105,15 @@ class CPSMailBoxerInstaller(BaseInstaller):
         Configure the workspaces placefull workflow
         """
         self.log("Installing Workflow chain in placefull workflow "
-                 "configuration of root of Workspaces")
+                 "configuration of root of Workspaces and sections")
         wf_config = getattr(self.portal.workspaces, 
                             '.cps_workflow_configuration')
         wf_config.manage_addChain(portal_type=self.nmb, 
                                   chain='workspace_folder_wf')
+        wf_config = getattr(self.portal.sections, 
+                            '.cps_workflow_configuration')
+        wf_config.manage_addChain(portal_type=self.nmb, 
+                                  chain='section_folder_wf')
 
         
 def install(self):
