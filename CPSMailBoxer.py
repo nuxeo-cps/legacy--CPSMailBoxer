@@ -44,6 +44,7 @@ from email.MIMEText import MIMEText
 from zLOG import LOG,DEBUG,ERROR
 
 import traceback
+from StringIO import StringIO
 
 TRUE = "TRUE"
 FALSE = "FALSE"
@@ -182,8 +183,11 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
             newSecurityManager(None, old_user)
             return TRUE
         except Exception ,e :
-            traceback.print_exc()
-            LOG('Error processing mail for CPSMailBoxer: ',ERROR,str(e))
+            s = StringIO()
+            traceback.print_exc(file=s)
+            LOG('Error processing mail for CPSMailBoxer: ',
+                ERROR,
+                'traceback:\n%s' % s.getvalue())
 
 
     def manage_addFolder(self, id, title=''):
