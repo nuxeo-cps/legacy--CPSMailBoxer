@@ -68,14 +68,14 @@ class TestDocuments(CPSMailBoxerTestCase):
         Test the parameters modification of the CPSMailBoxer
         """
         props = {
-            'title' : 'The title',
-            'description' : 'The description',
-            'mailto' : "The list's E-Mail address",
-            'moderator' : ['plop@test.nuxeo.com',],
-            'moderated' : 1,
-            'archived' : 'with attachments',
-            'mtahosts' : ['localhost',],
-            }
+            'title': 'The title',
+            'description': 'The description',
+            'mailto': "The list's E-Mail address",
+            'moderator': ('plop@test.nuxeo.com',),
+            'moderated': 1,
+            'archived': 'with attachments',
+            'mtahosts': ('localhost',),
+        }
         doc.edit(**props)
 
         for prop in props.keys():
