@@ -17,7 +17,11 @@ doc = context # would be context.getContent() if manipulating a proxy
 moderators = [m.strip() for m in kw['moderator'].split() if not m.isspace()]
 kw['moderator'] = moderators
 
-kw['moderated'] = not not kw.get('moderated')
+# do not use MailBoxer's moderated property as it drives# mail processing in
+# unwanted places ; use CPSMailBoxer's moderation_mode instead
+
+kw['moderation_mode'] = not not kw.get('moderated')
+kw['moderated'] = 0
 
 mtahosts = [m.strip() for m in kw['mtahosts'].split() if not m.isspace()]
 kw['mtahosts'] = mtahosts

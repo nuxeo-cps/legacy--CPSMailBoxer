@@ -63,7 +63,7 @@
               <td><input type="checkbox" name="moderated"
                          tal:attributes="checked
                                            python:
-                                             edit and test(here.moderated,
+                                             edit and test(here.moderation_mode,
                                                            'checked',
                                                            nothing)" />
               </td>
