@@ -49,9 +49,10 @@ FALSE = "FALSE"
 
 factory_type_information = (
     {'id': 'CPSMailBoxer',
-     'description': 'Mailing list managment and archive document',
+     'title': 'portal_type_CPSMailBoxer_title',
+     'description': 'portal_type_CPSMailBoxer_description',
      'meta_type': 'CPSMailBoxer',
-     'icon': 'document_icon.gif',
+     'icon': 'MailHost_icon.gif',
      'product': 'CPSMailBoxer',
      'factory': 'addCPSMailBoxer',
      'immediate_view': 'cpsmailboxer_edit_form',
@@ -193,17 +194,6 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         """
         ob = CPSMailBoxerFolder(id, title)
         self._setObject(id, ob)
-
-    def manage_addCPSMailArchive(self, id, title):
-        """
-        Add a CPSMailArchive instead CPSMailBoxerFolder
-
-        @return: C{None}
-        @rtype: C{None}
-        """
-        ob = CPSMailBoxerFolder(id, title)
-        self._setObject(id, ob)
-
         
     def manage_addYearFolder(self, archive, year, title):
         """
@@ -402,6 +392,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
                     headers.append('%s: %s' % (key, value.strip()))
             
             mailObject.manage_addProperty('mailHeader', headers, 'lines')
+
         return mailObject
 
 InitializeClass(CPSMailBoxer)
