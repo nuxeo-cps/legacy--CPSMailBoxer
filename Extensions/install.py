@@ -34,7 +34,7 @@ from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
 from Products.CPSDefault.Installer import BaseInstaller
 
-class NMBInstaller(BaseInstaller):
+class CPSMailBoxerInstaller(BaseInstaller):
 
     SKINS = (('cpsmailboxer_default', 'Products/CPSMailBoxer/skins/cpsmailboxer_default'),
              )
@@ -122,14 +122,16 @@ class NMBInstaller(BaseInstaller):
         Configure the workspaces placefull workflow
         """
         self.log("Installing Workflow chain in placefull workflow configuration of root of Workspaces")
-        wf_config = getattr(self.portal.workspaces,'.cps_workflow_configuration')
-        wf_config.manage_addChain(portal_type = self.nmb, chain='workspace_folder_wf')
+        wf_config = getattr(self.portal.workspaces, 
+                            '.cps_workflow_configuration')
+        wf_config.manage_addChain(portal_type=self.nmb, 
+                                  chain='workspace_folder_wf')
 
         
 
 ###############################################
 
 def install(self):
-    installer = NMBInstaller(self)
+    installer = CPSMailBoxerInstaller(self)
     installer.install()
     return installer.logResult()
