@@ -24,5 +24,5 @@
 
 from Products.CMFCore.CMFCorePermissions import setDefaultRoles
 
-MailBoxerModerate = 'Forum Moderate'
+MailBoxerModerate = 'MailBoxer Moderate'
 setDefaultRoles(MailBoxerModerate, ('Manager', 'Owner'))
