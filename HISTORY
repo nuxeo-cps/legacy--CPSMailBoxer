@@ -1,4 +1,20 @@
 *******************************************
+** CPSMailBoxer V0.2.6 [R1 build 2004/05/28-07:39 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- 
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Added debugging in case of wrong utilisation of a CPSMailBoxer
+
+*******************************************
 ** CPSMailBoxer V0.2.5 [R1 build 2004/05/27-10:57 by madarche]
 
 Requires:
