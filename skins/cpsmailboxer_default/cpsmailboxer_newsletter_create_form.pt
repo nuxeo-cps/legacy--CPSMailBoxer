@@ -1,0 +1,18 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+  <div class="Desktop">
+    <metal:block fill-slot="main">
+    <h2 i18n:translate="">nmb_heading_newsletter_create</h2>
+      <form action="cpsmailboxer_newsletter_create" method="post" 
+            tal:attributes="action string:${here/absolute_url}/cpsmailboxer_newsletter_create">
+        <span i18n:translate="nmb_label_input_text"/><br><textarea name="texte" rows="20" cols="55" wrap="soft"></textarea> <br>
+        <span i18n:translate="nmb_label_input_subject"/><br><input type="text" name="subject" value="Newsletter"/> <br>
+        <input type="submit" i18n:attributes="value"
+               value="nmb_label_send" />
+      </form>
+    </metal:block>
+  </div>
+</body>
+</html>

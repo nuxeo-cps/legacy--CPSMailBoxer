@@ -1,0 +1,5 @@
+This first alias permit to use mailname@domain.com like mailing lists entry:
+mailname: "|/usr/local/sbin/smtp2zope.py http://domain.com:8080/cps/workspaces/nmb1/manage_mailboxer 50000"
+
+This second alias permit to fit *@domainname like mailling lists entry:
+domainname: "|/usr/local/sbin/smtp2zope.py http://domain.com:8080/cps/nmb_mapper"

@@ -1,0 +1,45 @@
+<tal:block define="create options/create|nothing;
+                   edit not:create;
+                   action python:create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+  <div class="Desktop">
+    <metal:block metal:fill-slot="header">
+      <h2 i18n:translate="">
+        nmb_heading_member_edit <tal:block i18n:name="title" replace="here/title_or_id" />
+      </h2>
+    </metal:block>
+    <metal:block metal:fill-slot="main">
+      <tal:block tal:define="boxer here/getcpsmailboxer;
+                             members boxer/maillist">
+        <tal:block tal:condition="members">
+          <p i18n:translate="">
+            <tal:block i18n:name="nb_members" tal:replace="python:len(members)"/> nmb_label_nb_members
+          </p> 
+          <form method="post" action="cpsmailboxer_members_edit"
+                tal:attributes="action string:${here/absolute_url}/cpsmailboxer_members_edit">
+            <p i18n:translate="">nmb_label_select_members_to_delete</p>
+            <tal:block tal:repeat="item members" tal:omit-tag="">
+              <input type="checkbox" name="liste" tal:attributes="value item" />
+              <tal:block tal:replace="item" /><br>
+            </tal:block>
+            <br>
+            <input type="submit" i18n:attributes="value"
+                   value="nmb_label_delete"
+                   class="destructive">
+          </form>
+        </tal:block>
+        <tal:block tal:condition="not:members">
+          <p i18n:translate="">nmb_label_no_member</p>
+        </tal:block>
+      </tal:block>
+    </metal:block>
+  </div>
+</body>
+</html>
+</tal:block>
+
+
+

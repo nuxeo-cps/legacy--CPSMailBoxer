@@ -1,0 +1,18 @@
+ZODB Requires:
+~~~~~~~~~~~~~~
+- MailBoxer 3.1
+
+New features:
+~~~~~~~~~~~~~
+- Creation of a mail is now possible from CPS
+
+Bug fixes:
+~~~~~~~~~~
+- fixed breadcrumb bug in archives by defining a default view 
+  pointing to nuxmailboxerfolder_view
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- archives are now stored using CPSDocument CPSMailArchive
+- renamed everything from NuxMailBoxer to CPSMailBoxer
+

@@ -1,0 +1,29 @@
+*******************************************
+** NuxMailBoxer V0.1.0 [R1 build 2004-01/02-08:31 by epietrig]
+
+ZODB Requires:
+~~~~~~~~~~~~~~
+-
+
+New features:
+~~~~~~~~~~~~~
+-
+-NMBMapper tool makes it possible to have a single system mail alias for 
+ for incoming mails aimed at different mailing lists ; its role is to
+ redirect the mail toward the appropriate instance of NuxMailBoxer
+-better handling of (un)subscription, more straightforward for std
+ users (don't need to enter their email)
+-much more user-friendly UI for editing properties
+-tested with MailBoxer 2.2.4 and 2.2.6
+
+Bug fixes:
+~~~~~~~~~~
+-a std user with no special rights can now unsubscribe from the list
+ (only the email that appears in his profile)
+
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-i18n following the new guidelines
+-acquire SMTP host (do not create local instance)
+-ZMI interface for managing NMBMapperTool mappings
+

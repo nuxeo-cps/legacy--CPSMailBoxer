@@ -1,0 +1,3 @@
+<metal:block define-macro="basebox_archive">
+  ici l'archive
+</metal:block>

@@ -1,0 +1,40 @@
+<tal:block condition="python:len(here.archive.objectIds())">
+  <br>
+  <h1 i18n:translate="">nmb_heading_archives</h1>
+  <table border="0" align="center">
+    <tr>
+      <td>&nbsp;</td>
+      <td i18n:translate="">nmb_label_jan</td>
+      <td i18n:translate="">nmb_label_feb</td>
+      <td i18n:translate="">nmb_label_mar</td>
+      <td i18n:translate="">nmb_label_apr</td>
+      <td i18n:translate="">nmb_label_may</td>
+      <td i18n:translate="">nmb_label_jun</td>
+      <td i18n:translate="">nmb_label_jul</td>
+      <td i18n:translate="">nmb_label_aug</td>
+      <td i18n:translate="">nmb_label_sep</td>
+      <td i18n:translate="">nmb_label_oct</td>
+      <td i18n:translate="">nmb_label_nov</td>
+      <td i18n:translate="">nmb_label_dec</td>
+    </tr>
+    <tal:block condition="here/archive" define="archive nocall:here/archive; years python:archive.objectValues(['Portal Folder','Folder','CPSMailBoxerFolder','CPS Document'])" repeat="year years">
+      <tr> 
+        <td><a tal:content="python:year.id" tal:attributes="href string:${year/absolute_url}/view"/></td>
+        <tal:block repeat="mid python:['01','02','03','04','05','06','07','08','09','10','11','12']">
+          <td align="center" tal:define="month python:getattr(year,year.id + '-' + mid,None)" bgcolor="lightgray">
+            <tal:block condition="month">
+              <a tal:content="python:len(month.objectIds())" tal:attributes="href string:${month/absolute_url}/view">X</a>
+            </tal:block>
+            <tal:block condition="not:month">
+              &nbsp;
+            </tal:block>
+          </td>
+        </tal:block>
+      </tr>
+    </tal:block>
+  </table>
+</tal:block>
+<tal:block tal:condition="python:not len(here.archive.objectIds())">
+  <p i18n:translate=""
+     style="border-top:solid;border-width:1px">nmb_label_no_archive</p>
+</tal:block>

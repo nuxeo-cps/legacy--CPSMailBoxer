@@ -1,0 +1,52 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      tal:define="showthirdcol nothing">
+  <body  metal:use-macro="here/main_template/macros/master">
+    <div metal:fill-slot="main">	  
+      <div class="Desktop" 
+        tal:define="message request/message|nothing; 
+                    portal_url here/portal_url/absolute_url">
+      <h2 i18n:translate="">nmb_heading_mailing_list &nbsp;<tal:block replace="here/title_or_id" i18n:name="title" />&nbsp;
+      </h2>
+      <br>
+       <table>
+         <tr>
+           <td>
+             <form action="cpsmailboxer_search" method="POST"
+                   tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
+               <input type="text" name="query"
+                      tal:attributes="value options/query|nothing">&nbsp;
+               <input type="submit" name="search" value="nmb_label_search"
+                      i18n:attributes="value">
+             </form>
+           </td>
+         </tr>
+       </table>
+       <br/>
+       <table>
+         <tr>
+           <td i18n:translate="">nmb_label_date</td>
+           <td i18n:translate="">nmb_label_subject</td>
+           <td i18n:translate="">nmb_label_from</td>
+         </tr>
+         <tr tal:define="records options/recordList" tal:repeat="record records">
+           <tal:block define="mail record/getObject">
+             <td valign="top">
+               <span tal:content="python:mail.mailDate.strftime('%d-%m-%Y')"
+                     style="font-weight:bold" />
+             </td>
+             <td valign="top">
+               <a tal:content="python:mail.mailSubject[:150]"
+                  tal:attributes="href string:${mail/absolute_url}/cpsmailboxerfolder_view" />
+             </td>
+             <td valign="top">
+               <span tal:content="mail/mailFrom" />
+             </td>
+           </tal:block>
+         </tr>
+       </table>
+       <tal:block content="structure here/cpsmailboxer_content_view"/>
+     </div>
+    </div>
+  </body>
+</html>

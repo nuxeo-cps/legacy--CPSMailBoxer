@@ -1,0 +1,75 @@
+<metal:block define-macro="basebox_archive">
+
+  <tal:block condition="python:len(here.archive.objectIds('CPSMailBoxerFolder'))">
+  <br>
+  <h1 i18n:translate="">nmb_heading_archives</h1>
+  <table border="0" align="center">
+    <tr>
+      <td>&nbsp;</td>
+      <td i18n:translate="">nmb_label_jan</td>
+      <td i18n:translate="">nmb_label_feb</td>
+      <td i18n:translate="">nmb_label_mar</td>
+      <td i18n:translate="">nmb_label_apr</td>
+      <td i18n:translate="">nmb_label_may</td>
+      <td i18n:translate="">nmb_label_jun</td>
+      <td i18n:translate="">nmb_label_jul</td>
+      <td i18n:translate="">nmb_label_aug</td>
+      <td i18n:translate="">nmb_label_sep</td>
+      <td i18n:translate="">nmb_label_oct</td>
+      <td i18n:translate="">nmb_label_nov</td>
+      <td i18n:translate="">nmb_label_dec</td>
+    </tr>
+    <tal:block condition="nocall:here/archive" define="archive nocall:here/archive; years python:archive.objectValues(['Portal Folder','Folder','CPSMailBoxerFolder','CPS Document'])" repeat="year years">
+      <tr> 
+        <td><a tal:content="python:year.id" tal:attributes="href string:${year/absolute_url}/view"/></td>
+        <tal:block repeat="mid python:['01','02','03','04','05','06','07','08','09','10','11','12']">
+          <td align="center" tal:define="month python:getattr(year,year.id + '-' + mid,None)" bgcolor="lightgray">
+            <tal:block condition="month">
+              <a tal:content="python:len(
+                                [obj for obj in month.objectValues()
+                                  if getattr(obj,'portal_type','') == 'CPSMailArchive'])"
+                 tal:attributes="href string:${month/absolute_url}/view">X</a>
+            </tal:block>
+            <tal:block condition="not:month">
+              &nbsp;
+            </tal:block>
+          </td>
+        </tal:block>
+      </tr>
+    </tal:block>
+  </table>
+</tal:block>
+<tal:block tal:condition="python:not len(here.archive.objectIds('CPSMailBoxerFolder'))">
+  <p i18n:translate=""
+     style="border-top:solid;border-width:1px">nmb_label_no_archive</p>
+</tal:block>
+
+</metal:block>
+
+
+<metal:block define-macro="basebox_search">
+  <form action="cpsmailboxer_search" method="POST"
+    tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
+    <input type="text" name="query">&nbsp;
+    <input type="submit" name="search" value="nmb_label_search" i18n:attributes="value">
+  </form>
+
+  <table tal:condition="options/recordsList|nothing">
+  <tr tal:define="records options/recordList" tal:repeat="record records">
+    <tal:block define="mail record/getObject">
+      <td valign="top">
+        <span tal:content="python:mail.mailDate.strftime('%d-%m-%Y')"
+          style="font-weight:bold" />
+      </td>
+      <td valign="top">
+        <a tal:content="python:mail.mailSubject[:150]"
+          tal:attributes="href string:${mail/absolute_url}/cpsmailboxerfolder_view" />
+      </td>
+      <td valign="top">
+        <span tal:content="mail/mailFrom" />
+      </td>
+    </tal:block>
+  </tr>
+
+  </table>
+</metal:block>

@@ -1,0 +1,57 @@
+# Gettext Message File for default.
+# Your Name <your@email>, Year
+msgid ""
+msgstr ""
+"Project-Id-Version: default\n"
+"POT-Creation-Date: 2003-12-16 11:00default\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Your Name <your@email>\n"
+"Language-Team: Name <email>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: LL\n"
+"Language-name: Language\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: default\n"
+
+msgid "CPSMailArchive_title"
+msgstr ""
+
+msgid "CPSMailArchive_description"
+msgstr ""
+
+msgid "psm_subscribed"
+msgstr ""
+
+msgid "psm_unsubscribed"
+msgstr ""
+
+msgid "psm_subscribing_error"
+msgstr ""
+
+msgid "psm_removed_members"
+msgstr ""
+
+msgid "nmb_label_mail_from"
+msgstr ""
+
+msgid "nmb_label_mail_subject"
+msgstr ""
+
+msgid "nmb_label_mail_date"
+msgstr ""
+
+msgid "nmb_label_mail_body"
+msgstr ""
+
+msgid "nmb_label_mail_attachment"
+msgstr ""
+
+msgid "Create Newsletter"
+msgstr ""
+
+msgid "blank"
+msgstr ""
+

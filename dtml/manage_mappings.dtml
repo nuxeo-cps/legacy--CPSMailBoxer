@@ -1,0 +1,30 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+
+<form action="manage_purge" method="POST">
+  <table border="1">
+    <tr><th></th><th>List Address</th>
+        <th>CPSMailboxer Instance</th></tr>
+    <dtml-let mappings="getMappings()"
+              sorted_keys="mappings.keys()">
+    <dtml-in "sorted_keys">
+      <tr>
+          <dtml-let key=sequence-item>
+            <td><input type="checkbox" name="<dtml-var key>"/></td>
+            <td><dtml-var key></td>
+            <td><dtml-var "getMappings().get(key)"></td>
+          </dtml-let>
+      </tr>
+    </dtml-in>
+    </dtml-let>
+  </table>
+  <div class="form-element">
+    <input class="form-element" type="submit" name="submit" value="Delete Selected" />
+  </div>
+  <hr />
+  <div class="form-element">
+    <input class="form-element" type="submit" name="submit" value="Delete All Mappings" />
+  </div>
+</form>
+
+<dtml-var manage_page_footer>

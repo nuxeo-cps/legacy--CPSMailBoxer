@@ -1,0 +1,5 @@
+TODO Dolce: $Id$
+-Add a new input parameter to limit the size of incoming emails (at the list
+ level)
+-Store emails as CPSDocument instances (done), using FileWidget(s) for attachments (not tested yet)
+

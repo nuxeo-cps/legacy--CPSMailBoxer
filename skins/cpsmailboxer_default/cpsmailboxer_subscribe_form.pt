@@ -1,0 +1,54 @@
+<tal:block define="mtool here/portal_membership;
+                   user mtool/getAuthenticatedMember;
+                   name python:user.getUserName();
+                   email python:here.getMyemail(name=name);
+                   members here/maillist;
+                   subscribed python:test(email in members,1,0)">
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+  <div class="Desktop">
+  <metal:block fill-slot="main">
+    <tal:block tal:condition="subscribed">
+      <p>
+        <em i18n:translate="">
+          nmb_label_already_subscribed <tal:block i18n:name="mail_addr" tal:replace="email"/>
+        </em>
+      </p>
+      <form action="cpsmailboxer_unsubscribe" method="post" 
+            tal:attributes="action string:${here/absolute_url}/cpsmailboxer_unsubscribe">
+        <input type="hidden" name="address" value="" tal:attributes="value email">
+        <input class="destructive" type="submit" value="nmb_label_unsubscribe"
+               i18n:attributes="value">
+      </form>
+    </tal:block>
+    <tal:block tal:condition="not: subscribed">
+      <p>
+        <em i18n:translate="">
+          <tal:block i18n:name="mail_addr" tal:replace="email"/> nmb_label_not_yet_subscribed
+        </em>
+      </p>
+      <form action="cpsmailboxer_subscribe" method="post" 
+            tal:attributes="action string:${here/absolute_url}/cpsmailboxer_subscribe">
+        <input type="hidden" name="address" tal:attributes="value email">
+        <input class="standalone" type="submit" value="nmb_label_subscribe"
+               i18n:attributes="value">
+      </form>
+    </tal:block>
+    <hr>
+    <p><em i18n:translate="">nmb_label_subcribe_other</em></p>
+    <form action="cpsmailboxer_subscribe" method="post" 
+          tal:attributes="action string:${here/absolute_url}/cpsmailboxer_subscribe">
+      <span i18n:translate="">nmb_label_input_email</span>
+      <input type="text" name="address" value="">
+      <br>
+      <br>
+      <input class="standalone" type="submit" value="nmb_label_subscribe"
+             i18n:attributes="value">
+    </form>
+  </metal:block>
+  </div>
+</body>
+</html>
+</tal:block>
