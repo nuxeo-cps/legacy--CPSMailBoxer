@@ -44,5 +44,20 @@
       <div tal:condition="not:proxy" i18n:translate="nmb_label_already_moderated"/>
     </tal:block>
     </tal:block>
+
+    <div tal:define="queue_len python:len(here.getContent().getQueue().keys())"
+         tal:condition="python:queue_len"
+         style="border:1px solid black;padding:1em;margin:0.5em">
+      <div i18n:translate="">nmb_nb_messages_in_queue
+                             <span i18n:name="queue_len" tal:replace="queue_len"/>
+      </div>
+      <form method="get" tal:attributes="action here/absolute_url" name="queue_form">
+        <input type="submit" name="cpsmailboxer_purge_queue:method"
+               class="destructive" value="cpsmailboxer_button_purge"
+               tal:attributes="onclick python:'return window.confirm(\'%s\')' %
+                                 (cpsmcat('nmb_confirm_purge'), )"
+               i18n:attributes="value" />
+      </form>
+    </div>
   </metal:block>
 </metal:block>
