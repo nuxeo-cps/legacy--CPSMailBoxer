@@ -43,6 +43,8 @@ from email.MIMEText import MIMEText
 
 from zLOG import LOG,DEBUG,ERROR
 
+import traceback
+
 TRUE = "TRUE"
 FALSE = "FALSE"
 
@@ -180,6 +182,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 	    newSecurityManager(None, old_user)
 	    return TRUE
 	except Exception ,e :
+            traceback.print_exc()
 	    LOG('Error processing mail for CPSMailBoxer: ',ERROR,str(e))
 
 
