@@ -3,7 +3,8 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- a brand new moderation interface (moderation is now handled through CPS)
+
 Bug fixes:
 ~~~~~~~~~~
 -
