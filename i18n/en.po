@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
 "POT-Creation-Date: 2004-03-10 16:52default\n"
-"PO-Revision-Date: 2004-03-10 17:08+0100\n"
+"PO-Revision-Date: 2004-03-11 08:55+0100\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,7 @@ msgstr "Creation of a newsletter"
 #.           </em>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_subscribe_form.pt
 msgid "nmb_label_already_subscribed ${mail_addr}"
-msgstr "${mail_addr} is already subscribed to this list"
+msgstr "${mail_addr} is subscribed to this list"
 
 #.   <td>nmb_label_apr</td>
 #: from ../skins/cpsmailboxer_default/boxes_cpsmailboxer.pt
