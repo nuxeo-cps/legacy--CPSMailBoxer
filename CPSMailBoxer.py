@@ -38,6 +38,7 @@ from Products.MailBoxer.MailBoxerTemplates import MailBoxerTemplates
 
 from CPSMailBoxerFolder import CPSMailBoxerFolder
 from CPSMailBoxerBoxes import CPSMAILBOXER_BOXES
+from CPSMailBoxerPermissions import MailBoxerModerate
 
 from email.MIMEText import MIMEText
 
@@ -72,11 +73,15 @@ factory_type_information = (
                  {'id': 'edit',
                   'name': 'action_modify_prop',
                   'action': 'cpsmailboxer_edit_form',
-                  'permissions': (ModifyPortalContent,)},
+                  'permissions': (MailBoxerModerate,)},
                  {'id': 'edit_members',
                   'name': 'action_manage_members',
                   'action': 'cpsmailboxer_members_edit_form',
-                  'permissions': (ModifyPortalContent,)},
+                  'permissions': (MailBoxerModerate,)},
+                 {'id': 'moderate_msgs',
+                  'name': 'action_moderate_msgs',
+                  'action': 'cpsmailboxer_moderation_form',
+                  'permissions': (MailBoxerModerate,)},
                  {'id': 'creatnletter',
                   'name': 'Create Newsletter',
                   'action': 'cpsmailboxer_newsletter_create_form',
