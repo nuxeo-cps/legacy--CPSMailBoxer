@@ -608,23 +608,24 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         portal = portal_url.getPortalObject()
         msg_rpath = portal_url.getRelativeUrl(proxy_msg)
 
-        users_with_role = nmb.getMBLocalRoles()[0]
-        usr_names = []
-        for usr_name in users_with_role.keys():
-            if usr_name.startswith('user:'):
-                usr_names.append(usr_name[5:])
-        #XXX: maybe we should handle groups here too...
-        moderator_emails = []
-        for usr_name in usr_names:
-            usr = portal.portal_membership.getMemberById(usr_name)
-            if usr.has_permission(MailBoxerModerate, nmb):
-                moderator_emails.append(usr.getProperty('email'))
-        filtered_emails = []
-        for email in moderator_emails:
-            if email not in filtered_emails:
-                filtered_emails.append(email)
-
         if not msg_rpath.endswith('fake'):
+            users_with_role = nmb.getMBLocalRoles()[0]
+            usr_names = []
+            for usr_name in users_with_role.keys():
+                if usr_name.startswith('user:'):
+                    usr_names.append(usr_name[5:])
+            #XXX: maybe we should handle groups here too...
+            moderator_emails = []
+            for usr_name in usr_names:
+                usr = portal.portal_membership.getMemberById(usr_name)
+                if usr.has_permission(MailBoxerModerate, nmb):
+                    moderator_emails.append(usr.getProperty('email'))
+            filtered_emails = []
+            for email in moderator_emails:
+                if email not in filtered_emails:
+                    filtered_emails.append(email)
+            if len(filtered_emails) == 0:
+                filtered_emails = self.getValueFor('moderator')
             cpsmcat = portal.Localizer.default
             moderation_url = "%s/cpsmailboxer_moderation_form?zoomed_msg=%s" % (nmb.absolute_url(),
                                                                                 msg_rpath)
