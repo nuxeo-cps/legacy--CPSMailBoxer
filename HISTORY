@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.3.1 [R1 build 2004/07/23-08:52 by epietrig]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- accept / reject could sometimes fail depending on server's Apache rewrite rule
+  (e.g. if /cps/ or equivalent was hidden)
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSMailBoxer V0.3.0 [R1 build 2004/07/23-07:42 by epietrig]
 
 Requires:

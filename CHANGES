@@ -6,8 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- accept / reject could sometimes fail depending on server's Apache rewrite rule
-  (e.g. if /cps/ or equivalent was hidden)
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
