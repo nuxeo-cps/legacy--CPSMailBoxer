@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.3.0 [R1 build 2004/07/23-07:42 by epietrig]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- a brand new moderation interface (moderation is now handled through CPS)
+
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- mails are managed through a CPS workflow
+
+*******************************************
 ** CPSMailBoxer V0.2.7 [R1 build 2004/06/03-15:36 by madarche]
 
 Requires:
