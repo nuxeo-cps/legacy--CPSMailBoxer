@@ -35,7 +35,8 @@ from CPSMailBoxerBoxes import CPSMAILBOXER_BOXES
 
 factory_type_information = (
     {'id': 'CPSMailBoxerFolder',
-     'description': 'CPSMailBoxer Archive Folder',
+     'title': 'portal_type_CPSMailBoxer_title',
+     'description': 'portal_type_CPSMailBoxer_description',
      'meta_type': 'CPSMailBoxerFolder',
      'icon': 'Folder_icon.gif',
      'product': 'CPSMailBoxer',

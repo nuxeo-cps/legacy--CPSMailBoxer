@@ -67,8 +67,8 @@ class NMBInstaller(BaseInstaller):
             add_meta_type='Factory-based Type Information',
             typeinfo_name='CPSMailBoxer: CPSMailBoxer',
             )
-        self.typestool[nmb].manage_changeProperties(title='portal_type_NuxMailBoxer_title',
-                                            description='portal_type_NuxMailBoxer_description',
+        self.typestool[nmb].manage_changeProperties(title='portal_type_CPSMailBoxer_title',
+                                            description='portal_type_CPSMailBoxer_description',
                                             content_meta_type=nmb,
                                             filter_content_types=1)
         self.typestool.manage_addTypeInformation(
@@ -76,8 +76,8 @@ class NMBInstaller(BaseInstaller):
             add_meta_type='Factory-based Type Information',
             typeinfo_name='CPSMailBoxer: CPSMailBoxerFolder',
             )
-        self.typestool[nmbf].manage_changeProperties(title='portal_type_NuxMailBoxerFolder_title',
-                                            description='portal_type_NuxMailBoxerFolder_description',
+        self.typestool[nmbf].manage_changeProperties(title='portal_type_CPSMailBoxerFolder_title',
+                                            description='portal_type_CPSMailBoxerFolder_description',
                                             content_meta_type=nmbf,
                                             filter_content_types=1)
         
