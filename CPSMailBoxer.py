@@ -92,7 +92,7 @@ factory_type_information = (
                   'name': 'Create',
                   'action': 'cpsmailboxer_create_form',
                   'visible': 0,
-                  'permissions': (View)},
+                  'permissions': (ModifyPortalContent)},
                  {'id': 'localroles',
                   'name': 'action_local_roles',
                   'action': 'mb_localrole_form',
