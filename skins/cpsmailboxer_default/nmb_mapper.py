@@ -19,6 +19,13 @@ if mail:
     recipient_list = ntool.getMailRecipient(mail=mail)
     for recipient in recipient_list:
         mb = ntool.getMailBoxer(list=recipient)
-        if mb is not None:
+        if mb:
             return mb.manage_mailboxer(REQUEST)
+        else:
+            from zLOG import LOG, INFO
+            LOG("CPSMailBoxer nmb_mapper", INFO, 
+                "Recipient "+str(recipient)+"has no MailBoxer")
+            LOG("CPSMailBoxer nmb_mapper", INFO, 
+                "Senders "+str(ntool.getMailSender(mail=mail)))
+            return "FALSE"
 
