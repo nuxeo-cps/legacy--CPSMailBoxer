@@ -16,33 +16,33 @@
               tal:attributes="action string:${here_url}/${action}">
           <table>
             <tr>
-              <td><span i18n:translate="">nmb_label_title</span></td>
+              <td><div class="label" i18n:translate="">nmb_label_title</div></td>
               <td>
                 <input type="text" size="25" name="title"
                        tal:attributes="value python:edit and here.Title() or ''" />
               </td>
             </tr>
             <tr>
-              <td valign="top"><span i18n:translate="">nmb_label_description</span></td>
+              <td><div class="label" i18n:translate="">nmb_label_description</div></td>
               <td>
                 <textarea cols="25" rows="3" name="description"
                           tal:content="python:edit and here.Description() or ''"></textarea>
               </td>
             </tr>
             <tr>
-              <td><span i18n:translate="">nmb_label_mailto</span></td>
+              <td><div class="label required" i18n:translate="">nmb_label_mailto</div></td>
               <td><input type="text" size="25" name="mailto"
                          tal:attributes="value python: edit and here.mailto or '' " />
               </td>
             </tr>
             <tr>
-              <td><span i18n:translate="">nmb_label_moderator</span></td>
+              <td><div class="label required" i18n:translate="">nmb_label_moderator</div></td>
               <td><input type="text" size="25" name="moderator"
                          tal:attributes="value python:edit and ' '.join(here.moderator) or ''" />
               </td>
             </tr>
             <tr>
-              <td><span i18n:translate="">nmb_label_modetared</span></td>
+              <td><div class="label" i18n:translate="">nmb_label_modetared</div></td>
               <td><input type="checkbox" name="moderated"
                          tal:attributes="checked
                                            python:
@@ -52,7 +52,7 @@
               </td>
             </tr>
             <tr>
-              <td><span i18n:translate="">nmb_label_archived</span></td>
+              <td><div class="label" i18n:translate="">nmb_label_archived</div></td>
               <td>
                 <select name="archived">
                   <option value="not archived"
@@ -77,7 +77,7 @@
               </td>
             </tr>
             <tr>
-              <td><span i18n:translate="">nmb_label_mtahosts</span></td>
+              <td><div class="label" i18n:translate="">nmb_label_mtahosts</div></td>
               <td><input type="text" size="25" name="mtahosts"
                          tal:attributes="value
                                            python:
