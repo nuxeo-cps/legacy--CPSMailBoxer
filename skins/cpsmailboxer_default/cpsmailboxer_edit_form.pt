@@ -1,21 +1,16 @@
-<tal:block define="create options/create|nothing;
-                   edit not:create;
-                   action
-                     python:
-                       create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
-<html xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      metal:use-macro="here/main_template/macros/master">
-<body>
-  <div class="Desktop"
-       tal:define="doc here/getContent;
-                   message request/message|nothing;
-                   here_url here/absolute_url;
-                   action python:create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
+<metal:block metal:use-macro="here/main_template/macros/master">
     <metal:block metal:fill-slot="header">
       <h2 i18n:translate="">nmb_heading_list_edit &nbsp;<tal:block replace="here/title_or_id" i18n:name="title" />&nbsp;</h2>
     </metal:block>
-    <metal:block metal:fill-slot="main">
+    <metal:block metal:fill-slot="main"
+                 tal:define="create options/create|nothing;
+                             edit not:create;
+                             doc here/getContent;
+                             message request/message|nothing;
+                             here_url here/absolute_url;
+                             action
+                               python:
+                                 create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
       <div class="group">
         <form method="post" enctype="multipart/form-data" action="."
               tal:attributes="action string:${here_url}/${action}">
@@ -24,23 +19,27 @@
               <td><span i18n:translate="">nmb_label_title</span></td>
               <td>
                 <input type="text" size="25" name="title"
-                       tal:attributes="value python:edit and here.Title() or ''"></td>
+                       tal:attributes="value python:edit and here.Title() or ''" />
+              </td>
             </tr>
             <tr>
               <td valign="top"><span i18n:translate="">nmb_label_description</span></td>
-              <td><textarea cols="25" name="description"
-                            tal:content="python:edit and here.Description() or ''"></textarea>
+              <td>
+                <textarea cols="25" rows="3" name="description"
+                          tal:content="python:edit and here.Description() or ''"></textarea>
               </td>
             </tr>
             <tr>
               <td><span i18n:translate="">nmb_label_mailto</span></td>
               <td><input type="text" size="25" name="mailto"
-                         tal:attributes="value python: edit and here.mailto or '' "></td>
+                         tal:attributes="value python: edit and here.mailto or '' " />
+              </td>
             </tr>
             <tr>
               <td><span i18n:translate="">nmb_label_moderator</span></td>
               <td><input type="text" size="25" name="moderator"
-                         tal:attributes="value python:edit and ' '.join(here.moderator) or ''"></td>
+                         tal:attributes="value python:edit and ' '.join(here.moderator) or ''" />
+              </td>
             </tr>
             <tr>
               <td><span i18n:translate="">nmb_label_modetared</span></td>
@@ -49,7 +48,8 @@
                                            python:
                                              edit and test(here.moderated,
                                                            'checked',
-                                                           nothing)"></td>
+                                                           nothing)" />
+              </td>
             </tr>
             <tr>
               <td><span i18n:translate="">nmb_label_archived</span></td>
@@ -81,19 +81,17 @@
               <td><input type="text" size="25" name="mtahosts"
                          tal:attributes="value
                                            python:
-                                             edit and ' '.join(here.mtahosts) or ''"></td>
+                                             edit and ' '.join(here.mtahosts) or ''" />
+              </td>
             </tr>
             <tr>
               <td><input class="standalone" type="submit"
                          value="nmb_label_validate"
-                         i18n:attributes="value">
+                         i18n:attributes="value" />
               </td>
             </tr>
           </table>
         </form>
       </div>
     </metal:block>
-  </div>
-</body>
-</html>
-</tal:block>
+</metal:block>
