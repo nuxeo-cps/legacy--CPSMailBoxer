@@ -225,6 +225,7 @@ def install(self):
         'reject': {
             'title': 'Rejecting post',
             'new_state_id': 'rejected',
+            'transition_behavior': (TRANSITION_BEHAVIOR_DELETE,),
             'clone_allowed_transitions': None,
             'trigger_type': TRIGGER_USER_ACTION,
             'props': {'guard_permissions': 'MailBoxer Moderate',
