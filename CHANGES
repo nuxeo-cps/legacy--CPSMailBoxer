@@ -1,11 +1,11 @@
 ZODB Requires:
 ~~~~~~~~~~~~~~
-- MailBoxer 3.1
+- MailBoxer 3.1 (Nuxeo patched version)
 
 New features:
 ~~~~~~~~~~~~~
 - Creation of a mail is now possible from CPS
-- Moderation mode is working ok (relis on MailBoxer for now,
+- Moderation mode is working ok (relies on MailBoxer for now,
   no CPS-specific interface)
   
 Bug fixes:
@@ -18,3 +18,5 @@ New internal features:
 - archives are now stored using CPSDocument CPSMailArchive
 - renamed everything from NuxMailBoxer to CPSMailBoxer
 - widgets are now encapsulated in boxes
+- changed nmb_mapper script for something more reliable and faster
+
