@@ -59,33 +59,33 @@ factory_type_information = (
      'filter_content_types': 0,
      'cps_display_as_document_in_listing': 1,
      'actions': ({'id': 'view',
-                  'name': 'action_view',
-                  'action': 'folder_view',
-                  'permissions': (View,)},
-                 {'id': 'subscribe',
-                  'name': 'action_subscribe',
-                  'action': 'cpsmailboxer_subscribe_form',
-                  'permissions': (View)},  # Is this permission OK ?
-                 {'id': 'edit',
-                  'name': 'action_modify_prop',
-                  'action': 'cpsmailboxer_edit_form',
-                  'permissions': (ModifyPortalContent,)},
-                 {'id': 'edit_members',
-                  'name': 'action_manage_members',
-                  'action': 'cpsmailboxer_members_edit_form',
-                  'permissions': (ModifyPortalContent,)},
-                 {'id': 'creatnletter',
-                  'name': 'Create Newsletter',
-                  'action': 'cpsmailboxer_newsletter_create_form',
-                  'permissions': (ModifyPortalContent,)},
-                {'id': 'create',
-                  'name': 'Create',
-                  'action': 'cpsmailboxer_create_form',
-                  'visible': 0,
-                  'permissions': (View)},
-                ),
-                'cps_proxy_type':None,
-                'cps_is_searchable':1,
+		  'name': 'action_view',
+		  'action': 'folder_view',
+		  'permissions': (View,)},
+		 {'id': 'subscribe',
+		  'name': 'action_subscribe',
+		  'action': 'cpsmailboxer_subscribe_form',
+		  'permissions': (View)},  # Is this permission OK ?
+		 {'id': 'edit',
+		  'name': 'action_modify_prop',
+		  'action': 'cpsmailboxer_edit_form',
+		  'permissions': (ModifyPortalContent,)},
+		 {'id': 'edit_members',
+		  'name': 'action_manage_members',
+		  'action': 'cpsmailboxer_members_edit_form',
+		  'permissions': (ModifyPortalContent,)},
+		 {'id': 'creatnletter',
+		  'name': 'Create Newsletter',
+		  'action': 'cpsmailboxer_newsletter_create_form',
+		  'permissions': (ModifyPortalContent,)},
+		{'id': 'create',
+		  'name': 'Create',
+		  'action': 'cpsmailboxer_create_form',
+		  'visible': 0,
+		  'permissions': (View)},
+		),
+		'cps_proxy_type':None,
+		'cps_is_searchable':1,
      },
 )
 
@@ -93,230 +93,230 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
     """
     Mailing list managment and archive for Nuxeo CPS
     """
-                          
+
     meta_type = 'CPSMailBoxer'
 
     security = ClassSecurityInfo()
 
     _properties = (
-        {'id':'description', 'type':'text', 'mode':'w', 'label':'Description'},
+	{'id':'description', 'type':'text', 'mode':'w', 'label':'Description'},
     ) + MailBoxer._properties
-    
+
     title = ''
 
     def __init__(self, id, title=''):
-        """
-        CPSMailBoxer constructor
-        """
-        MailBoxer.__init__(self, id, title)
-        self._setId(id)
+	"""
+	CPSMailBoxer constructor
+	"""
+	MailBoxer.__init__(self, id, title)
+	self._setId(id)
 
     def edit(self, **kw):
-        """
-        Modify object properties
-        @return: None
-        @rtype: None
+	"""
+	Modify object properties
+	@return: None
+	@rtype: None
 
-        @type kw: C{dict}
-        @param kw: Keyword parameters, properties to changed
-        """
-        self.manage_changeProperties(**kw)
-        evtool = getEventService(self)
-        evtool.notify('sys_modify_object', self, {})
-        self.reindexObject()
+	@type kw: C{dict}
+	@param kw: Keyword parameters, properties to changed
+	"""
+	self.manage_changeProperties(**kw)
+	evtool = getEventService(self)
+	evtool.notify('sys_modify_object', self, {})
+	self.reindexObject()
 
 
-    ###            
+    ###
     # Public method to be called via smtp2zope-gateway
     ##
 
     security.declarePublic('manage_mailboxer')
     def manage_mailboxer(self, REQUEST):
-        """ Default for a all-in-one mailinglist-workflow.
-        
-            Handles (un)subscription-requests and
-            checks for loops etc & bulks mails to list.
-            
-            @param REQUEST: REQUEST Zope object
-            @type REQUEST: C{REQUEST}
-            
-        """
+	""" Default for a all-in-one mailinglist-workflow.
 
-        try:
-            # XXX: there might be a lighter solution than
-            # setting Manager role for this method
-            # but if we don't, we get security exceptions
-            # in several places (anonymous has no View_permission
-            # and no Add_portal_content_permission on CPSMailBoxer)
-            class CPSUnrestrictedUser(UnrestrictedUser):
-                """Unrestricted user that still has an id.
+	    Handles (un)subscription-requests and
+	    checks for loops etc & bulks mails to list.
 
-                Taken from CPSMembershipTool
-                """
+	    @param REQUEST: REQUEST Zope object
+	    @type REQUEST: C{REQUEST}
 
-                def getId(self):
-                    """Return the ID of the user."""
-                    return self.getUserName()
+	"""
 
-            mtool = getToolByName(self, 'portal_membership')
-            old_user = getSecurityManager().getUser()
+	try:
+	    # XXX: there might be a lighter solution than
+	    # setting Manager role for this method
+	    # but if we don't, we get security exceptions
+	    # in several places (anonymous has no View_permission
+	    # and no Add_portal_content_permission on CPSMailBoxer)
+	    class CPSUnrestrictedUser(UnrestrictedUser):
+		"""Unrestricted user that still has an id.
 
-            tmp_user = CPSUnrestrictedUser('root', '',
-                                           ['Manager', 'Member'], '')
-            tmp_user = tmp_user.__of__(mtool.acl_users)
-            newSecurityManager(None, tmp_user)
+		Taken from CPSMembershipTool
+		"""
 
-            if self.checkMail(REQUEST):
-                newSecurityManager(None, old_user)
-                return FALSE
+		def getId(self):
+		    """Return the ID of the user."""
+		    return self.getUserName()
 
-            # Check for subscription/unsubscription-request
-            if self.requestMail(REQUEST):
-                newSecurityManager(None, old_user)
-                return TRUE
+	    mtool = getToolByName(self, 'portal_membership')
+	    old_user = getSecurityManager().getUser()
 
-            # Process the mail...
-            self.processMail(REQUEST)
-            newSecurityManager(None, old_user)
-            return TRUE
-        except Exception ,e :
-            LOG('Error processing mail for CPSMailBoxer: ',ERROR,str(e))
-        
-         
+	    tmp_user = CPSUnrestrictedUser('root', '',
+					   ['Manager', 'Member'], '')
+	    tmp_user = tmp_user.__of__(mtool.acl_users)
+	    newSecurityManager(None, tmp_user)
+
+	    if self.checkMail(REQUEST):
+		newSecurityManager(None, old_user)
+		return FALSE
+
+	    # Check for subscription/unsubscription-request
+	    if self.requestMail(REQUEST):
+		newSecurityManager(None, old_user)
+		return TRUE
+
+	    # Process the mail...
+	    self.processMail(REQUEST)
+	    newSecurityManager(None, old_user)
+	    return TRUE
+	except Exception ,e :
+	    LOG('Error processing mail for CPSMailBoxer: ',ERROR,str(e))
+
+
     def manage_addFolder(self, id, title=''):
-        """
-        Add a CPSMailBoxerFolder insted of a normal Folder.
+	"""
+	Add a CPSMailBoxerFolder insted of a normal Folder.
 
-        @return: C{None}
-        @rtype: C{None}
-        
-        """
-        ob = CPSMailBoxerFolder(id, title)
-        self._setObject(id, ob)
-        
+	@return: C{None}
+	@rtype: C{None}
+
+	"""
+	ob = CPSMailBoxerFolder(id, title)
+	self._setObject(id, ob)
+
     def manage_addYearFolder(self, archive, year, title):
-        """
-        Add a CPSMailBoxerFolder for year archive folder
-        @return: the Year archive folder
-        @rtype: L{CPSMailBoxerFolder}
+	"""
+	Add a CPSMailBoxerFolder for year archive folder
+	@return: the Year archive folder
+	@rtype: L{CPSMailBoxerFolder}
 
-        @param archive: The archive folder
-        @type archive: L{CPSMailBoxerFolder}
+	@param archive: The archive folder
+	@type archive: L{CPSMailBoxerFolder}
 
-        @param id: The created object id in container
-        @type id: C{string}
+	@param id: The created object id in container
+	@type id: C{string}
 
-        @param title: The created object title
-        @type title: C{string}
+	@param title: The created object title
+	@type title: C{string}
 
-        @note: Create the Year archive or return the exists
-        """
-        # do we have a year folder already?
-        if not hasattr(archive, year):
-            archive.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=year, title=title, boxes=('mb_content',))
-        yearFolder = getattr(archive, year)
+	@note: Create the Year archive or return the exists
+	"""
+	# do we have a year folder already?
+	if not hasattr(archive, year):
+	    archive.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=year, title=title, boxes=('mb_content',))
+	yearFolder = getattr(archive, year)
 
-        return yearFolder
+	return yearFolder
 
     def manage_addMonthFolder(self, yearFolder, month, title):
-        """
-        Add a CPSMailBoxerFolder for month archive folder
-        """
-        # do we have a month folder already?
-        if not hasattr(yearFolder, month):
-            yearFolder.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=month, title=title, boxes=('mb_content',))
-        monthFolder = getattr(yearFolder, month)
+	"""
+	Add a CPSMailBoxerFolder for month archive folder
+	"""
+	# do we have a month folder already?
+	if not hasattr(yearFolder, month):
+	    yearFolder.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id=month, title=title, boxes=('mb_content',))
+	monthFolder = getattr(yearFolder, month)
 
-        return monthFolder
+	return monthFolder
 
     security.declarePublic('manage_addMember')
     def manage_addMember(self, email):
-        """ Add member to maillist. """
+	""" Add member to maillist. """
 
-        memberlist = list(self.getValueFor('maillist'))
-        if email.lower() not in self.lowerList(memberlist):
-            memberlist.append(email)
-            memberlist.sort()
-            self.setValueFor('maillist', memberlist)
-            return email
-        else:
-            raise KeyError, 'email exists'
+	memberlist = list(self.getValueFor('maillist'))
+	if email.lower() not in self.lowerList(memberlist):
+	    memberlist.append(email)
+	    memberlist.sort()
+	    self.setValueFor('maillist', memberlist)
+	    return email
+	else:
+	    raise KeyError, 'email exists'
 
-    def sendtoList(self, context, ffrom=None, fto=None, subject='Newsletter', 
-                   texte=''):
-        """
-        Send a message to the members of the list
+    def sendtoList(self, context, ffrom=None, fto=None, subject='Newsletter',
+		   texte=''):
+	"""
+	Send a message to the members of the list
 
-        @return: C{None}
-        @rtype: C{none}
-        @param ffrom: 'From' e-mail address of the sended e-mails.
-        @type ffrom: C{string}
-        @param fto: 'To' e-mail address of the sended e-mails
-        @type fto: C{string}
-        @param subject: 'Subject' of the sended e-mails
-        @type subject: C{string}
-        @param texte: Body of the sended e-mails.
-        @param texte: C{string}
-        
+	@return: C{None}
+	@rtype: C{none}
+	@param ffrom: 'From' e-mail address of the sended e-mails.
+	@type ffrom: C{string}
+	@param fto: 'To' e-mail address of the sended e-mails
+	@type fto: C{string}
+	@param subject: 'Subject' of the sended e-mails
+	@type subject: C{string}
+	@param texte: Body of the sended e-mails.
+	@param texte: C{string}
 
-        @note: send emails
-        """
 
-        if ffrom is None:
-            ffrom = self.moderator[0]
-        if fto is None:
-            fto = self.mailto
-        msg = MIMEText(texte, _charset="iso-8859-1")
-        msg.add_header('Subject', subject)
-        msg.add_header('From', ffrom)
-        msg.add_header('To', fto)
-        req = context.REQUEST
-        req['Mail'] = msg.as_string()
-        self.listMail(req)
+	@note: send emails
+	"""
+
+	if ffrom is None:
+	    ffrom = self.moderator[0]
+	if fto is None:
+	    fto = self.mailto
+	msg = MIMEText(texte, _charset="iso-8859-1")
+	msg.add_header('Subject', subject)
+	msg.add_header('From', ffrom)
+	msg.add_header('To', fto)
+	req = context.REQUEST
+	req['Mail'] = msg.as_string()
+	self.listMail(req)
 
     def manage_addMail(self, Mail):
-        """
-        Create a Mail object in the archive tree structure
-        Create year/month tree branch if they didn't exist
-        
-        @return: Created Mail object
-        @rtype: L{CPSMailBoxerFolder}
+	"""
+	Create a Mail object in the archive tree structure
+	Create year/month tree branch if they didn't exist
 
-        @param Mail: E-mail strucured to be stored
-        @type Mail: L{CPSMailBoxerFolder}
-        
-        """
+	@return: Created Mail object
+	@rtype: L{CPSMailBoxerFolder}
 
-        archive = self.restrictedTraverse(self.getValueFor('storage'),
-                                          default=None)
+	@param Mail: E-mail strucured to be stored
+	@type Mail: L{CPSMailBoxerFolder}
 
-        # no archive available? then return immediately
-        if archive is None:
-            return None
+	"""
 
-        (header, body) = self.splitMail(Mail)
+	archive = self.restrictedTraverse(self.getValueFor('storage'),
+					  default=None)
 
-        # if 'keepdate' is set, get date from mail,
-        if self.getValueFor('keepdate'):
-            timetuple = rfc822.parsedate_tz(header.get('date'))
-            time = DateTime(rfc822.mktime_tz(timetuple))
-        # ... take our own date, clients are always lying!
-        else:
-            time = DateTime()
+	# no archive available? then return immediately
+	if archive is None:
+	    return None
 
-        # now let's create the date-path (yyyy/yyyy-mm) 
-        year  = str(time.year())                  # yyyy
-        month = "%s-%s" % (year, str(time.mm()))  # yyyy-mm
+	(header, body) = self.splitMail(Mail)
 
-        yearFolder = self.manage_addYearFolder(archive, year, year) 
-        monthFolder = self.manage_addMonthFolder(yearFolder, month, month)
+	# if 'keepdate' is set, get date from mail,
+	if self.getValueFor('keepdate'):
+	    timetuple = rfc822.parsedate_tz(header.get('date'))
+	    time = DateTime(rfc822.mktime_tz(timetuple))
+	# ... take our own date, clients are always lying!
+	else:
+	    time = DateTime()
 
-        # let's create the mailObject
-        mailFolder = monthFolder
-        
-        subject = self.mime_decode_header(header.get('subject', 'No Subject'))
-        sender = self.mime_decode_header(header.get('from','No From'))
-        title = "%s / %s" % (subject, sender)
+	# now let's create the date-path (yyyy/yyyy-mm)
+	year  = str(time.year())                  # yyyy
+	month = "%s-%s" % (year, str(time.mm()))  # yyyy-mm
+
+	yearFolder = self.manage_addYearFolder(archive, year, year)
+	monthFolder = self.manage_addMonthFolder(yearFolder, month, month)
+
+	# let's create the mailObject
+	mailFolder = monthFolder
+
+	subject = self.mime_decode_header(header.get('subject', 'No Subject'))
+	sender = self.mime_decode_header(header.get('from','No From'))
+	title = "%s / %s" % (subject, sender)
 
 
 ##        # maybe it's a reply ?
@@ -326,77 +326,77 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
 ##                                  [currentFolder.getContent().mailSubject]):
 ##                    mailFolder=currentFolder
 
-        # search a free id for the mailobject
-        id = time.millis()
-        while hasattr(mailFolder, str(id)):  
-            id = id + 1
-             
-        id = str(id)
+	# search a free id for the mailobject
+	id = time.millis()
+	while hasattr(mailFolder, str(id)):
+	    id = id + 1
 
-        mailObject = self.addMailBoxerMail(mailFolder, id, title, sender, 
-                                           subject, time, Mail)
+	id = str(id)
 
-        return mailObject
-    
-        # Index the new created mailFolder in the catalog
-        Catalog = self.unrestrictedTraverse(self.getValueFor('catalog'),
-                                            default=None)
+	mailObject = self.addMailBoxerMail(mailFolder, id, title, sender,
+					   subject, time, Mail)
 
-        if Catalog is not None:
-            Catalog.catalog_object(mailObject)
-        return mailObject
+	return mailObject
+
+	# Index the new created mailFolder in the catalog
+	Catalog = self.unrestrictedTraverse(self.getValueFor('catalog'),
+					    default=None)
+
+	if Catalog is not None:
+	    Catalog.catalog_object(mailObject)
+	return mailObject
 
     def addMailBoxerMail(self, mailFolder, id, title, sender, subject, time, Mail):
-        """
-        """
-        #mailFolder.manage_addCPSMailArchive(id, title=title)
-        mailFolder.invokeFactory(type_name='CPSMailArchive', id=id)
-        mailObject = getattr(mailFolder, id)
+	"""
+	"""
+	#mailFolder.manage_addCPSMailArchive(id, title=title)
+	mailFolder.invokeFactory(type_name='CPSMailArchive', id=id)
+	mailObject = getattr(mailFolder, id)
 
-        # unpack attachments
-        (TextBody, ContentType, HtmlBody) =  self._unpackMultifile(mailObject, 
-                                                     multifile.MultiFile(
-                                                      StringIO.StringIO(Mail)))
+	# unpack attachments
+	(TextBody, ContentType, HtmlBody) =  self._unpackMultifile(mailObject,
+						     multifile.MultiFile(
+						      StringIO.StringIO(Mail)))
 
-        # ContentType is only set for the TextBody
-        if ContentType:
-            body = TextBody
-        else:
-            body = self.HtmlToText(HtmlBody)
-        attachedFiles = mailObject.objectValues()
-        mailObject = mailObject.getContent()
-        
-        mailObject.edit(Title=subject, mailFrom=sender, mailSubject=subject,
-                        mailDate=time, mailBody=body)
-        files = {}
-        widget_type = 'Mailattachment'
-        layout_id = 'cps_mailarchive_flexible'
-        
-        for attachment in attachedFiles:
-            widget_id = str(mailObject.flexibleAddWidget(layout_id, widget_type))
-            files[widget_id] = attachment
+	# ContentType is only set for the TextBody
+	if ContentType:
+	    body = TextBody
+	else:
+	    body = self.HtmlToText(HtmlBody)
+	attachedFiles = mailObject.objectValues()
+	mailObject = mailObject.getContent()
 
-        mailObject.edit(**files)
-        
-        # insert header if a regular expression is set and matches
-        headers_regexp = self.getValueFor('headers')
-        if headers_regexp:
-            msg = mimetools.Message(StringIO.StringIO(Mail))
-            headers = []
-            for (key, value) in msg.items():
-                if re.match(headers_regexp, key, re.IGNORECASE):
-                    headers.append('%s: %s' % (key, value.strip()))
-            
-            mailObject.manage_addProperty('mailHeader', headers, 'lines')
+	mailObject.edit(Title=subject, mailFrom=sender, mailSubject=subject,
+			mailDate=time, mailBody=body)
+	files = {}
+	widget_type = 'Mailattachment'
+	layout_id = 'cps_mailarchive_flexible'
 
-        return mailObject
+	for attachment in attachedFiles:
+	    widget_id = str(mailObject.flexibleAddWidget(layout_id, widget_type))
+	    files[widget_id] = attachment
+
+	mailObject.edit(**files)
+
+	# insert header if a regular expression is set and matches
+	headers_regexp = self.getValueFor('headers')
+	if headers_regexp:
+	    msg = mimetools.Message(StringIO.StringIO(Mail))
+	    headers = []
+	    for (key, value) in msg.items():
+		if re.match(headers_regexp, key, re.IGNORECASE):
+		    headers.append('%s: %s' % (key, value.strip()))
+
+	    mailObject.manage_addProperty('mailHeader', headers, 'lines')
+
+	return mailObject
 
 InitializeClass(CPSMailBoxer)
 
 
 def addCPSMailBoxer(dispatcher, id, title='', smtphost='127.0.0.1',
-                    REQUEST=None, **kw):
-    
+		    REQUEST=None, **kw):
+
     """Add a CPSMailBoxer."""
 #    mb = CPSMailBoxer(id, title=title, description=description, mailto=mailto,\
 #         moderator=moderator, moderated=moderated, archived=archived, mtahosts=mtahosts, **kw)
@@ -404,7 +404,7 @@ def addCPSMailBoxer(dispatcher, id, title='', smtphost='127.0.0.1',
     kw['catalog'] = 'Catalog'
 
     apply(mb.manage_changeProperties, (REQUEST,), kw)
-    
+
     container = dispatcher.Destination()
     container._setObject(id, mb)
     mb = container._getOb(id)
@@ -415,68 +415,67 @@ def addCPSMailBoxer(dispatcher, id, title='', smtphost='127.0.0.1',
     box_container = getattr(mb,idbc)
     existing_boxes = box_container.objectIds()
     portal_types = container.portal_types
-    
+
     #create boxes in box container if box is in boxes pass by factory
     boxes = ('boxertitle', 'mb_search','archive',)
     if boxes is not None:
-        for box, props in [ (box, props) for (box, props) in \
-                            CPSMAILBOXER_BOXES.items() \
-                            if boxes and box in boxes]:
-            if box in existing_boxes:
-                box_container._delObject(box)
-            portal_types.constructContent(props['type'], box_container, box)
-            ob = box_container[box]
-            ob.manage_changeProperties(**props)
-    
+	for box, props in [ (box, props) for (box, props) in \
+			    CPSMAILBOXER_BOXES.items() \
+			    if boxes and box in boxes]:
+	    if box in existing_boxes:
+		box_container._delObject(box)
+	    portal_types.constructContent(props['type'], box_container, box)
+	    ob = box_container[box]
+	    ob.manage_changeProperties(**props)
+
     # Add a MailHost and a ZCatalog
     mb.manage_addProduct['CPSMailBoxer'].addCPSMailBoxerFolder(id='archive', title='Archive', boxes=('archive',))
 
     mb.manage_addProduct['ZCatalog'].manage_addZCatalog('Catalog','Catalog')
 
     try:
-        # Here we try to add ZCTextIndex => 2.6.x
+	# Here we try to add ZCTextIndex => 2.6.x
 
-        class Extra:
-            """ Just a dummy to build records for the Lexicon.
-            """
-            pass
+	class Extra:
+	    """ Just a dummy to build records for the Lexicon.
+	    """
+	    pass
 
-        wordSplitter = Extra()
-        wordSplitter.group = 'Word Splitter'
-        wordSplitter.name = 'Whitespace splitter'
+	wordSplitter = Extra()
+	wordSplitter.group = 'Word Splitter'
+	wordSplitter.name = 'Whitespace splitter'
 
-        caseNormalizer = Extra()
-        caseNormalizer.group = 'Case Normalizer'
-        caseNormalizer.name = 'Case Normalizer'
+	caseNormalizer = Extra()
+	caseNormalizer.group = 'Case Normalizer'
+	caseNormalizer.name = 'Case Normalizer'
 
-        mb.Catalog.manage_addProduct['ZCTextIndex'].manage_addLexicon(
-                                                    'Lexicon', 'Lexicon',
-                                                    (wordSplitter,
-                                                     caseNormalizer))
+	mb.Catalog.manage_addProduct['ZCTextIndex'].manage_addLexicon(
+						    'Lexicon', 'Lexicon',
+						    (wordSplitter,
+						     caseNormalizer))
 
-        extra = Extra()
-        extra.index_type = 'Okapi BM25 Rank'
-        extra.lexicon_id = 'Lexicon'
+	extra = Extra()
+	extra.index_type = 'Okapi BM25 Rank'
+	extra.lexicon_id = 'Lexicon'
 
-        mb.Catalog.manage_addIndex('mailDate', 'DateIndex')
-        mb.Catalog.addIndex('mailFrom', 'ZCTextIndex', extra)
-        mb.Catalog.addIndex('mailSubject', 'ZCTextIndex', extra)
-        mb.Catalog.addIndex('mailBody', 'ZCTextIndex', extra)
+	mb.Catalog.manage_addIndex('mailDate', 'DateIndex')
+	mb.Catalog.addIndex('mailFrom', 'ZCTextIndex', extra)
+	mb.Catalog.addIndex('mailSubject', 'ZCTextIndex', extra)
+	mb.Catalog.addIndex('mailBody', 'ZCTextIndex', extra)
 
     except:
-        # Old Zope => maybe I remove this sometimes...;)
-        
-        mb.Catalog.manage_addIndex('mailDate', 'FieldIndex')
-        mb.Catalog.manage_addIndex('mailFrom', 'TextIndex')
-        mb.Catalog.manage_addIndex('mailSubject', 'TextIndex')
-        mb.Catalog.manage_addIndex('mailBody', 'TextIndex')
-    
+	# Old Zope => maybe I remove this sometimes...;)
+
+	mb.Catalog.manage_addIndex('mailDate', 'FieldIndex')
+	mb.Catalog.manage_addIndex('mailFrom', 'TextIndex')
+	mb.Catalog.manage_addIndex('mailSubject', 'TextIndex')
+	mb.Catalog.manage_addIndex('mailBody', 'TextIndex')
+
     # Add dtml-templates
     for (id, data) in MailBoxerTemplates.items():
-        if id != 'index_html':     # It would override the default view
-            mb.addDTMLMethod(id, file=data)
+	if id != 'index_html':     # It would override the default view
+	    mb.addDTMLMethod(id, file=data)
 
     if REQUEST is not None:
-        url = dispatcher.DestinationURL()
-        REQUEST.RESPONSE.redirect('%s/manage_main' % url)
-
+	url = dispatcher.DestinationURL()
+	REQUEST.RESPONSE.redirect('%s/manage_main' % url)
