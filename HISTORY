@@ -1,4 +1,21 @@
 *******************************************
+** CPSMailBoxer V0.2.3 [R1 build 2004/04/29-11:10 by madarche]
+
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- more i18n
+- i18n default lang bug fix at install
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSMailBoxer V0.2.2 [R1 build 2004/04/07-11:07 by madarche]
 
 Requires:
