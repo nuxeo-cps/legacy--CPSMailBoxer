@@ -17,7 +17,7 @@
 # $Id$
 
 import Globals
-import multifile, StringIO, difflib, re, mimetools, rfc822
+import multifile, difflib, re, mimetools, rfc822
 from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
@@ -44,7 +44,7 @@ from email.MIMEText import MIMEText
 from zLOG import LOG,DEBUG,ERROR
 
 import traceback
-import StringIO
+from StringIO import StringIO
 
 TRUE = "TRUE"
 FALSE = "FALSE"
@@ -363,7 +363,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         # unpack attachments
         (TextBody, ContentType, HtmlBody) =  self._unpackMultifile(mailObject,
                                                      multifile.MultiFile(
-                                                      StringIO.StringIO(Mail)))
+                                                      StringIO(Mail)))
 
         # ContentType is only set for the TextBody
         if ContentType:
@@ -388,7 +388,7 @@ class CPSMailBoxer(MailBoxer, SkinnedFolder, PropertyManager):
         # insert header if a regular expression is set and matches
         headers_regexp = self.getValueFor('headers')
         if headers_regexp:
-            msg = mimetools.Message(StringIO.StringIO(Mail))
+            msg = mimetools.Message(StringIO(Mail))
             headers = []
             for (key, value) in msg.items():
                 if re.match(headers_regexp, key, re.IGNORECASE):
