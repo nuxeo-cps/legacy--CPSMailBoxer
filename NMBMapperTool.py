@@ -50,7 +50,7 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
 
     security.declarePublic('getMailRecipient')
     def getMailRecipient(self, mail=None):
-        """given an email source, returns its first recipient"""
+        """given an email source, returns the list of the recipients"""
 
         to_field_list = []
         if mail is not None:
@@ -58,6 +58,18 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
             to_field = message.get('To')
             to_field_list = self.email_pattern.findall(to_field)
         return to_field_list
+
+    security.declarePublic('getMailSender')
+    def getMailSender(self, mail=None):
+        """given an email source, returns the list of the senders
+           Use it in debug mode only."""
+
+        from_field_list = []
+        if mail is not None:
+            message = message_from_string(mail)
+            from_field = message.get('From')
+            from_field_list = self.email_pattern.findall(from_field)
+        return from_field_list
 
     security.declarePublic('getMailBoxer')
     def getMailBoxer(self, list=None):
