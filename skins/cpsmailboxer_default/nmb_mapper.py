@@ -19,7 +19,7 @@ if mail:
     recipient_list = ntool.getMailRecipient(mail=mail)
     for recipient in recipient_list:
         mb = ntool.getMailBoxer(list=recipient)
-        if mb:
+        if mb is not None:
             return mb.manage_mailboxer(REQUEST)
         else:
             from zLOG import LOG, INFO
