@@ -106,7 +106,7 @@ class NMBMapperTool(UniqueObject, PortalFolder, Persistent):
 
     security.declarePrivate('notify_nmbreg')
     def notify_nmbreg(self, event_type, object, infos):
-        if event_type == 'sys_modify_object':
+        if event_type == 'sys_modify_object' or event_type == 'sys_add_cmf_object':
             self.registerMailBoxer(object)
         elif event_type == 'sys_del_object':
             self.unregisterMailBoxer(object)
