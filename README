@@ -99,5 +99,16 @@ nmb_mapper instead of being hardcoded in the alias (as done in method A).
   version of smtp2zope you use to redirect mails is the on included in the new
   version of MailBoxer.
 
+- You can test Mailboxer installation with this forge mail:
+-- begin of mail-debug:
+From: aValidAddress@AMailboxer
+To: AMailBoxerAddress@Valid
+Subject: Debug mail
 
- 
+Test
+
+-- end of file
+ And after run this:
+  `/usr/local/sbin/smtp2zope.py http://hostname:port/cps/nmb_mapper<mail-debug`
+ If this works, check your MTA virtual aliases.
+
