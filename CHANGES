@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Added debugging in case of wrong utilisation of a CPSMailBoxer
