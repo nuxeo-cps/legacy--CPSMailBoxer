@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"POT-Creation-Date: 2004-07-22 11:34default\n"
-"PO-Revision-Date: 2004-07-22 11:35+0200\n"
+"POT-Creation-Date: 2004-07-22 15:08default\n"
+"PO-Revision-Date: 2004-07-22 15:08+0200\n"
 "Last-Translator: emmanuel <epietriga@nuxeo.com>\n"
 "Language-Team: francais <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,20 @@ msgstr "${nb_members} utilisateurs sont abonnés à cette liste"
 
 #.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "cpsmailboxer_button_publish"
 msgstr "Accepter"
 
 #.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_purge'), )" value="cpsmailboxer_button_purge" class="destructive" name="cpsmailboxer_purge_queue:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "cpsmailboxer_button_purge"
+msgstr "Purger"
+
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
 #.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "cpsmailboxer_button_reject"
 msgstr "Rejeter"
 
@@ -87,6 +95,7 @@ msgstr "Création d'une lettre d'information"
 
 #.   <div condition="not:proxy" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "nmb_label_already_moderated"
 msgstr "Ce message a déjà été modéré."
 
@@ -335,8 +344,16 @@ msgstr "Enregistrer"
 msgid "nmb_label_with attach"
 msgstr "avec pièces jointes"
 
+#.   <div>nmb_nb_messages_in_queue
+#.                                ${queue_len (tal replace="queue_len")}
+#.         </div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_nb_messages_in_queue ${queue_len}"
+msgstr "Nombre de messages en attente dans la queue d'envoi : ${queue_len}"
+
 #.   <h1>Pending messages</h1>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "nmb_title_message_moderation"
 msgstr "Messages à modérer"
 
@@ -427,6 +444,14 @@ msgstr "Contenu du message :"
 
 msgid "nmb_confirm_reject"
 msgstr "Le(s) message(s) sélectionné(s) vont être détruits. Continuer ?"
+
+msgid "nmb_confirm_purge"
+msgstr ""
+"Les messages présents dans la queue ne seront pas envoyés même après "
+"modération. Continuer ?"
+
+msgid "nmb_psm_queue_purged"
+msgstr "Queue d'envoi nettoyée"
 
 msgid "nmb_psm_messages_published"
 msgstr "Message(s) publié(s)"

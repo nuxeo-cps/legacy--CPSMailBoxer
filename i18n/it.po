@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: en\n"
-"POT-Creation-Date: 2004-07-22 11:34default\n"
+"POT-Creation-Date: 2004-07-22 15:08default\n"
 "PO-Revision-Date: 2004-05-10 15:47+0100\n"
 "Last-Translator: Paolo Dina <paolo@php3.it>\n"
 "Language-Team: francais <fr@li.org>\n"
@@ -35,13 +35,23 @@ msgstr "${nb_members} utenti sono iscritti alla lista di diffusione"
 
 #.   <input value="cpsmailboxer_button_publish" class="context" name="cpsmailboxer_publish_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 msgid "cpsmailboxer_button_publish"
 msgstr ""
 
 #    <div />
 #.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
+#.                                    (cpsmcat('nmb_confirm_purge'), )" value="cpsmailboxer_button_purge" class="destructive" name="cpsmailboxer_purge_queue:method" type="submit" />
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#, fuzzy
+msgid "cpsmailboxer_button_purge"
+msgstr "Campo obbligatorio"
+
+#    <div />
+#.   <input attributes="onclick python:'return window.confirm(\'%s\')' %
 #.                                    (cpsmcat('nmb_confirm_reject'), )" value="cpsmailboxer_button_reject" class="destructive" name="cpsmailboxer_reject_msg:method" type="submit" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 #, fuzzy
 msgid "cpsmailboxer_button_reject"
 msgstr "Campo obbligatorio"
@@ -101,6 +111,7 @@ msgstr "Creazione di una lettera di informazione"
 #    <div class="label">nmb_label_modetared</div>
 #.   <div condition="not:proxy" />
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 #, fuzzy
 msgid "nmb_label_already_moderated"
 msgstr "Moderata"
@@ -405,9 +416,17 @@ msgstr "Salva le modifiche"
 msgid "nmb_label_with attach"
 msgstr "con allegati"
 
+#.   <div>nmb_nb_messages_in_queue
+#.                                ${queue_len (tal replace="queue_len")}
+#.         </div>
+#: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+msgid "nmb_nb_messages_in_queue ${queue_len}"
+msgstr ""
+
 #    <div class="label required">nmb_label_moderator</div>
 #.   <h1>Pending messages</h1>
 #: from ../skins/cpsmailboxer_default/cpsmailboxer_moderation_form.pt
+#: ../skins/cpsmailboxer_default/cpsmailboxer_moderation_queue.pt
 #, fuzzy
 msgid "nmb_title_message_moderation"
 msgstr "Moderatore (email)"
@@ -518,6 +537,16 @@ msgstr "Oggetto:"
 #    <td>nmb_label_subject</td>
 #, fuzzy
 msgid "nmb_confirm_reject"
+msgstr "Oggetto:"
+
+#    <td>nmb_label_subject</td>
+#, fuzzy
+msgid "nmb_confirm_purge"
+msgstr "Oggetto:"
+
+#    <td>nmb_label_subject</td>
+#, fuzzy
+msgid "nmb_psm_queue_purged"
 msgstr "Oggetto:"
 
 msgid "nmb_psm_messages_published"
