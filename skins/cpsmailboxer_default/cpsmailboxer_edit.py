@@ -4,6 +4,14 @@
 
 kw = REQUEST.form
 
+if not kw['mailto']:
+    msg = 'error_mailto'
+    return context.cpsmailboxer_edit_form(error_message=msg)
+
+if not kw['moderator']:
+    msg = 'error_moderator'
+    return context.cpsmailboxer_edit_form(error_message=msg)
+
 doc = context # would be context.getContent() if manipulating a proxy
 
 moderators = [m.strip() for m in kw['moderator'].split() if not m.isspace()]

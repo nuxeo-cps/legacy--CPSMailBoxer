@@ -10,7 +10,8 @@
                              here_url here/absolute_url;
                              action
                                python:
-                                 create and 'cpsmailboxer_create' or 'cpsmailboxer_edit'">
+                                 create and 'cpsmailboxer_create' or 'cpsmailboxer_edit';
+                             errormsg options/error_message|nothing">
       <div class="group">
         <form method="post" enctype="multipart/form-data" action="."
               tal:attributes="action string:${here_url}/${action}">
@@ -31,14 +32,30 @@
             </tr>
             <tr>
               <td><div class="label required" i18n:translate="">nmb_label_mailto</div></td>
-              <td><input type="text" size="25" name="mailto"
+              <td>
+                <div tal:condition="python:errormsg == 'error_mailto'"
+                     class="error">
+                  <input type="text" size="25" name="mailto"
                          tal:attributes="value python: edit and here.mailto or '' " />
+                  <div i18n:translate="cpsmailboxer_required_field"></div>
+                </div>
+                <input tal:condition="python:errormsg != 'error_mailto'"
+                       type="text" size="25" name="mailto"
+                       tal:attributes="value python: edit and here.mailto or '' " />
               </td>
             </tr>
             <tr>
               <td><div class="label required" i18n:translate="">nmb_label_moderator</div></td>
-              <td><input type="text" size="25" name="moderator"
+              <td>
+                <div tal:condition="python:errormsg == 'error_moderator'"
+                     class="error">
+                  <input type="text" size="25" name="moderator"
                          tal:attributes="value python:edit and ' '.join(here.moderator) or ''" />
+                  <div i18n:translate="cpsmailboxer_required_field"></div>
+                </div>
+                <input type="text" size="25" name="moderator"
+                       tal:condition="python:errormsg != 'error_moderator'"
+                       tal:attributes="value python:edit and ' '.join(here.moderator) or ''" />
               </td>
             </tr>
             <tr>
