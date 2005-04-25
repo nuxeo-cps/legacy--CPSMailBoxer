@@ -23,7 +23,7 @@
         <tal:block repeat="mid python:['01','02','03','04','05','06','07','08','09','10','11','12']">
           <td tal:define="month python:getattr(year,year.id + '-' + mid,None)" class="mailboxerMonth">
             <tal:block condition="month">
-              <a tal:content="python:len(month.objectIds())" tal:attributes="href string:${month/absolute_url}/view">X</a>
+              <a tal:content="python:len(month.objectIds())-1" tal:attributes="href string:${month/absolute_url}/view">X</a>
             </tal:block>
             <tal:block condition="not:month">
               &nbsp;
