@@ -10,7 +10,7 @@
         <tr>
           <td>
             <form action="cpsmailboxer_search" method="POST"
-                  tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search" />
+                  tal:attributes="action string:${here/absolute_url}/cpsmailboxer_search">
               <input type="text" name="query"
                      tal:attributes="value options/query|nothing" />&nbsp;
               <input type="submit" name="search" value="nmb_label_search"

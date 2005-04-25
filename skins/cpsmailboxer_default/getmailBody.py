@@ -1,15 +1,18 @@
-##parameters=maxchar=80
+##parameters=obj=None,maxchar=80
 #
 
-#return context.mailBody
+if obj is None:
+    obj = context
 
 body = []
 
-for line in context.mailBody.split('\n'):
+mailbody = getattr(obj.getContent(), 'mailBody')
+
+for line in mailbody.split('\n'):
     if len(line) > maxchar:
         body.append(line[:maxchar])
         body.append(line[maxchar:])
     else:
         body.append(line)
-        
+       
 return '\n'.join(body)

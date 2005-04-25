@@ -1,11 +1,10 @@
 ##parameters=
 #
 
-parent = context.this()
+parent = context
 
-while parent.getProperty('portal_type') == 'Folder':
+while getattr(parent, 'portal_type') != 'CPSMailBoxer':
     parent = parent.aq_parent
 
 return parent
-
     
