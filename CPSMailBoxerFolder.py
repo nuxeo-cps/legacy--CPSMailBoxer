@@ -21,7 +21,7 @@ from AccessControl import ClassSecurityInfo
 
 from Products.CMFCore.PortalFolder import PortalFolder
 from Products.CMFCore.utils import _getViewFor
-from Products.CMFCore.permissions import View, ModifyPortalContent
+from Products.CMFCore.CMFCorePermissions import View, ModifyPortalContent
 
 from Products.CPSCore.CPSBase import CPSBaseFolder
 
@@ -42,7 +42,7 @@ factory_type_information = (
      'cps_display_as_document_in_listing' : 1,
      'actions': ({'id': 'view',
 		  'name': 'action_view',
-		  'action': 'string:${object_url}/folder_view',
+		  'action': 'string:${object_url}/cpsmailboxerfolder_view',
 		  'permissions': (View,)
 		 },
 		 {'id': 'contents',
